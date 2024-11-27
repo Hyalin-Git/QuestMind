@@ -1,44 +1,41 @@
 import pool from "@/app/api/config/db";
+import { deleteFile } from "@/libs/handleFiles";
 import { NextResponse } from "next/server";
 
-export async function PATCH(req, { params }) {
+export async function DELETE(req, { params }) {
 	try {
 		const { id } = await params;
-		const { role } = await req.json();
-
-		if (role !== "admin" && role !== "user") {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "Invalid request",
-				},
-				{ status: 400 }
-			);
-		}
 
 		const connection = await pool.getConnection();
 
-		const [updatedUser] = await connection.execute(
-			"UPDATE `users` SET `role` = ?, `updated_at` = NOW() WHERE `users`.`id` = ?",
-			[role, id]
+		const [sponsors] = await connection.execute(
+			"SELECT * FROM `sponsors` WHERE `sponsors`.`id` = ?",
+			[id]
 		);
 
-		if (updatedUser.affectedRows <= 0) {
+		if (sponsors.length <= 0) {
 			return NextResponse.json(
 				{
 					success: false,
-					message: "Impossible to update a non-existant user",
+					message: "Impossible to delete a non-existant sponsor",
 				},
 				{ status: 404 }
 			);
 		}
+
+		if (sponsors[0].picture) await deleteFile(sponsors[0].picture);
+
+		await connection.execute(
+			"DELETE FROM `sponsors` WHERE `sponsors`.`id` = ?",
+			[id]
+		);
 
 		connection.release();
 
 		return NextResponse.json(
 			{
 				success: true,
-				message: "User successfully updated",
+				message: "sponsor successfully deleted",
 			},
 			{ status: 200 }
 		);
