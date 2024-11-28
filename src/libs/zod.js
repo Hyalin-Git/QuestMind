@@ -18,6 +18,14 @@ export const playerSchema = z.object({
 	picture: z.instanceof(File),
 	genre: z.enum(["H", "F"]),
 	audience: z.string(),
+	firstPerformance: z.string().max(255).optional().or(z.literal("")),
+	secondPerformance: z.string().max(255).optional().or(z.literal("")),
+	thirdPerformance: z.string().max(255).optional().or(z.literal("")),
+	xUrl: z.string().max(255).optional().or(z.literal("")),
+	tiktokUrl: z.string().max(255).optional().or(z.literal("")),
+	instagramUrl: z.string().max(255).optional().or(z.literal("")),
+	youtubeUrl: z.string().max(255).optional().or(z.literal("")),
+	twitchUrl: z.string().max(255).optional().or(z.literal("")),
 });
 
 export const nationalitiesSchema = z.object({
@@ -28,6 +36,11 @@ export const nationalitiesSchema = z.object({
 export const gameSchema = z.object({
 	game: z.string().min(1).max(255),
 	isMobile: z.enum(["0", "1"]),
+});
+
+export const teamSchema = z.object({
+	team: z.string().min(1).max(255),
+	picture: z.instanceof(File),
 });
 
 export const sponsorsSchema = z.object({

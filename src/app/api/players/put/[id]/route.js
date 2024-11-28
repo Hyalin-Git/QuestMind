@@ -1,10 +1,11 @@
+import pool from "@/app/api/config/db";
+import { deleteFile, saveFile } from "@/libs/handleFiles";
 import { playerSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
-import pool from "../../config/db";
-import { saveFile } from "@/libs/handleFiles";
 
-export async function POST(req) {
+export async function PUT(req, { params }) {
 	try {
+		const { id } = await params;
 		const formData = await req.formData();
 		const lastname = formData.get("lastname");
 		const firstname = formData.get("firstname");
@@ -53,13 +54,34 @@ export async function POST(req) {
 
 		const connection = await pool.getConnection();
 
-		const [savedPlayer] = await connection.execute(
-			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `genre`, `audience`, `first_performance`, `second_performance`, `third_performance`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		const [result] = await connection.execute(
+			"SELECT * FROM `players` WHERE `players`.`id` = ?",
+			[id]
+		);
+
+		if (result.length <= 0) {
+			return NextResponse.json(
+				{
+					success: false,
+					message: "Impossible to update a non-existant player",
+				},
+				{ status: 404 }
+			);
+		}
+
+		if (result[0].picture) await deleteFile(result[0].picture);
+
+		const savedPicture = picture
+			? await saveFile(picture, username.toLowerCase(), "players")
+			: null;
+
+		await connection.execute(
+			"UPDATE `players` SET `lastname` = ?, `firstname` = ?, `username` = ?, `picture` = ?, `genre` = ?, `audience` = ?, `first_performance` = ?, `second_performance` = ?, `third_performance` = ?, `x_url` = ?, `tiktok_url` = ?, `instagram_url` = ?, `youtube_url` = ?, `twitch_url` = ?, updated_at = NOW() WHERE `players`.`id` = ?",
 			[
 				lastname,
 				firstname,
 				username,
-				null,
+				savedPicture,
 				genre,
 				audience,
 				firstPerformance,
@@ -70,27 +92,8 @@ export async function POST(req) {
 				instagramUrl,
 				youtubeUrl,
 				twitchUrl,
+				id,
 			]
-		);
-
-		if (savedPlayer.affectedRows <= 0) {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "An error occurred while creating the player",
-					playerId: savedPlayer.insertId,
-				},
-				{ status: 500 }
-			);
-		}
-
-		const savedPicture = picture
-			? await saveFile(picture, username.toLowerCase(), "players")
-			: null;
-
-		await connection.execute(
-			"UPDATE `players` SET `picture` = ? WHERE `players`.`id` = ?",
-			[savedPicture, savedPlayer?.insertId]
 		);
 
 		connection.release();
@@ -98,9 +101,9 @@ export async function POST(req) {
 		return NextResponse.json(
 			{
 				success: true,
-				message: "Player successfully created",
+				message: "Player successfully updated",
 			},
-			{ status: 201 }
+			{ status: 200 }
 		);
 	} catch (err) {
 		return NextResponse.json(
