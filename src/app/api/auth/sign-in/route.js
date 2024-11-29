@@ -61,6 +61,32 @@ export async function POST(req) {
 			{ expiresIn: "30m" }
 		);
 
+		const refreshToken = jwt.sign(
+			{
+				userId: user[0].id,
+				role: user[0].role,
+			},
+			process.env.JWT_REFRESH_SECRET,
+			{ expiresIn: "14d" }
+		);
+
+		const [getRefreshToken] = await connection.execute(
+			"SELECT * FROM `refresh_tokens` WHERE `user_id` = ?",
+			[user[0].id]
+		);
+
+		if (getRefreshToken.length <= 0) {
+			await connection.execute(
+				"INSERT INTO `refresh_tokens` (`user_id`, `token`, `expires_at`) VALUES (?, ?, NOW() + INTERVAL 14 DAY)",
+				[user[0].id, refreshToken]
+			);
+		}
+
+		await connection.execute(
+			"UPDATE `refresh_tokens` SET `token` = ?, `updated_at` = NOW(), `expires_at` = NOW() + INTERVAL 14 DAY WHERE `refresh_tokens`.`user_id` = ?",
+			[refreshToken, user[0].id]
+		);
+
 		connection.release();
 
 		return NextResponse.json(
@@ -69,6 +95,7 @@ export async function POST(req) {
 				userId: user[0].id,
 				role: user[0].role,
 				accessToken: accessToken,
+				refreshToken: refreshToken,
 			},
 			{ status: 200 }
 		);
@@ -76,7 +103,7 @@ export async function POST(req) {
 		return NextResponse.json(
 			{
 				success: false,
-				message: err.message || "An unexpected error occurred",
+				message: err || "An unexpected error occurred",
 			},
 			{ status: 500 }
 		);
