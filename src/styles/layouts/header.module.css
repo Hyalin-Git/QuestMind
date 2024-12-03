@@ -1,0 +1,50 @@
+.container {
+	padding: 10px 80px 10px 80px;
+	height: 200px;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.navList {
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+}
+
+.navList li {
+	position: relative;
+	cursor: pointer;
+	transition: 150ms all linear;
+}
+
+.navList li:hover {
+	text-shadow: 0px 0px 2px var(--text-color);
+	transition: 150ms all linear;
+}
+
+.navList li::before {
+	position: absolute;
+	content: "";
+	bottom: -10px;
+	width: 100%;
+	height: 2px;
+	background-color: transparent;
+}
+
+.navList li:hover::before {
+	background-color: var(--green-color);
+	transition: 250ms all linear;
+}

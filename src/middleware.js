@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
 // This function can be marked `async` if using `await` inside
@@ -18,7 +17,7 @@ export async function middleware(req) {
 		const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 		const { payload } = await jwtVerify(token, secret);
 
-		if (payload.isAdmin === 0) {
+		if (payload.role === "user") {
 			return NextResponse.json(
 				{
 					error: true,
@@ -51,5 +50,34 @@ export async function middleware(req) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-	matcher: "/api/auth/sign-up",
+	// Auth routes
+	matcher: [
+		// Auth routes
+		"/api/auth/sign-up",
+		"/api/auth/refresh-token",
+		"/api/auth/update-email",
+		"/api/auth/logout",
+		// Users routes
+		"/api/users/:path*",
+		// Games routes
+		"/api/games/:path*",
+		// Teams routes
+		"/api/teams/:path*",
+		// Nationalities routes
+		"/api/nationalities/:path*",
+		// Sponsors routes
+		"/api/sponsors/post",
+		"/api/sponsors/put",
+		"/api/sponsors/delete",
+		// players routes
+		"/api/players/post",
+		"/api/players/put",
+		"/api/players/delete",
+		"/api/players/games/:path*",
+		"/api/players/nationalities/:path*",
+		"/api/players/teams/:path*",
+		"/api/players/trending/post",
+		"/api/players/trending/put",
+		"/api/players/trending/delete",
+	],
 };
