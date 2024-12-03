@@ -8,6 +8,8 @@ export async function getTrendingPlayers() {
 			}
 		);
 		const data = await res.json();
+
+		return data;
 		console.log(data);
 	} catch (err) {}
 }

@@ -1,13 +1,12 @@
 .container {
 	padding-bottom: 50px;
+	margin-inline: 50px;
 }
 
 .header {
-	display: flex;
-	flex-direction: column;
 	text-align: center;
-	gap: 60px;
 }
+
 .header h1 {
 	margin-bottom: 15px;
 	font-weight: 400;
@@ -24,14 +23,13 @@
 }
 
 .header button {
+	margin-top: 60px;
 	background-color: var(--green-color);
 	padding: 20px 60px 20px 60px;
 	border-radius: 40px;
 	color: rgba(255, 255, 255, 0.95);
 	font-size: 1rem;
-
 	text-transform: uppercase;
-	/* font-weight: bold; */
 	font-weight: 500;
 	box-shadow: 0px 0px 40px var(--green-color);
 	opacity: 0.7;
@@ -42,4 +40,11 @@
 	background-color: #dda448;
 	box-shadow: 0px 0px 40px #dda448;
 	transition: 0.3s all linear;
+}
+
+.trending {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 120px;
 }
