@@ -1,9 +1,6 @@
 .container {
 	padding-bottom: 50px;
-	margin-inline: 50px;
-}
-
-.header {
+	/* margin-inline: 50px; */
 	text-align: center;
 }
 
@@ -43,8 +40,9 @@
 }
 
 .trending {
+	margin-inline: 60px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 120px;
+	margin-top: 50px;
 }

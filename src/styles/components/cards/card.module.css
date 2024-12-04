@@ -30,7 +30,6 @@
 	content: "";
 	top: 0;
 	left: 0;
-
 	background-color: #c5cbd330;
 	filter: blur(7px);
 	width: 100%;
@@ -58,9 +57,21 @@
 }
 
 .name {
+	position: relative;
 	color: var(--green-color);
 	text-transform: uppercase;
 	font-weight: 700;
+}
+
+.name::before {
+	position: absolute;
+	content: "";
+	top: -9px;
+	left: 50%; /* Centre horizontalement */
+	transform: translateX(-50%); /* Ajuste le centre exact */
+	width: 70%;
+	height: 3px;
+	background-color: var(--green-color);
 }
 
 .game {

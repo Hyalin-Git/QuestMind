@@ -61,3 +61,17 @@ button {
     color-scheme: dark;
   }
 } */
+
+.carousel-container {
+	margin-inline: auto;
+	width: 90%;
+	padding-top: 30px;
+	/* background-color: red; */
+	/* background-color: blue; */
+	position: unset !important;
+}
+
+.carousel-item {
+	display: flex;
+	justify-content: center;
+}

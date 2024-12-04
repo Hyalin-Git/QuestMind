@@ -2,6 +2,9 @@ import Header from "@/layouts/Header";
 import "@/styles/globals.css";
 import { montserrat } from "@/libs/font";
 import FakeLoading from "@/components/FakeLoading";
+import Footer from "@/layouts/Footer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata = {
 	title: "QuestMind",
@@ -15,6 +18,7 @@ export default function RootLayout({ children }) {
 				{/* <FakeLoading /> */}
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

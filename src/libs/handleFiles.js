@@ -27,7 +27,7 @@ export async function saveFile(file, fileName, folder) {
 			buffer
 		);
 
-		return `public/images/${folder}/` + filename;
+		return `/images/${folder}/` + filename;
 	}
 }
 

@@ -1,6 +1,8 @@
 "use server";
+import { getSponsors } from "@/api/sponsors";
 import { getTrendingPlayers } from "@/api/trending";
 import Cards from "@/components/cards/Cards";
+import Sponsors from "@/components/sponsors/Sponsors";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/home.module.css";
 import {
@@ -8,9 +10,11 @@ import {
 	faCircleArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 export default async function Home() {
 	const players = await getTrendingPlayers();
+	const sponsors = await getSponsors();
 
 	console.log(players);
 
@@ -26,10 +30,9 @@ export default async function Home() {
 			</div>
 			{/* Trending players */}
 			<div className={styles.trending}>
-				<FontAwesomeIcon icon={faCircleArrowLeft} />
 				<Cards data={players?.data} />
-				<FontAwesomeIcon icon={faCircleArrowRight} />
 			</div>
+			<Sponsors data={sponsors} />
 		</main>
 	);
 }

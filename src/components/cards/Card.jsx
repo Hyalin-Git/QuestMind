@@ -3,14 +3,12 @@ import styles from "@/styles/components/cards/card.module.css";
 import Image from "next/image";
 
 export default function Card({ elt }) {
-	const picture = elt.picture.split("public")[1];
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.imgWrapper}>
 				<Image
 					className={styles.img}
-					src={picture}
+					src={elt.picture}
 					width={500}
 					height={500}
 					quality={100}
