@@ -19,7 +19,7 @@ export default function Card({ elt }) {
 				<span className={`${styles.name} ${outfit.className}`}>
 					{elt.firstname}
 				</span>
-				<span className={styles.game}>Fortnite Player</span>
+				<span className={styles.game}>Joueur Fortnite</span>
 			</div>
 		</div>
 	);

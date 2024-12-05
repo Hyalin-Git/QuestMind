@@ -3,6 +3,7 @@ import styles from "@/styles/components/cards/cards.module.css";
 import Card from "./Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Image from "next/image";
 
 export default function Cards({ data }) {
 	const responsive = {
@@ -24,18 +25,68 @@ export default function Cards({ data }) {
 			items: 1,
 		},
 	};
+	const CustomLeftArrow = ({ onClick, ...rest }) => {
+		const {
+			onMove,
+			carouselState: { currentSlide, deviceType },
+		} = rest;
+		return (
+			<div
+				onClick={() => onClick()}
+				style={{
+					position: "absolute",
+					left: "50px",
+					cursor: "pointer",
+				}}>
+				<Image
+					src={"/left-arrow.svg"}
+					width={40}
+					height={40}
+					alt="Flèche directionnelle"
+				/>
+			</div>
+		);
+	};
 
+	const CustomRightArrow = ({ onClick, ...rest }) => {
+		const {
+			onMove,
+			carouselState: { currentSlide, deviceType },
+		} = rest;
+		return (
+			<div
+				onClick={() => onClick()}
+				style={{
+					position: "absolute",
+					right: "50px",
+					cursor: "pointer",
+				}}>
+				<Image
+					src={"/left-arrow.svg"}
+					width={40}
+					height={40}
+					alt="Flèche directionnelle"
+					style={{ rotate: "-180deg" }}
+				/>
+			</div>
+		);
+	};
 	return (
 		<div className={styles.container}>
 			<Carousel
 				responsive={responsive}
 				containerClass="carousel-container"
-				autoPlay={true} // Active l'autoplay
-				autoPlaySpeed={3000} // Défile toutes les 3 secondes
-				infinite={true} // Boucle infinie
+				additionalTransfrom={0}
+				autoPlay
+				autoPlaySpeed={3000}
+				infinite // Boucle infinie
 				slidesToSlide={3}
 				itemClass="carousel-item"
-				partialVisible={false}>
+				customLeftArrow={<CustomLeftArrow />}
+				customRightArrow={<CustomRightArrow />}
+				customTransition="all 1s"
+				transitionDuration={1000}
+				removeArrowOnDeviceType={["tablet", "mobile"]}>
 				{data?.map((elt) => {
 					return <Card elt={elt} key={elt.id} />;
 				})}
@@ -43,3 +94,13 @@ export default function Cards({ data }) {
 		</div>
 	);
 }
+
+// export const CustomLeftArrow = ({ onClick, ...rest }) => {
+// 	const {
+// 		onMove,
+// 		carouselState: { currentSlide, deviceType },
+// 	} = rest;
+// 	// onMove means if dragging or swiping in progress.
+
+// 	return <button onClick={() => onClick()}>yeah</button>;
+// };
