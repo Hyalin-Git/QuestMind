@@ -4,6 +4,19 @@
 	text-align: center;
 }
 
+.background {
+	background-image: url("/home-bg.svg");
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+
 .header h1 {
 	margin-bottom: 15px;
 	font-weight: 400;
@@ -17,27 +30,6 @@
 
 .header p {
 	font-size: 19px;
-}
-
-.header button {
-	position: relative;
-	margin-top: 60px;
-	background-color: var(--green-color);
-	padding: 20px 60px 20px 60px;
-	border-radius: 40px;
-	color: rgba(255, 255, 255, 0.95);
-	font-size: 1rem;
-	text-transform: uppercase;
-	font-weight: 500;
-	box-shadow: 0px 0px 40px var(--green-color);
-	opacity: 0.7;
-	transition: 0.3s all linear;
-}
-
-.header button:hover {
-	background-color: #dda448;
-	box-shadow: 0px 0px 40px #dda448;
-	transition: 0.3s all linear;
 }
 
 .trending {

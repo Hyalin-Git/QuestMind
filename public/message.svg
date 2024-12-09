@@ -1,0 +1,26 @@
+<svg width="305" height="305" viewBox="0 0 305 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M273.384 102.222L273.384 139.77C273.384 146.8 267.685 152.5 260.654 152.5H180.332H101.775C94.7445 152.5 89.0451 146.8 89.0451 139.77V99.0049V52.6411C89.0451 45.6105 94.7445 39.9111 101.775 39.9111H260.654C267.685 39.9111 273.384 45.6105 273.384 52.6411V102.222Z" fill="#0EAD69"/>
+<g filter="url(#filter0_b_259_274)">
+<path d="M10.1641 257.082V80.0986C10.1641 73.0681 15.8635 67.3687 22.894 67.3687H240.824C247.855 67.3687 253.554 73.0681 253.554 80.0986V154.604V257.082C253.554 264.113 247.855 269.812 240.824 269.812H22.894C15.8635 269.812 10.1641 264.113 10.1641 257.082Z" fill="url(#paint0_radial_259_274)" fill-opacity="0.4"/>
+<path d="M13.3466 257.082V80.0986C13.3466 74.8257 17.6211 70.5511 22.894 70.5511H240.824C246.097 70.5511 250.372 74.8257 250.372 80.0986V154.604V257.082C250.372 262.355 246.097 266.63 240.824 266.63H22.894C17.6211 266.63 13.3466 262.355 13.3466 257.082Z" stroke="url(#paint1_linear_259_274)" stroke-width="6.36498" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M62.1924 142.725H162.004" stroke="white" stroke-width="19.0949" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M62.1924 194.457H201.527" stroke="white" stroke-width="19.0949" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<filter id="filter0_b_259_274" x="-66.2157" y="-9.01112" width="396.149" height="355.203" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="38.1899"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_259_274"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_259_274" result="shape"/>
+</filter>
+<radialGradient id="paint0_radial_259_274" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(70.9816 155.142) rotate(-15.0345) scale(281.991 467.971)">
+<stop stop-color="#161819"/>
+<stop offset="0.749777" stop-color="#C5CBD3" stop-opacity="0.41"/>
+<stop offset="1" stop-color="#161819"/>
+</radialGradient>
+<linearGradient id="paint1_linear_259_274" x1="30.0621" y1="141.024" x2="98.45" y2="285.614" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.64"/>
+<stop offset="1" stop-color="white" stop-opacity="0.24"/>
+</linearGradient>
+</defs>
+</svg>

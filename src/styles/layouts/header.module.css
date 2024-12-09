@@ -30,7 +30,8 @@
 	transition: 150ms all linear;
 }
 
-.navList li:hover {
+.navList li:hover,
+.navList li[data-active="true"] {
 	text-shadow: 0px 0px 2px var(--text-color);
 	transition: 150ms all linear;
 }
@@ -44,7 +45,8 @@
 	background-color: transparent;
 }
 
-.navList li:hover::before {
+.navList li:hover::before,
+.navList li[data-active="true"]::before {
 	background-color: var(--green-color);
 	transition: 250ms all linear;
 }
