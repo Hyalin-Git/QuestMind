@@ -1,0 +1,23 @@
+.container {
+	width: 100%;
+	user-select: none;
+
+	overflow: visible;
+}
+
+/* .players {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+} */
+
+/* .leftArrow img {
+	position: absolute;
+	left: 0;
+}
+
+.rightArrow img {
+	position: absolute;
+	right: 0;
+	rotate: -180deg;
+} */

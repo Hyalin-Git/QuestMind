@@ -14,7 +14,7 @@ export default async function Footer() {
 				/>
 			</div>
 			{/* nav links */}
-			<div>
+			<div className={styles.links}>
 				<ul>
 					<li>Nos services</li>
 					<li>Nos athlètes</li>
@@ -22,14 +22,30 @@ export default async function Footer() {
 				</ul>
 			</div>
 			{/* nav links */}
-			<div>
+			<div className={styles.links}>
 				<ul>
 					<li>&Agrave; propos de nous</li>
 					<li>Contact</li>
 				</ul>
 			</div>
 			{/* social links */}
-			<div></div>
+			<div className={styles.socials}>
+				<span>Follow us</span>
+				<div>
+					<Image
+						src={"/twitter.svg"}
+						width={30}
+						height={30}
+						alt="Logo twitter"
+					/>
+					<Image
+						src={"/linkedin.svg"}
+						width={30}
+						height={30}
+						alt="Logo linkedIn"
+					/>
+				</div>
+			</div>
 		</footer>
 	);
 }

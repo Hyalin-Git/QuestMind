@@ -1,106 +1,25 @@
-"use client";
 import styles from "@/styles/components/cards/cards.module.css";
 import Card from "./Card";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Image from "next/image";
 
 export default function Cards({ data }) {
-	const responsive = {
-		superLargeDesktop: {
-			// the naming can be any, depends on you.
-			breakpoint: { max: 4000, min: 3000 },
-			items: 5,
-		},
-		desktop: {
-			breakpoint: { max: 3000, min: 1024 },
-			items: 3,
-		},
-		tablet: {
-			breakpoint: { max: 1024, min: 464 },
-			items: 2,
-		},
-		mobile: {
-			breakpoint: { max: 464, min: 0 },
-			items: 1,
-		},
-	};
-	const CustomLeftArrow = ({ onClick, ...rest }) => {
-		const {
-			onMove,
-			carouselState: { currentSlide, deviceType },
-		} = rest;
-		return (
-			<div
-				onClick={() => onClick()}
-				style={{
-					position: "absolute",
-					left: "50px",
-					cursor: "pointer",
-				}}>
-				<Image
-					src={"/left-arrow.svg"}
-					width={40}
-					height={40}
-					alt="Flèche directionnelle"
-				/>
-			</div>
-		);
-	};
+	const leftColumn = data.slice(0, 2);
+	const rightColumn = data.slice(2, 4);
 
-	const CustomRightArrow = ({ onClick, ...rest }) => {
-		const {
-			onMove,
-			carouselState: { currentSlide, deviceType },
-		} = rest;
-		return (
-			<div
-				onClick={() => onClick()}
-				style={{
-					position: "absolute",
-					right: "50px",
-					cursor: "pointer",
-				}}>
-				<Image
-					src={"/left-arrow.svg"}
-					width={40}
-					height={40}
-					alt="Flèche directionnelle"
-					style={{ rotate: "-180deg" }}
-				/>
-			</div>
-		);
-	};
 	return (
 		<div className={styles.container}>
-			<Carousel
-				responsive={responsive}
-				containerClass="carousel-container"
-				additionalTransfrom={0}
-				autoPlay
-				autoPlaySpeed={3000}
-				infinite // Boucle infinie
-				slidesToSlide={3}
-				itemClass="carousel-item"
-				customLeftArrow={<CustomLeftArrow />}
-				customRightArrow={<CustomRightArrow />}
-				customTransition="all 1s"
-				transitionDuration={1000}
-				removeArrowOnDeviceType={["tablet", "mobile"]}>
-				{data?.map((elt) => {
-					return <Card elt={elt} key={elt.id} />;
+			<div className={styles.column}>
+				{leftColumn.map((elt) => {
+					return <Card data={elt} key={elt.id} />;
 				})}
-			</Carousel>
+			</div>
+			<div className={styles.column}>
+				{rightColumn.map((elt) => {
+					return <Card data={elt} key={elt.id} />;
+				})}
+			</div>
+			{/* {data.map((elt) => {
+				return <Card data={elt} key={elt.id} />;
+			})} */}
 		</div>
 	);
 }
-
-// export const CustomLeftArrow = ({ onClick, ...rest }) => {
-// 	const {
-// 		onMove,
-// 		carouselState: { currentSlide, deviceType },
-// 	} = rest;
-// 	// onMove means if dragging or swiping in progress.
-
-// 	return <button onClick={() => onClick()}>yeah</button>;
-// };

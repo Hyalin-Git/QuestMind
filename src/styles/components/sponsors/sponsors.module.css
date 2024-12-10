@@ -22,6 +22,8 @@
 	gap: 100px;
 	width: 100%;
 	height: 125px;
-	background-color: var(--green-color);
 }
 
+.content[data-background="true"] {
+	background-color: var(--green-color);
+}

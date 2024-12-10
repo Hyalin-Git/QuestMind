@@ -8,11 +8,29 @@
 }
 
 .left {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: start;
 	gap: 15px;
 	max-width: 1100px;
+}
+
+.left::before {
+	position: absolute;
+	content: "";
+	top: -2;
+	left: 280;
+	background-color: var(--green-color);
+	height: 4px;
+	width: 80px;
+	box-shadow: 0 2px 4px var(--green-color);
+}
+
+.container:nth-child(2) .left::before,
+.container:nth-child(3) .left::before {
+	left: 175;
+	width: 40px;
 }
 
 .container:nth-child(2) {

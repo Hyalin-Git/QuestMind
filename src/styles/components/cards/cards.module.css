@@ -1,23 +1,23 @@
 .container {
-	width: 100%;
-	user-select: none;
-
-	overflow: visible;
-}
-
-/* .players {
+	margin-inline: auto;
 	display: flex;
-	justify-content: space-evenly;
-	width: 100%;
-} */
-
-/* .leftArrow img {
-	position: absolute;
-	left: 0;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 100px;
 }
 
-.rightArrow img {
-	position: absolute;
-	right: 0;
-	rotate: -180deg;
-} */
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px;
+}
+
+.column:nth-child(1) > div:nth-child(1) {
+	height: 165px;
+}
+
+.column:nth-child(1) > div:nth-child(2) {
+	height: 225px;
+}

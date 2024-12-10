@@ -27,12 +27,15 @@ export default function Header() {
 					<div className={styles.list}>
 						<ul className={styles.navList}>
 							<Link href={"/services"}>
-								<li data-active={pathname === "/services"}>Nos services</li>
+								<li data-active={pathname === "/services"}>Our services</li>
 							</Link>
-							<li>Nos athlètes </li>
-							<li>Pour les marques</li>
-							<li>&Agrave; propos de nous</li>
-							<li>Contact</li>
+							<li>Our athletes</li>
+							<Link href={"/brands"}>
+								<li data-active={pathname === "/brands"}>For Brands</li>
+							</Link>
+							{/* <li>&Agrave; propos de nous</li> */}
+							<li>About Us</li>
+							<li>Contact Us</li>
 						</ul>
 						<HeaderDropdown />
 					</div>

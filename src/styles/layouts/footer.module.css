@@ -6,3 +6,15 @@
 	background-color: black;
 	height: 180px;
 }
+
+.links ul {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.socials span {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}

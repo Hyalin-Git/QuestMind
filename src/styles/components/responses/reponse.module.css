@@ -1,0 +1,20 @@
+.container {
+	position: relative;
+	padding: 28px 34px 28px 34px;
+	border: 2px solid #a2a2a2;
+	border-radius: 8px;
+	width: fit-content;
+	background-color: #1618194f;
+}
+
+.container::before {
+	position: absolute;
+	content: "";
+	top: -3;
+	left: 25%;
+	transform: translateX(-25%);
+	width: 60px;
+	height: 4px;
+	background-color: var(--green-color);
+	box-shadow: 0 4px 8px #0ead6883;
+}
