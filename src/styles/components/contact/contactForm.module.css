@@ -1,0 +1,45 @@
+.container {
+	display: flex;
+	justify-content: center;
+
+	margin-inline: auto;
+	margin-top: -40px;
+	margin-bottom: 80px;
+}
+
+.formWrapper {
+	display: flex;
+	flex-direction: column;
+
+	gap: 24px;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	flex-wrap: wrap;
+	text-align: left;
+}
+
+.button {
+	margin-top: 80px;
+}
+
+.button button {
+	background-color: var(--green-color);
+	color: white;
+	border-radius: 15px;
+	padding: 16px;
+	/* width: 100%; */
+	width: 270px;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	font-weight: 500;
+	transition: 0.3s all linear;
+}
+
+.button button:hover {
+	background-color: #dda448;
+	transition: 0.3s all linear;
+}

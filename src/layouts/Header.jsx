@@ -34,8 +34,12 @@ export default function Header() {
 								<li data-active={pathname === "/brands"}>For Brands</li>
 							</Link>
 							{/* <li>&Agrave; propos de nous</li> */}
-							<li>About Us</li>
-							<li>Contact Us</li>
+							<Link href={"/about"}>
+								<li data-active={pathname === "/about"}>About Us</li>
+							</Link>
+							<Link href={"/contact"}>
+								<li data-active={pathname === "/contact"}>Contact Us</li>
+							</Link>
 						</ul>
 						<HeaderDropdown />
 					</div>

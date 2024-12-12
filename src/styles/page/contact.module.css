@@ -1,0 +1,68 @@
+.main {
+	margin-top: 40px;
+	margin-inline: 20px;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-image: url("/backgrounds/contact-bg.webp");
+	background-repeat: no-repeat;
+	background-position: 50% 70%;
+	background-size: cover;
+}
+
+.container {
+	text-align: center;
+}
+
+.heading {
+	margin-bottom: 50px;
+}
+
+.heading h1 {
+	color: var(--green-color);
+	font-size: 6rem;
+}
+
+.heading p {
+	max-width: 480px;
+	margin-inline: auto;
+}
+
+.heading p,
+.mail span {
+	font-size: 15px;
+}
+
+.mail {
+	margin-bottom: 114px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+}
+
+.buttons button {
+	background-color: var(--green-color);
+	color: white;
+	border-radius: 15px;
+	padding: 16px;
+	/* width: 100%; */
+	width: 270px;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	font-weight: 500;
+	transition: 0.3s all linear;
+}
+
+.buttons button:hover {
+	background-color: #dda448;
+	transition: 0.3s all linear;
+}
