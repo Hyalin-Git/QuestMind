@@ -1,7 +1,7 @@
 import { roboto } from "@/libs/font";
 import styles from "@/styles/components/contact/contactForm.module.css";
 
-export default function ContactForm() {
+export default function PlayerForm() {
 	return (
 		<div className={styles.container}>
 			<form action="" className={styles.form}>
@@ -52,11 +52,11 @@ export default function ContactForm() {
 							<input type="text" name="game" id="game" required />
 						</div>
 					</div>
-					<div className={styles.row}>
+					<div className={styles.message}>
 						<label htmlFor="message" className={roboto.className}>
 							Message
 						</label>
-						<br />
+
 						<textarea name="message" id="message" required></textarea>
 					</div>
 				</div>

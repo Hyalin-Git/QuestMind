@@ -22,6 +22,12 @@
 	text-align: left;
 }
 
+.message {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
 .button {
 	margin-top: 80px;
 }

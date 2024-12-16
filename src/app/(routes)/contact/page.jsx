@@ -1,12 +1,13 @@
 "use client";
-import ContactForm from "@/components/contact/ContactForm";
+import CompanyForm from "@/components/contact/CompanyForm";
+import PlayerForm from "@/components/contact/PlayerForm";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/contact.module.css";
-import Link from "next/link";
 import { useState } from "react";
 
-export default function Contact({ params }) {
+export default function Contact() {
 	const [route, setRoute] = useState("");
+
 	return (
 		<main className={styles.main}>
 			<div className={styles.background}></div>
@@ -19,7 +20,7 @@ export default function Contact({ params }) {
 					</p>
 				</div>
 				<address className={styles.mail}>
-					<span>Contact@QuestMind.gg</span>
+					<span>contact@questmind.gg</span>
 				</address>
 				{!route && (
 					<div className={styles.buttons}>
@@ -35,8 +36,8 @@ export default function Contact({ params }) {
 						</button>
 					</div>
 				)}
-				{route === "player" && <ContactForm />}
-				{route === "company" && <ContactForm />}
+				{route === "player" && <PlayerForm />}
+				{route === "company" && <CompanyForm />}
 			</section>
 		</main>
 	);
