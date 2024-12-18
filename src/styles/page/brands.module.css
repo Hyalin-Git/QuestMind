@@ -10,7 +10,7 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background-image: url("/brands-bg.svg");
+	background-image: url("/backgrounds/brands-bg.webp");
 	background-repeat: no-repeat;
 	background-position: 50% 45%;
 	background-size: cover;

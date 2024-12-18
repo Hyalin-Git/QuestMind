@@ -98,7 +98,7 @@ textarea {
 	outline: none;
 	caret-color: var(--text-color);
 	border: 2px solid transparent;
-	color: white;
+	color: var(--text-color);
 }
 input {
 	width: 300px;
@@ -109,7 +109,8 @@ textarea {
 	resize: none;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
 	border: 2px solid var(--green-color);
 	transition: 150ms all linear;
 }

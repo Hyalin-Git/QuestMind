@@ -5,11 +5,19 @@ export async function getTrendingPlayers() {
 			`${process.env.CLIENT_URL}/api/players/trending/get`,
 			{
 				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
 			}
 		);
-		const data = await res.json();
 
+		// if (!res.ok) {
+		// 	throw new Error(`HTTP error! status: ${res.status}`);
+		// }
+
+		const data = await res.json();
 		return data;
-		console.log(data);
-	} catch (err) {}
+	} catch (err) {
+		console.error("Failed to fetch trending players:", err);
+	}
 }

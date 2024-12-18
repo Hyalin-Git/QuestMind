@@ -6,7 +6,15 @@ export async function GET() {
 		const connection = await pool.getConnection();
 
 		const [results] = await connection.execute(
-			"SELECT * FROM `players` INNER JOIN `players_trending` ON `players`.`id` = `players_trending`.`player_id` ORDER BY `players_trending`.`position` ASC"
+			`
+				SELECT players.id, players.firstName, players.picture, players_trending.position, games.game 
+				FROM players
+				INNER JOIN players_trending ON players.id = players_trending.player_id
+				INNER JOIN players_games ON players.id = players_games.player_id
+				INNER JOIN games ON games.id = players_games.game_id 
+				ORDER BY players_trending.position ASC
+				;
+			`
 		);
 
 		connection.release();

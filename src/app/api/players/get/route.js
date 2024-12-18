@@ -5,7 +5,13 @@ export async function GET() {
 	try {
 		const connection = await pool.getConnection();
 
-		const [players] = await connection.query("SELECT * FROM `players`");
+		const [players] = await connection.query(`
+				SELECT players.id, players.firstName, players.picture, games.game 
+				FROM players
+				INNER JOIN players_games ON players.id = players_games.player_id
+				INNER JOIN games ON games.id = players_games.game_id 
+				;
+			`);
 
 		if (players.length <= 0) {
 			return NextResponse.json(

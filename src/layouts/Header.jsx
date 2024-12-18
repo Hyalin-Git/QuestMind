@@ -29,7 +29,9 @@ export default function Header() {
 							<Link href={"/services"}>
 								<li data-active={pathname === "/services"}>Our services</li>
 							</Link>
-							<li>Our athletes</li>
+							<Link href={"/athletes"}>
+								<li data-active={pathname === "/athletes"}>Our athletes</li>
+							</Link>
 							<Link href={"/brands"}>
 								<li data-active={pathname === "/brands"}>For Brands</li>
 							</Link>

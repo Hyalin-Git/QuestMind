@@ -47,3 +47,15 @@ export const sponsorsSchema = z.object({
 	sponsor: z.string().min(1).max(255),
 	picture: z.instanceof(File),
 });
+
+export const playerContactSchema = z.object({
+	sender: z.string().min(4).regex(userRegex.email, {
+		message: "Invalid email address",
+	}),
+	firstName: z.string().min(1).max(255),
+	lastName: z.string().min(1).max(255),
+	nationality: z.string().min(1).max(255),
+	country: z.string().min(1).max(255),
+	game: z.string().min(1).max(255),
+	message: z.string().min(1).max(1500),
+});

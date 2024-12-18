@@ -37,6 +37,7 @@ export async function POST(req) {
 		const code = crypto.randomBytes(3).toString("hex");
 
 		await sendMail(
+			"QuestMind <questmind@gmail.com>",
 			email,
 			"Rénitialisation du mot de passe",
 			`<div>

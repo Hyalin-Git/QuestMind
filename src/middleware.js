@@ -60,7 +60,9 @@ export const config = {
 		// Users routes
 		"/api/users/:path*",
 		// Games routes
-		"/api/games/:path*",
+		"/api/games/post",
+		"/api/games/put",
+		"/api/games/delete",
 		// Teams routes
 		"/api/teams/:path*",
 		// Nationalities routes

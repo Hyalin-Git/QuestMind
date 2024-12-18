@@ -59,6 +59,7 @@ export async function POST(req) {
 
 		// Send token to the new e-mail adress
 		await sendMail(
+			"QuestMind <questmind@gmail.com>",
 			newEmail,
 			"Changement d'adresse mail",
 			`<div>
@@ -75,6 +76,7 @@ export async function POST(req) {
 
 		// Send an email to the current email adress of the user
 		await sendMail(
+			"QuestMind <questmind@gmail.com>",
 			user[0].email,
 			"Changement d'adresse mail",
 			`<h1>Changement d'adresse mail</h1><br /><p>Vous venez de faire une demande pour changer d'adresse mail est-ce bien vous ? Si oui ignorer ce message, si non contactez le support</p>`

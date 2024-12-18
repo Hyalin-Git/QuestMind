@@ -1,10 +1,22 @@
+import { sendContactForm } from "@/actions/contact";
 import { roboto } from "@/libs/font";
 import styles from "@/styles/components/contact/contactForm.module.css";
+import { useActionState } from "react";
+
+const initialState = {
+	message: "",
+};
 
 export default function PlayerForm() {
+	const sendContactFormWithState = sendContactForm.bind(null, "player");
+	const [state, formAction, pending] = useActionState(
+		sendContactFormWithState,
+		initialState
+	);
+
 	return (
 		<div className={styles.container}>
-			<form action="" className={styles.form}>
+			<form action={formAction} className={styles.form}>
 				<div className={styles.formWrapper}>
 					<div className={styles.row}>
 						<div>
@@ -12,7 +24,7 @@ export default function PlayerForm() {
 								First Name
 							</label>
 							<br />
-							<input type="text" name="first-name" id="first-name" required />
+							<input type="text" name="first-name" id="first-name" />
 						</div>
 						<div>
 							<label htmlFor="last-name" className={roboto.className}>
@@ -61,7 +73,9 @@ export default function PlayerForm() {
 					</div>
 				</div>
 				<div className={styles.button}>
-					<button className={roboto.className}>Submit</button>
+					<button className={roboto.className} disabled={pending}>
+						Submit
+					</button>
 				</div>
 			</form>
 		</div>
