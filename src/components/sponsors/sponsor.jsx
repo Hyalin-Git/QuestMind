@@ -1,7 +1,7 @@
 import styles from "@/styles/components/sponsors/sponsor.module.css";
 import Image from "next/image";
 
-export default async function Sponsor({ sponsor }) {
+export default function Sponsor({ sponsor }) {
 	return (
 		<div className={styles.container}>
 			<Image

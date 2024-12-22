@@ -5,9 +5,10 @@
 	cursor: pointer;
 }
 .wrapper {
+	margin-top: 35px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	column-gap: 35px;
+	gap: 35px;
 }

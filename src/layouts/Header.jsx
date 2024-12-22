@@ -4,9 +4,11 @@ import styles from "@/styles/layouts/header.module.css";
 import HeaderDropdown from "@/components/header/HeaderDropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
 	const pathname = usePathname();
+	const { t } = useTranslation();
 	return (
 		<div>
 			<header className={styles.container}>
@@ -27,20 +29,30 @@ export default function Header() {
 					<div className={styles.list}>
 						<ul className={styles.navList}>
 							<Link href={"/services"}>
-								<li data-active={pathname === "/services"}>Our services</li>
+								<li data-active={pathname === "/services"}>
+									{t("headerServices")}
+								</li>
 							</Link>
 							<Link href={"/athletes"}>
-								<li data-active={pathname === "/athletes"}>Our athletes</li>
+								<li data-active={pathname === "/athletes"}>
+									{t("headerAthletes")}
+								</li>
 							</Link>
 							<Link href={"/brands"}>
-								<li data-active={pathname === "/brands"}>For Brands</li>
+								<li data-active={pathname === "/brands"}>
+									{t("headerBrands")}
+								</li>
 							</Link>
 							{/* <li>&Agrave; propos de nous</li> */}
 							<Link href={"/about"}>
-								<li data-active={pathname === "/about"}>About Us</li>
+								<li data-active={pathname === "/about"}>
+									{t("headerAbousUs")}
+								</li>
 							</Link>
 							<Link href={"/contact"}>
-								<li data-active={pathname === "/contact"}>Contact Us</li>
+								<li data-active={pathname === "/contact"}>
+									{t("headerContact")}
+								</li>
 							</Link>
 						</ul>
 						<HeaderDropdown />

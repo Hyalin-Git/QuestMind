@@ -1,16 +1,18 @@
 "use server";
 import { getSponsors } from "@/api/sponsors";
 import { getTrendingPlayers } from "@/api/trending";
+import initTranslations from "@/app/i18n";
+// import initTranslations from "@/app/i18n";
 import Players from "@/components/players/Players";
 import Sponsors from "@/components/sponsors/Sponsors";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/home.module.css";
 
-export default async function Home() {
+export default async function Home({ params }) {
+	const { locales } = await params;
 	const players = await getTrendingPlayers();
 	const sponsors = await getSponsors();
-
-	console.log(players);
+	const { t } = await initTranslations(locales, ["common"]);
 
 	return (
 		<main className={styles.container}>
@@ -22,7 +24,7 @@ export default async function Home() {
 				</h1>
 				<p>Turning Gamers into Icons and Passion into Opportunity.</p>
 				<button id="contact" className={roboto.className}>
-					contact
+					{t("btnContact")}
 				</button>
 			</div>
 			{/* Trending players */}

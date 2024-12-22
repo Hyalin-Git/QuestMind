@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import pool from "../../config/db";
 
-export async function GET() {
+export async function GET(req) {
 	try {
 		const connection = await pool.getConnection();
 
-		const [games] = await connection.query("SELECT * FROM `games`");
+		const [games] = await connection.query(
+			`SELECT * FROM games ORDER BY created_at ASC`
+		);
 
 		if (games.length <= 0) {
 			return NextResponse.json(

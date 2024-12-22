@@ -1,15 +1,14 @@
 "use client";
-import Image from "next/image";
-import styles from "@/styles/components/games/game.module.css";
+import { outfit } from "@/libs/font";
+import styles from "@/styles/components/regions/region.module.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
-export default function Game({ elt }) {
+export default function Region({ elt }) {
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
 	function setQuery(elt) {
 		const params = new URLSearchParams(searchParams.toString());
-		params.set("game", elt);
+		params.set("region", elt);
 
 		return params.toString().toLowerCase();
 	}
@@ -18,15 +17,9 @@ export default function Game({ elt }) {
 			className={styles.container}
 			onClick={(e) => {
 				e.preventDefault();
-				router.push(pathname + "?" + setQuery(elt.game));
+				router.push(pathname + "?" + setQuery(elt.region));
 			}}>
-			<Image
-				src={elt.picture}
-				alt={elt.game}
-				width={220}
-				height={220}
-				quality={100}
-			/>
+			<span className={outfit.className}>{elt.region}</span>
 		</div>
 	);
 }

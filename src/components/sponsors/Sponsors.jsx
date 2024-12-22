@@ -1,15 +1,19 @@
+"use client";
 import styles from "@/styles/components/sponsors/sponsors.module.css";
 import Image from "next/image";
 import Sponsor from "./sponsor";
 
-export default async function Sponsors({ data, background }) {
+import { useTranslation } from "react-i18next";
+
+export default function Sponsors({ data, background }) {
 	const sponsors = data?.data;
+	const { t } = useTranslation();
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.heading}>
 				<p>
-					They <span>trust</span> us:
+					{t("trustStart")} <span>{t("trustSpan")}</span> {t("trustEnd")}:
 				</p>
 			</div>
 			<div className={styles.content} data-background={background}>

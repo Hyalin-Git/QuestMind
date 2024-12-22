@@ -1,13 +1,12 @@
 "use client";
+import styles from "@/styles/components/regions/regions.module.css";
 import { outfit } from "@/libs/font";
-import Game from "./Game";
-import styles from "@/styles/components/games/games.module.css";
+import Region from "./Region";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function Games({ data }) {
+export default function Regions({ data }) {
 	const router = useRouter();
 	const pathname = usePathname();
-
 	return (
 		<div className={styles.container}>
 			<strong
@@ -16,11 +15,11 @@ export default function Games({ data }) {
 					e.preventDefault();
 					router.push(pathname);
 				}}>
-				Game
+				Region
 			</strong>
 			<div className={styles.wrapper}>
 				{data.map((elt) => {
-					return <Game elt={elt} key={elt.id} />;
+					return <Region elt={elt} key={elt.id} />;
 				})}
 			</div>
 		</div>
