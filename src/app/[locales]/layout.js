@@ -24,7 +24,7 @@ export default async function RootLayout({ children, params }) {
 			resources={resources}
 			locale={locales}
 			namespaces={i18nNamespaces}>
-			<html lang="fr">
+			<html lang={locales}>
 				<body className={montserrat.className} id="services">
 					<FakeLoading />
 					<Header />

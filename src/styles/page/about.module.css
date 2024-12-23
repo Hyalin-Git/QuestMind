@@ -21,7 +21,7 @@
 }
 
 .container p {
-	font-size: 1.2rem;
+	font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .slogan {
@@ -63,7 +63,7 @@
 }
 
 .title h1 {
-	font-size: 3rem;
+	font-size: clamp(2.5rem, 4.5vw, 3rem);
 	text-transform: uppercase;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .content h2 {
-	font-size: 2rem;
+	font-size: clamp(1.8rem, 3.5vw, 2rem);
 	color: var(--green-color);
 }
 
@@ -114,7 +114,7 @@
 }
 
 .question h3 {
-	font-size: 2.5rem;
+	font-size: clamp(2rem, 2.5vw, 2.5rem);
 	margin-bottom: 30px;
 }
 
@@ -122,4 +122,25 @@
 	text-align: center;
 	margin-top: 50px;
 	margin-bottom: 120px;
+}
+
+@media screen and (max-width: 950px) {
+	.background {
+		background-position: 80% 50%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.slogan {
+		margin-inline: auto;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.card img {
+		width: 50px;
+	}
+	.content h2 {
+		font-size: 1.5rem;
+	}
 }

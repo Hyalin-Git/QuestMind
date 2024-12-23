@@ -1,7 +1,6 @@
 .container {
 	display: flex;
 	justify-content: center;
-
 	margin-inline: auto;
 	margin-top: -40px;
 	margin-bottom: 80px;
@@ -18,7 +17,7 @@
 	display: flex;
 	justify-content: center;
 	gap: 30px;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	text-align: left;
 }
 
@@ -48,4 +47,10 @@
 .button button:hover {
 	background-color: #dda448;
 	transition: 0.3s all linear;
+}
+
+@media screen and (max-width: 700px) {
+	.row {
+		flex-direction: column;
+	}
 }

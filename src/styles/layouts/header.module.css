@@ -26,6 +26,7 @@
 
 .navList li {
 	position: relative;
+	font-size: clamp(14px, 1vw, 16px);
 	cursor: pointer;
 	transition: 150ms all linear;
 }
@@ -49,4 +50,63 @@
 .navList li[data-active="true"]::before {
 	background-color: var(--green-color);
 	transition: 250ms all linear;
+}
+.burger {
+	display: none;
+	cursor: pointer;
+}
+
+.burger svg {
+	position: relative;
+	z-index: 2001;
+	width: 25px;
+	height: 25px;
+}
+
+.burgerList {
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100svh;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.burgerList ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	gap: 40px;
+}
+
+.burgerList li {
+	font-size: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		padding: 10px 40px 10px 40px;
+	}
+	.list,
+	.navList {
+		gap: 20px;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.list {
+		display: none;
+	}
+	.burger {
+		display: block;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		height: 160px;
+	}
 }

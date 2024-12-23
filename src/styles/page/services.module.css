@@ -20,7 +20,7 @@
 	max-width: 1100px;
 	margin-inline: auto;
 	margin-bottom: 100px;
-	font-size: 1.2rem;
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
 .content {
@@ -40,14 +40,26 @@
 	margin-bottom: 100px;
 }
 .slogan > p:nth-child(1) {
-	font-size: 36px;
+	font-size: clamp(26px, 2.5vw, 36px);
 	margin-bottom: 20px;
 }
 
 .slogan > p:nth-child(2) {
-	font-size: 19px;
+	font-size: clamp(14px, 1.4vw, 19px);
 }
 .slogan span {
 	color: var(--heading-color);
 	font-weight: bold;
+}
+
+@media screen and (max-width: 950px) {
+	.background {
+		background-position: 80% 50%;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.heading {
+		margin-bottom: 200px;
+	}
 }

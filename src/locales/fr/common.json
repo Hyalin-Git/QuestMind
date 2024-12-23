@@ -12,5 +12,25 @@
 	"trustSpan": "confiance",
 	"trustEnd": "en nous",
 
-	"serviceTitle": "Chez Questmind, nous mettons notre expertise au service de nos athlètes en les aidant à construire une carrière solide, à développer une image de marque authentique et à créer des collaborations d’exceptions. Avec plus de six ans d'expérience, nous avons élaboré une approche personnalisée et globale pour guider chaque joueur vers l’excellence."
+	"serviceTitle": "Chez Questmind, nous mettons notre expertise au service de nos athlètes en les aidant à construire une carrière solide, à développer une image de marque authentique et à créer des collaborations d’exceptions. Avec plus de six ans d'expérience, nous avons élaboré une approche personnalisée et globale pour guider chaque joueur vers l’excellence.",
+
+	"cards": [
+		{
+			"title": "Gestion de carrière",
+			"content": "Nous sommes convaincu que chaque athlète mérite un soutien personnalisé, une gestion de carrière complète et une vision stratégique pour l'avenir. Notre mission est de leur offrir les meilleures opportunités pour assurer leur succès à long terme. Chez Questmind, nous offrons un service personnalisé visant à définir un plan de carrière qui incarne les ambitions et le potentiel uniques de chaque individu.",
+			"subContent": "Nous nous chargeons également de trouver l'équipe idéale pour nos joueurs, en tenant compte de leurs objectifs, de leur volonté et de leur compatibilité. Nous négocions avec les équipes pour garantir des accords avantageux adaptés aux aspirations de chaque athlète."
+		},
+		{
+			"title": "Sponsoring",
+			"content": "Le sponsoring représente une opportunité clé pour les athlètes, leur permettant d’élargir leur réseau, d’accroître leur visibilité et de générer des revenus supplémentaires. En collaborant avec des marques et des entreprises, ils bénéficient non seulement d’un soutien financier, mais également d’un renforcement de leur image en tant qu’influenceurs dans leur domaine. Ces partenariats offrent un accès à des ressources exclusives, des événements prestigieux et une diversification des revenus, tout en leur permettant de se concentrer sur leurs performances. Lorsqu’il est bien choisi, un partenariat peut devenir un véritable levier de succès et jouer un rôle déterminant dans la construction d’une carrière durable et impactante."
+		},
+		{
+			"title": "Marketing",
+			"content": "Dans l’esport, la visibilité est un facteur clé de succès. Chez Questmind, nous collaborons étroitement avec chaque joueur pour développer une image de marque forte, authentique et fidèle à sa personnalité. Notre mission est de créer une identité qui capte l’attention, inspire la confiance des partenaires et renforce l’engagement des fans. Grâce à des stratégies de communication ciblées et sur mesure, nous aidons les athlètes à se démarquer dans un secteur en pleine croissance, tout en maximisant leur impact sur la scène nationale et internationale."
+		},
+		{
+			"title": "Soutien administratif et juridique",
+			"content": "L’esport exige une gestion experte des aspects administratifs et juridiques, souvent complexes et en constante évolution. Chez Questmind, nous offrons un accompagnement rigoureux à chaque joueur, en assurant l’examen minutieux, la validation et l’authenticité de tous les contrats pour garantir des accords solides et transparents. Nous fournissons également des conseils financiers stratégiques et prenons en charge la gestion des litiges et des négociations, protégeant ainsi au mieux les intérêts de nos athlètes. Grâce à cette approche complète, chaque joueur peut se concentrer pleinement sur ses performances, en toute sérénité, tandis que nous veillons à la solidité et à la stabilité de sa carrière."
+		}
+	]
 }

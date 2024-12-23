@@ -13,3 +13,20 @@
 	height: 100%;
 	object-fit: scale-down;
 }
+
+@media screen and (max-width: 669px) {
+	.container {
+		width: 100px;
+		height: 100px;
+	}
+	.container:nth-child(n + 4) {
+		margin-top: 0px;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.container {
+		width: 80px;
+		height: 80px;
+	}
+}

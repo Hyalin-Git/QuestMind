@@ -26,7 +26,7 @@
 
 .heading h1 {
 	color: var(--green-color);
-	font-size: 6rem;
+	font-size: clamp(3rem, 10vw, 6rem);
 }
 
 .heading p {
@@ -36,7 +36,7 @@
 
 .heading p,
 .mail span {
-	font-size: 15px;
+	font-size: clamp(14px, 1.5vw, 15px);
 }
 
 .mail {
@@ -65,4 +65,19 @@
 .buttons button:hover {
 	background-color: #dda448;
 	transition: 0.3s all linear;
+}
+
+@media screen and (max-width: 950px) {
+	.background {
+		background-position: 80% 50%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.buttons {
+		margin-bottom: 80px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

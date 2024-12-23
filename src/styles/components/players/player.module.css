@@ -2,6 +2,8 @@
 	/* background-color: blue; */
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	gap: 30px;
 }
 
@@ -61,6 +63,7 @@
 	color: var(--green-color);
 	text-transform: uppercase;
 	font-weight: 700;
+	font-size: clamp(14px, 1.4vw, 19px);
 }
 
 .name::before {
@@ -77,4 +80,32 @@
 .game {
 	font-size: 0.7rem;
 	color: #a2a2a2;
+}
+
+@media screen and (max-width: 1490px) {
+	.imgWrapper {
+		width: 280px;
+		height: 300px;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.imgWrapper {
+		width: 220px;
+		height: 260px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.imgWrapper {
+		width: 200px;
+		height: 220px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.imgWrapper {
+		width: 180px;
+		height: 200px;
+	}
 }

@@ -3,65 +3,26 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	z-index: 2;
+	z-index: 3000;
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-height: 100svh;
-	background: radial-gradient(circle, #161819db 25%, #0ead68be 100%),
-		radial-gradient(
-			ellipse at 100% 100%,
-			#0ead6877,
-			/* éclairci le vert en bas à droite */ transparent 50%
-		);
-
-	animation: forwards slidesOut 0.5s 1.2s ease-in;
-	overflow: hidden;
+	height: 100svh;
+	animation: forwards slidesOut 0.2s 1.2s ease-in;
 }
 
-.container::before {
-	position: absolute;
-	content: "";
-	left: 0;
-	top: 0;
-	background: radial-gradient(
-		ellipse at 0% 0%,
-		#172937,
-		#16181977,
-		/* éclairci le vert en bas à droite */ transparent 60%
-	);
-	width: 100%;
-	height: 250%;
-}
-
-.container::after {
-	position: absolute;
-	content: "";
-	right: 0;
-	top: 0;
-	background: radial-gradient(
-		ellipse at 100% 0%,
-		#dda44891,
-		/* éclairci le vert en bas à droite */ transparent 50%
-	);
-	width: 40%;
-	height: 50%;
-}
-
-/* 
 .background {
 	position: absolute;
-	z-index: -1;
 	top: 0;
 	left: 0;
-	background: url("/preload.svg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-blend-mode: lighten;
 	width: 100%;
 	height: 100%;
-	top: -200px;
-} */
+	z-index: -1;
+	background-image: url("/backgrounds/preload-bg.webp");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
 
 .loader {
 	position: relative;

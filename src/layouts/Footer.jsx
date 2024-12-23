@@ -5,7 +5,7 @@ export default async function Footer() {
 	return (
 		<footer className={styles.container}>
 			{/* logo */}
-			<div>
+			<div className={styles.logo}>
 				<Image
 					src={"/quest-mind-logo.svg"}
 					width={140}

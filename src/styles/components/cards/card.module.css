@@ -24,10 +24,20 @@
 .container span {
 	font-weight: bold;
 	color: var(--green-color);
-	font-size: 3rem;
+	font-size: clamp(2rem, 2.5vw, 3rem);
 	line-height: 3rem;
 }
 
 .container p {
 	margin-top: 15px;
+}
+
+@media screen and (max-width: 450px) {
+	.container {
+		padding: 16px 24px 16px 24px;
+	}
+	.container span {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }

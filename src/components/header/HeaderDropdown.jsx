@@ -15,6 +15,16 @@ export default function HeaderDropdown({}) {
 	const pathname = usePathname();
 	const router = useRouter();
 
+	// Fonction pour changer la langue tout en préservant l'URL
+	const changeLanguage = (lang) => {
+		// On obtient la partie de l'URL après la langue, en l'enlevant
+		const currentPath = pathname.replace(`/${currLanguage}`, "");
+		// On redirige vers la nouvelle langue avec le même chemin
+		router.push(`/${lang}${currentPath}`);
+
+		window.scrollTo(0, 0);
+	};
+
 	return (
 		<div className={styles.container} onClick={(e) => setIsOpen(!isOpen)}>
 			<span>
@@ -43,10 +53,7 @@ export default function HeaderDropdown({}) {
 			</span>
 			<div data-open={isOpen} className={styles.languages}>
 				<ul>
-					<li
-						onClick={(e) => {
-							router.push("/fr" + pathname);
-						}}>
+					<li onClick={() => changeLanguage("fr")}>
 						<Image
 							src={"/fr-flag.svg"}
 							width={15}
@@ -55,10 +62,7 @@ export default function HeaderDropdown({}) {
 						/>
 						FR
 					</li>
-					<li
-						onClick={(e) => {
-							router.push("/en" + pathname);
-						}}>
+					<li onClick={() => changeLanguage("en")}>
 						<Image
 							src={"/en-flag.svg"}
 							width={15}
@@ -67,7 +71,7 @@ export default function HeaderDropdown({}) {
 						/>
 						EN
 					</li>
-					<li>
+					<li onClick={() => changeLanguage("es")}>
 						<Image
 							src={"/esp-flag.svg"}
 							width={15}

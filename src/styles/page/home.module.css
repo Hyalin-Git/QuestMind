@@ -17,10 +17,14 @@
 	background-position: bottom;
 }
 
+.header {
+	padding-inline: 20px;
+}
+
 .header h1 {
 	margin-bottom: 15px;
 	font-weight: 400;
-	font-size: 36px;
+	font-size: clamp(26px, 2.5vw, 36px);
 }
 
 .header span {
@@ -29,7 +33,7 @@
 }
 
 .header p {
-	font-size: 19px;
+	font-size: clamp(14px, 1.4vw, 19px);
 }
 
 .trending {
@@ -38,4 +42,16 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+	.trending {
+		margin-inline: 40px;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.background {
+		background-position: 80% 50%;
+	}
 }
