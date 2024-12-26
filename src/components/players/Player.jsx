@@ -12,6 +12,7 @@ export default function Player({ elt }) {
 	const pathname = usePathname();
 
 	const isFr = pathname.includes("fr");
+	const isEs = pathname.includes("es");
 	console.log(pathname);
 	const isMobileGame = elt.game;
 
@@ -35,7 +36,7 @@ export default function Player({ elt }) {
 							{elt.firstName}
 						</span>
 						<span className={styles.game}>
-							{isFr ? (
+							{isFr || isEs ? (
 								<>
 									{t("player")} {elt.game}
 								</>

@@ -31,15 +31,9 @@ export default async function Athletes({ searchParams }) {
 				</section>
 				{/* Athletes list */}
 				<div className={styles.players}>
-					{players?.data?.success === false ? (
-						<div>load</div>
-					) : (
-						<>
-							{players?.data?.map((elt) => {
-								return <Player elt={elt} key={elt.id} />;
-							})}
-						</>
-					)}
+					{players?.data?.map((elt) => {
+						return <Player elt={elt} key={elt.id} />;
+					})}
 				</div>
 			</div>
 			{/* Slogan */}

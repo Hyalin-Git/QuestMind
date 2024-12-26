@@ -4,8 +4,10 @@ import PlayerForm from "@/components/contact/PlayerForm";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/contact.module.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+	const { t } = useTranslation();
 	const [route, setRoute] = useState("");
 
 	return (
@@ -13,11 +15,8 @@ export default function Contact() {
 			<div className={styles.background}></div>
 			<section className={styles.container}>
 				<div className={styles.heading}>
-					<h1 className={outfit.className}>Contact Us</h1>
-					<p>
-						Email us or complete the form to join our talents in their journey.
-						You can use it to reach out for other inquires as well.
-					</p>
+					<h1 className={outfit.className}>{t("btnContact")}</h1>
+					<p>{t("contactText")}</p>
 				</div>
 				<address className={styles.mail}>
 					<span>contact@questmind.gg</span>
@@ -27,12 +26,12 @@ export default function Contact() {
 						<button
 							className={roboto.className}
 							onClick={(e) => setRoute("player")}>
-							Player
+							{t("player")}
 						</button>
 						<button
 							className={roboto.className}
 							onClick={(e) => setRoute("company")}>
-							Company
+							{t("company")}
 						</button>
 					</div>
 				)}

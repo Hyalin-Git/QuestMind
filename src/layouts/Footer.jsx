@@ -1,7 +1,10 @@
+"use client";
 import styles from "@/styles/layouts/footer.module.css";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
-export default async function Footer() {
+export default function Footer() {
+	const { t } = useTranslation();
 	return (
 		<footer className={styles.container}>
 			{/* logo */}
@@ -16,21 +19,21 @@ export default async function Footer() {
 			{/* nav links */}
 			<div className={styles.links}>
 				<ul>
-					<li>Nos services</li>
-					<li>Nos athlètes</li>
-					<li>Pour les marques</li>
+					<li>{t("headerServices")}</li>
+					<li>{t("headerAthletes")}</li>
+					<li>{t("headerBrands")}</li>
 				</ul>
 			</div>
 			{/* nav links */}
 			<div className={styles.links}>
 				<ul>
-					<li>&Agrave; propos de nous</li>
-					<li>Contact</li>
+					<li>{t("headerAbousUs")}</li>
+					<li>{t("headerContact")}</li>
 				</ul>
 			</div>
 			{/* social links */}
 			<div className={styles.socials}>
-				<span>Follow us</span>
+				<span>{t("followUs")}</span>
 				<div>
 					<Image
 						src={"/twitter.svg"}

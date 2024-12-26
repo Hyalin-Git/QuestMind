@@ -1,0 +1,175 @@
+{
+	"headerServices": "Nuestros servicios",
+	"headerAthletes": "Nuestros atletas",
+	"headerBrands": "Para marcas",
+	"headerAbousUs": "Nosotros",
+	"headerContact": "Contacto",
+
+	"btnContact": "Contacto",
+
+	"player": "Jugadores de",
+	"trust": "<strong>Confían</strong> en nosotros:",
+
+	"serviceTitle": "En Questmind, ponemos nuestra experiencia al servicio de nuestros deportistas ayudándoles a construir una carrera sólida, desarrollar una imagen de marca auténtica y crear asociaciones excepcionales. Con más de seis años de experiencia, hemos desarrollado un enfoque integral y a medida diseñado para impulsar a cada jugador a la cima de su carrera.",
+
+	"cards": [
+		{
+			"title": "Career Management",
+			"content": "Creemos que cada atleta merece un apoyo personalizado, una gestión integral de su carrera y una visión estratégica para el futuro. Nuestra misión es ofrecerles las mejores oportunidades para garantizar su éxito a largo plazo. En Questmind, ofrecemos un servicio personalizado destinado a definir un plan de carrera que plasme las ambiciones y el potencial únicos de cada individuo.",
+			"subContent": "También nos ocupamos de encontrar el equipo adecuado para nuestros jugadores, teniendo en cuenta sus objetivos, su voluntad y su compatibilidad. Negociamos con los equipos para garantizar acuerdos beneficiosos adaptados a las aspiraciones de cada atleta."
+		},
+		{
+			"title": "Patrocinios",
+			"content": "Patrocinios ofrecen a los atletas una valiosa oportunidad para ampliar sus redes, elevar su perfil y generar ingresos adicionales. Al colaborar con marcas y empresas, los deportistas no sólo pueden beneficiarse del apoyo financiero, sino también reforzar su imagen como personas influyentes en su campo. Esto les da acceso a recursos exclusivos, la oportunidad de participar en eventos de alto perfil y diversificar sus fuentes de ingresos sin dejar de centrarse en su desempeño. Una asociación bien elegida puede tener un impacto significativo en la carrera a largo plazo de un jugador."
+		},
+		{
+			"title": "Marketing",
+			"content": "¡En los deportes electrónicos, la visibilidad es una palanca esencial para el éxito! Trabajamos estrechamente con cada jugador para construir una imagen de marca poderosa, auténtica y alineada con su personalidad. Nuestro objetivo es crear una identidad que resuene en el público, inspire confianza con Pannen y fortalezca el compromiso de los fanáticos con una estrategia de comunicación específica. ayudar a cada atleta a destacar en un sector de rápido crecimiento y maximizar el impacto en el escenario nacional e internacional"
+		},
+		{
+			"title": "Soporte administrativo y legal",
+			"content": "El deporte électronico es un campo que requiere el dominio de los aspectos administrativos y legales, que a menudo son complejos y están en constante evolución. Nuestro equipo brinda un soporte riguroso a cada jugador, encargándose del examen en profundidad, validación y autenticidad de todos los contratos, garantizando así acuerdos sólidos y transparentes. También ofrecemos asesoramiento financiero sólido y gestionamos disputas y negociaciones para proteger los mejores intereses de nuestros atletas. Este enfoque permite a cada jugador concentrarse plenamente en su desempeño, con total confianza, mientras nos aseguramos de que cada aspecto de su carrera se base en una base sólida, estable y segura."
+		}
+	],
+
+	"game": "Juegos",
+	"region": "Región",
+
+	"brandsTitle": "En QuestMind, creamos partnership estratégicas entre las marcas y nuestros atletas de esports para maximizar el impacto y el compromiso. Los deportes electrónicos ofrecen una oportunidad única para unir a un público joven y fiel. Utilizamos nuestra experiencia para ayudarle a desarrollar activaciones a medida y campañas de patrocinio eficaces. Nuestras soluciones de asociación :",
+
+	"brandsCards": [
+		{
+			"title": "Colaboración con jugadores",
+			"content": "Asocie su marca a jugadores de alto nivel, utilizando palancas que potencien su visibilidad y la autenticidad de su asociación."
+		},
+
+		{
+			"title": "Colaboraciones y contenidos patrocinados",
+			"content": "Cree campañas cautivadoras a través de vídeos, streams o publicaciones, integrando sus productos en el mundo de los jugadores profesionales de alto nivel."
+		},
+
+		{
+			"title": "Compromiso de la marca durante eventos",
+			"content": "Benefíciese de una visibilidad (fama) óptima en los eventos de esports, con la promoción de su marca por parte de nuestros atletas y la posibilidad de ofrecer experiencias inmersivas a los participantes."
+		},
+		{
+			"title": "Co-branding y ediciones limitadas",
+			"content": "Lanzar productos de marca compartida o exclusivos con nuestro talento para crear un impacto visual y memorable."
+		}
+	],
+
+	"question": "Why choose <strong>QuestMind</strong>?",
+
+	"brandsResponses": [
+		{
+			"content": "Más de <strong>6 años</strong> de experiencia en el sector de los deportes electrónicos"
+		},
+		{
+			"content": "Audiencia específica y comprometida, ideal para campañas auténticas"
+		},
+		{
+			"content": "Máxima visibilidad gracias a nuestra red de atletas en competiciones y eventos."
+		},
+		{
+			"content": "Partnership a medida para satisfacer sus necesidades específicas"
+		},
+		{
+			"content": "Innovación constante para adelantarse a las tendencias"
+		}
+	],
+
+	"brandsFooterText": "Los deportes electrónicos son una poderosa palanca estratégica para su marca. QuestMind es su socio para crear asociaciones sólidas y duraderas en este mundo. Póngase en contacto con nosotros hoy mismo para explorar sus oportunidades de colaboración.",
+
+	"aboutUs": "Nosotros",
+	"aboutText": "<strong>QuestMind</strong> se fundó a partir de una pasión compartida por los deportes electrónicos, reforzada con el tiempo por años de experiencia y una sólida red dentro del sector. Entendemos las exigencias del juego competitivo y los desafíos únicos a los que se enfrentan los jugadores. Nuestro equipo está formado por expertos que viven y respiran los deportes electrónicos, dedicados a ayudar a cada jugador a construir una carrera exitosa y sostenible.",
+
+	"aboutCards": [
+		{
+			"title": "Pasión",
+			"content": "Más que un trabajo, los deportes electrónicos son nuestra vocación",
+			"icon": "/cupid-target.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "Excelencia",
+			"content": "Buscamos la calidad en todas las etapas del viaje de nuestros jugadores",
+			"icon": "/graduation.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "compromiso",
+			"content": "Nuestros talentos merecen un apoyo total y sin concesiones",
+			"icon": "/handshake.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "Integridad",
+			"content": "La transparencia y el respeto guían todas las decisiones",
+			"icon": "/balance.svg",
+			"alt": "Icon"
+		}
+	],
+
+	"aboutQuestion": "¿Por qué QuestMind?",
+	"aboutResponse": "En QuestMind, somos más que una agencia: somos un socio de confianza que invierte en el éxito de nuestros jugadores. Nuestra experiencia nos permite anticiparnos a las necesidades del mercado y posicionar a nuestros talentos para las mejores oportunidades. Con QuestMind, convierta su pasión en éxito y únase a una agencia que comparte sus ambiciones.",
+
+	"contactText": "Envíenos un correo electrónico o rellene el formulario para unirse a nuestros talentos en su viaje. También puedes utilizarlo para otras consultas.",
+
+	"company": "Empresa",
+
+	"playerForm": [
+		{
+			"label": "First Name"
+		},
+		{
+			"label": "Last Name"
+		},
+		{
+			"label": "Nationality"
+		},
+		{
+			"label": "Residency Country"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Game"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"companyForm": [
+		{
+			"label": "Company’s Name"
+		},
+		{
+			"label": "First Name"
+		},
+		{
+			"label": "Last Name"
+		},
+		{
+			"label": "Campaign’s Date"
+		},
+		{
+			"label": "Budget"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"submit": "Enviar",
+
+	"followUs": "Síguenos en",
+
+	"audience": "Total Audience",
+
+	"getInTouch": "¿Le gustaría trabajar con nuestro atleta? <br/> póngase en contacto con nosotros"
+}

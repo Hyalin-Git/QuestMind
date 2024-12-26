@@ -8,9 +8,7 @@
 	"btnContact": "Contact us",
 
 	"player": "Player",
-	"trustStart": "They",
-	"trustSpan": "trust",
-	"trustEnd": "us",
+	"trust": "They <strong>trust</strong> us:",
 
 	"serviceTitle": "At Questmind, we put our expertise at the service of our athletes by helping them build a solid career, develop an authentic brand image and create exceptional partnerships. With over six years' experience, we have developed a comprehensive, tailor-made approach designed to propel each player to the pinnacle of his or her career.",
 
@@ -32,5 +30,145 @@
 			"title": "Administrative & legal support",
 			"content": "Esport is a field that requires mastery of the administrative and legal aspects, which are often complex and constantly evolving. Our team provides rigorous support for each player, taking charge of the in-depth examination, validation and authenticity of all contracts, thus guaranteeing solid and transparent agreements. We also offer sound financial advice and manage disputes and negotiations to protect the best interests of our athletes. This approach allows each player to concentrate fully on their performance, in complete confidence, while we ensure that every aspect of their career is built on a sound, stable and secure foundation."
 		}
-	]
+	],
+
+	"game": "Game",
+	"region": "Region",
+
+	"brandsTitle": "At QuestMind, we create strategic partnerships between brands and our esport athletes to maximise impact and engagement. Esports offer a unique opportunity to unite a young and loyal audience. We use our expertise to help you develop tailor-made activations and effective sponsorship campaigns. Our Partnership Solutions :",
+
+	"brandsCards": [
+		{
+			"title": "Player Sponsorship",
+			"content": "Associate your brand with top-level players, using levers that boost your visibility and the authenticity of your partnership."
+		},
+
+		{
+			"title": "Collaborations and Sponsored Content",
+			"content": "Create captivating campaigns via videos, streams or publications, integrating your products into the world of top-level professional gamers."
+		},
+		{
+			"title": "Brand engagement during events",
+			"content": "Benefit from optimum visibility at esport events, with your brand promoted by our athletes and the ability to offer immersive experiences to participants."
+		},
+		{
+			"title": "Co-Branding and Limited Editions",
+			"content": "Launch co-branded or exclusive products with our talent to create a visual and memorable impact."
+		}
+	],
+
+	"question": "Why choose <strong>QuestMind</strong>?",
+
+	"brandsResponses": [
+		{
+			"content": "Over <strong>6 years</strong> expertise in the esport industry"
+		},
+		{
+			"content": "Targeted and engaged audience, ideal for authentic campaigns"
+		},
+		{
+			"content": "Maximum visibility thanks to our network of athletes at competitions and events."
+		},
+		{
+			"content": "Tailor-made partnerships to meet your specific needs"
+		},
+		{
+			"content": "Constant innovation to stay ahead of the trends"
+		}
+	],
+
+	"brandsFooterText": "Esports is a powerful strategic lever for your brand. <span>QuestMind</span> is your partner to create strong and lasting partnerships in this world. Contact us today to explore your collaboration opportunities.",
+
+	"aboutUs": "About us",
+	"aboutText": "<strong>QuestMind</strong> was founded from a shared passion for esports, strengthened over time by years of experience and a robust network within the industry. We understand the demands of competitive gaming and the unique challenges players face. Our team comprises experts who live and breathe esports, dedicated to helping each player build a successful and sustainable career.",
+
+	"aboutCards": [
+		{
+			"title": "Passion",
+			"content": "More than a job, esports is our calling",
+			"icon": "/cupid-target.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "Excellence",
+			"content": "We strive for quality at every stage of our players’ journeys",
+			"icon": "/graduation.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "Commitment",
+			"content": "Our talents deserve complete, uncompromising support",
+			"icon": "/handshake.svg",
+			"alt": "Icon"
+		},
+		{
+			"title": "Integrity",
+			"content": "Every decision is driven by transparency and respect",
+			"icon": "/balance.svg",
+			"alt": "Icon"
+		}
+	],
+
+	"aboutQuestion": "Why QuestMind?",
+	"aboutResponse": "At QuestMind, we are more than an agency — we are a trusted partner invested in our players’ success. Our expertise allows us to anticipate market needs and position our talents for the best opportunities. With QuestMind, turn your passion into success and join an agency that shares your ambitions.",
+
+	"contactText": "Email us or complete the form to join our talents in their journey. You can use it to reach out for other inquires as well.",
+
+	"company": "company",
+
+	"playerForm": [
+		{
+			"label": "First Name"
+		},
+		{
+			"label": "Last Name"
+		},
+		{
+			"label": "Nationality"
+		},
+		{
+			"label": "Residency Country"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Game"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"companyForm": [
+		{
+			"label": "Company’s Name"
+		},
+		{
+			"label": "First Name"
+		},
+		{
+			"label": "Last Name"
+		},
+		{
+			"label": "Campaign’s Date"
+		},
+		{
+			"label": "Budget"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"submit": "Submit",
+
+	"followUs": "Follow us",
+
+	"audience": "Total Audience",
+
+	"getInTouch": "Do you want to work with our talent ? <br/> Get in touch now"
 }

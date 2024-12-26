@@ -8,9 +8,7 @@
 	"btnContact": "Contact",
 
 	"player": "Joueur",
-	"trustStart": "Ils ont ",
-	"trustSpan": "confiance",
-	"trustEnd": "en nous",
+	"trust": "Ils ont <strong>confiance</strong> en nous:",
 
 	"serviceTitle": "Chez Questmind, nous mettons notre expertise au service de nos athlètes en les aidant à construire une carrière solide, à développer une image de marque authentique et à créer des collaborations d’exceptions. Avec plus de six ans d'expérience, nous avons élaboré une approche personnalisée et globale pour guider chaque joueur vers l’excellence.",
 
@@ -32,5 +30,144 @@
 			"title": "Soutien administratif et juridique",
 			"content": "L’esport exige une gestion experte des aspects administratifs et juridiques, souvent complexes et en constante évolution. Chez Questmind, nous offrons un accompagnement rigoureux à chaque joueur, en assurant l’examen minutieux, la validation et l’authenticité de tous les contrats pour garantir des accords solides et transparents. Nous fournissons également des conseils financiers stratégiques et prenons en charge la gestion des litiges et des négociations, protégeant ainsi au mieux les intérêts de nos athlètes. Grâce à cette approche complète, chaque joueur peut se concentrer pleinement sur ses performances, en toute sérénité, tandis que nous veillons à la solidité et à la stabilité de sa carrière."
 		}
-	]
+	],
+
+	"game": "Jeux",
+	"region": "Région",
+
+	"brandsTitle": "Chez QuestMind, nous créons des partenariats stratégiques entre les marques et nos athlètes afin de maximiser l’impact et l’engagement. L’esport offre une opportunité unique de rassembler un public jeune, engagé et fidèle. Grâce à notre expertise, nous vous accompagnons dans la création de collaborations adaptées à vos objectifs, en concevant des activations sur mesure et des campagnes de sponsoring performantes. Notre approche innovante garantit une visibilité optimale et un retour sur investissement maximal, tout en donnant vie à des projets captivants qui créent une véritable valeur ajoutée pour les marques et les athlètes.",
+
+	"brandsCards": [
+		{
+			"title": "Sponsoring de joueurs",
+			"content": "Associez votre marque à des joueurs de haut niveau, en utilisant des leviers qui renforcent votre visibilité et l'authenticité de votre partenariat."
+		},
+		{
+			"title": "Engagement de la marque lors d'événements",
+			"content": "Bénéficiez d'une visibilité optimale lors d'événements esport, avec la promotion de votre marque par nos athlètes et la possibilité d'offrir des expériences immersives aux participants."
+		},
+		{
+			"title": "Collaborations et contenu sponsorisé",
+			"content": "Créez des campagnes captivantes par le biais de vidéos, de streams ou de publications, en intégrant vos produits dans l'univers des joueurs professionnels de haut niveau."
+		},
+		{
+			"title": "Co-Branding et éditions limitées",
+			"content": "Lancer des produits co-brandés ou en édition limitées avec nos talents pour générer un impact visuel fort et mémorable."
+		}
+	],
+
+	"question": "Pourquoi choisir <strong>QuestMind</strong>?",
+
+	"brandsResponses": [
+		{
+			"content": "Plus de <strong>6 ans</strong> d'expertise dans l'industrie de l'esport"
+		},
+		{
+			"content": "Un public ciblé et engagé, idéal pour des campagnes authentiques"
+		},
+		{
+			"content": "Visibilité maximale grâce à notre réseau d'athlètes lors de compétitions et d'événements."
+		},
+		{
+			"content": "Des partenariats sur mesure pour répondre à vos besoins spécifiques"
+		},
+		{
+			"content": "Innovation constante pour rester à la pointe des tendances"
+		}
+	],
+
+	"brandsFooterText": "L’esport représente un levier stratégique incontournable pour votre marque. <span>QuestMind</span> est votre allié pour établir des partenariats solides et pérennes dans cet univers. Contactez-nous dès maintenant pour découvrir les opportunités de collaboration qui s’offrent à vous.",
+
+	"aboutUs": "à propos de nous",
+	"aboutText": "<strong>QuestMind</strong> a été fondé par une passion commune pour l’esport, nourrie au fil des années par une expérience riche et un réseau solide dans l’industrie. Nous comprenons les exigences du jeu compétitif et les défis spécifiques auxquels les joueurs font face. Notre équipe d’experts, véritablement immergée dans l’univers de l’esport, s'engage à accompagner chaque joueur dans la construction d’une carrière réussie et pérenne.",
+
+	"aboutCards": [
+		{
+			"title": "Passion",
+			"content": "Plus qu'un travail, l'esport est notre vocation",
+			"icon": "/cupid-target.svg",
+			"alt": "Icône"
+		},
+		{
+			"title": "Excellence",
+			"content": "Nous plaçons l'excellence au cœur de chaque étape du parcours de nos joueurs",
+			"icon": "/graduation.svg",
+			"alt": "Icône"
+		},
+		{
+			"title": "Engagement",
+			"content": "Nos talents méritent un soutien total et sans faille",
+			"icon": "/handshake.svg",
+			"alt": "Icône"
+		},
+		{
+			"title": "Intégrité",
+			"content": "Chaque décision est dictée par la transparence et le respect",
+			"icon": "/balance.svg",
+			"alt": "Icône"
+		}
+	],
+
+	"aboutQuestion": "Pourquoi QuestMind?",
+	"aboutResponse": "Chez Questmind, nous ne sommes plus qu'une agence, mais un véritable partenaire engagé dans la réussite de nos joueurs. Grâce à notre expertise, nous savons anticiper les évolutions du marché et positionner nos talents sur les opportunités les plus prometteuses. Avec QuestMind, vous transformez votre passion en succès au sein d’une agence qui partage pleinement vos ambitions.",
+
+	"contactText": "Envoyez-nous un e-mail ou remplissez le formulaire pour rejoindre nos talents dans leur voyage. Vous pouvez également l'utiliser pour nous contacter pour d'autres questions.",
+
+	"company": "Marque",
+
+	"playerForm": [
+		{
+			"label": "Prénom"
+		},
+		{
+			"label": "Nom de famille"
+		},
+		{
+			"label": "Nationalité"
+		},
+		{
+			"label": "Pays de résidence"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Jeu"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"companyForm": [
+		{
+			"label": "Nom de l'entreprise"
+		},
+		{
+			"label": "Prénom"
+		},
+		{
+			"label": "Nom de famille"
+		},
+		{
+			"label": "Date de la campagne"
+		},
+		{
+			"label": "Budget"
+		},
+		{
+			"label": "E-mail"
+		},
+		{
+			"label": "Message"
+		}
+	],
+
+	"submit": "Envoyer",
+
+	"followUs": "Suivez-nous",
+
+	"audience": "Audience Total",
+
+	"getInTouch": "Voulez-vous travailler avec notre talent ? <br/> Prenez contact avec nous"
 }

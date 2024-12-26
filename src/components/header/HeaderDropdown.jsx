@@ -50,6 +50,17 @@ export default function HeaderDropdown({}) {
 						English <FontAwesomeIcon icon={faAngleDown} />
 					</>
 				)}
+				{currLanguage === "es" && (
+					<>
+						<Image
+							src={"/esp-flag.svg"}
+							width={15}
+							height={15}
+							alt="Drapeau Espagnol"
+						/>
+						Español <FontAwesomeIcon icon={faAngleDown} />
+					</>
+				)}
 			</span>
 			<div data-open={isOpen} className={styles.languages}>
 				<ul>

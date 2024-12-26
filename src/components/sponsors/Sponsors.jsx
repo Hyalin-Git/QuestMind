@@ -12,9 +12,7 @@ export default function Sponsors({ data, background }) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.heading}>
-				<p>
-					{t("trustStart")} <span>{t("trustSpan")}</span> {t("trustEnd")}:
-				</p>
+				<p dangerouslySetInnerHTML={{ __html: t("trust") }}></p>
 			</div>
 			<div className={styles.content} data-background={background}>
 				{sponsors?.map((sponsor) => {

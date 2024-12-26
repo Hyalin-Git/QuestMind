@@ -4,9 +4,11 @@ import { getPlayer } from "@/api/players";
 import { outfit, roboto } from "@/libs/font";
 import Image from "next/image";
 import Link from "next/link";
+import initTranslations from "@/app/i18n";
 
 export default async function Athlete({ params }) {
-	const { slug } = await params;
+	const { slug, locales } = await params;
+	const { t } = await initTranslations(locales, ["common"]);
 	const { data, success } = await getPlayer(slug);
 	console.log(data);
 	const player = data[0];
@@ -16,7 +18,6 @@ export default async function Athlete({ params }) {
 	const hasYoutube = player?.youtube_url;
 	const hasTwitch = player?.twitch_url;
 	const performances = player?.performances?.split(",");
-	console.log(player.audience);
 
 	function formatNumber(num) {
 		if (num >= 1000000) {
@@ -45,7 +46,7 @@ export default async function Athlete({ params }) {
 						</div>
 						<div className={styles.info}>
 							<p>
-								Total Audience : <span>{formatNumber(player?.audience)}</span>
+								{t("audience")} : <span>{formatNumber(player?.audience)}</span>
 							</p>
 							<ul className={styles.socials}>
 								{hasX && (
@@ -139,13 +140,9 @@ export default async function Athlete({ params }) {
 				</div>
 				{/* contact */}
 				<div className={styles.contact}>
-					<p>
-						Do you want to work with our talent ?
-						<br />
-						Get in touch now
-					</p>
+					<p dangerouslySetInnerHTML={{ __html: t("getInTouch") }}></p>
 					<button id="contact" className={roboto.className}>
-						Contact
+						{t("btnContact")}
 					</button>
 				</div>
 

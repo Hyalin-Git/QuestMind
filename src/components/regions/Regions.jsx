@@ -3,8 +3,10 @@ import styles from "@/styles/components/regions/regions.module.css";
 import { outfit } from "@/libs/font";
 import Region from "./Region";
 import { usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 export default function Regions({ data }) {
+	const { t } = useTranslation();
 	const router = useRouter();
 	const pathname = usePathname();
 	return (
@@ -15,7 +17,7 @@ export default function Regions({ data }) {
 					e.preventDefault();
 					router.push(pathname);
 				}}>
-				Region
+				{t("region")}
 			</strong>
 			<div className={styles.wrapper}>
 				{data.map((elt) => {

@@ -1,36 +1,40 @@
+"use server";
 import styles from "@/styles/page/about.module.css";
 import { outfit } from "@/libs/font";
 import Image from "next/image";
+import initTranslations from "@/app/i18n";
 
-export default function About() {
+export default async function About({ params }) {
+	const { locales } = await params;
+	const { t } = await initTranslations(locales, ["common"]);
 	const cards = [
 		{
 			id: 1,
-			title: "Passion",
-			content: "More than a job, esports is our calling",
-			icon: "/cupid-target.svg",
-			alt: "Icône cible cupidon",
+			title: t("aboutCards.0.title"),
+			content: t("aboutCards.0.content"),
+			icon: t("aboutCards.0.icon"),
+			alt: t("aboutCards.0.alt"),
 		},
 		{
 			id: 2,
-			title: "Excellence",
-			content: "We strive for quality at every stage of our players’ journeys",
-			icon: "/graduation.svg",
-			alt: "Icône diplôme",
+			title: t("aboutCards.1.title"),
+			content: t("aboutCards.1.content"),
+			icon: t("aboutCards.1.icon"),
+			alt: t("aboutCards.1.alt"),
 		},
 		{
 			id: 3,
-			title: "Commitment",
-			content: "Our talents deserve complete, uncompromising support",
-			icon: "/handshake.svg",
-			alt: "Icône poigner de main",
+			title: t("aboutCards.2.title"),
+			content: t("aboutCards.2.content"),
+			icon: t("aboutCards.2.icon"),
+			alt: t("aboutCards.2.alt"),
 		},
 		{
 			id: 4,
-			title: "Integrity",
-			content: "Every decision is driven by transparency and respect",
-			icon: "/balance.svg",
-			alt: "Icône d'une balance",
+			title: t("aboutCards.3.title"),
+			content: t("aboutCards.3.content"),
+			icon: t("aboutCards.3.icon"),
+			alt: t("aboutCards.3.alt"),
 		},
 	];
 	return (
@@ -54,16 +58,9 @@ export default function About() {
 								height={30}
 								alt="Icone étoile"
 							/>
-							<h1 className={outfit.className}>About us</h1>
+							<h1 className={outfit.className}>{t("aboutUs")}</h1>
 						</div>
-						<p>
-							<strong>QuestMind</strong> was founded from a shared passion for
-							esports, strengthened over time by years of experience and a
-							robust network within the industry. We understand the demands of
-							competitive gaming and the unique challenges players face. Our
-							team comprises experts who live and breathe esports, dedicated to
-							helping each player build a successful and sustainable career.
-						</p>
+						<p dangerouslySetInnerHTML={{ __html: t("aboutText") }}></p>
 					</div>
 					<div className={styles.cards}>
 						{cards.map((card) => {
@@ -87,19 +84,13 @@ export default function About() {
 					</div>
 				</section>
 				<section className={styles.question}>
-					<h3>Why QuestMind?</h3>
+					<h3>{t("aboutQuestion")}</h3>
 					<div>
-						<p>
-							At QuestMind, we are more than an agency — we are a trusted
-							partner invested in our players’ success. Our expertise allows us
-							to anticipate market needs and position our talents for the best
-							opportunities. With QuestMind, turn your passion into success and
-							join an agency that shares your ambitions.
-						</p>
+						<p>{t("aboutResponse")}</p>
 					</div>
 				</section>
 				<div className={styles.buttonWrapper}>
-					<button id="contact">Contact us</button>
+					<button id="contact">{t("btnContact")}</button>
 				</div>
 			</div>
 		</main>
