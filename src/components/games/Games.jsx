@@ -4,6 +4,7 @@ import Game from "./Game";
 import styles from "@/styles/components/games/games.module.css";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 export default function Games({ data }) {
 	const { t } = useTranslation();

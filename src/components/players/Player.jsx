@@ -11,15 +11,16 @@ export default function Player({ elt }) {
 	const { t } = useTranslation();
 	const pathname = usePathname();
 
-	const isFr = pathname.includes("fr");
-	const isEs = pathname.includes("es");
-	console.log(pathname);
-	const isMobileGame = elt.game;
+	// Détection stricte de "fr" et "es" dans l'URL
+	const isFr = /\/fr(\/|$)/.test(pathname);
+	const isEs = /\/es(\/|$)/.test(pathname);
+
+	const isMobileGame = elt?.game;
 
 	console.log(isMobileGame);
 	return (
 		<div>
-			<Link href={`/athletes/${elt.id}`}>
+			<Link href={`/athletes/${elt?.id}`}>
 				<div className={styles.container}>
 					<div className={styles.imgWrapper}>
 						<Image
@@ -28,21 +29,21 @@ export default function Player({ elt }) {
 							width={500}
 							height={500}
 							quality={100}
-							alt={`Photo de ${elt.firstName}`}
+							alt={`Photo de ${elt?.firstName}`}
 						/>
 					</div>
 					<div className={styles.info}>
 						<span className={`${styles.name} ${outfit.className}`}>
-							{elt.firstName}
+							{elt?.firstName}
 						</span>
 						<span className={styles.game}>
 							{isFr || isEs ? (
 								<>
-									{t("player")} {elt.game}
+									{t("player")} {elt?.game}
 								</>
 							) : (
 								<>
-									{elt.game} {t("player")}
+									{elt?.game} {t("player")}
 								</>
 							)}
 						</span>

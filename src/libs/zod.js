@@ -12,15 +12,13 @@ export const authSchema = z.object({
 });
 
 export const playerSchema = z.object({
-	lastname: z.string().min(1).max(255),
+	lastname: z.string().max(255).optional().or(z.literal("")),
 	firstname: z.string().min(1).max(255),
 	username: z.string().min(1).max(255),
 	picture: z.instanceof(File),
+	team: z.string().min(1).max(255),
 	genre: z.enum(["H", "F"]),
 	audience: z.string(),
-	firstPerformance: z.string().max(255).optional().or(z.literal("")),
-	secondPerformance: z.string().max(255).optional().or(z.literal("")),
-	thirdPerformance: z.string().max(255).optional().or(z.literal("")),
 	xUrl: z.string().max(255).optional().or(z.literal("")),
 	tiktokUrl: z.string().max(255).optional().or(z.literal("")),
 	instagramUrl: z.string().max(255).optional().or(z.literal("")),
@@ -29,8 +27,8 @@ export const playerSchema = z.object({
 });
 
 export const nationalitiesSchema = z.object({
+	region: z.string().min(1).max(255),
 	nationality: z.string().min(1).max(255),
-	picture: z.instanceof(File),
 });
 
 export const gameSchema = z.object({

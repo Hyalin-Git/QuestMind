@@ -5,6 +5,7 @@ export async function GET(req) {
 	try {
 		const { searchParams } = new URL(req.url);
 		const game = searchParams.get("game");
+		const isMobile = searchParams.get("is_mobile");
 		const region = searchParams.get("region");
 
 		const connection = await pool.getConnection();
@@ -22,8 +23,8 @@ export async function GET(req) {
 
 		const queryParams = [];
 
-		if (game && region) {
-			query += ` WHERE games.game = ? AND nationalities.region = ?`;
+		if (game && isMobile && region) {
+			query += ` WHERE games.game = ? AND games.is_mobile = ? AND nationalities.region = ?`;
 			queryParams.push(game, region);
 		} else if (region) {
 			query += ` WHERE nationalities.region = ?`;
@@ -31,13 +32,27 @@ export async function GET(req) {
 		} else if (game) {
 			query += ` WHERE games.game = ?`;
 			queryParams.push(game);
+		} else if (isMobile) {
+			query += ` WHERE games.is_mobile = ?`;
+			queryParams.push(isMobile);
 		}
 
 		query += `;`;
 
 		const [players] = await connection.query(query, queryParams);
 
-		if (players.length <= 0) {
+		// Si des joueurs sont récupérés, on filtre les doublons
+		const uniquePlayers = [];
+		const seenIds = new Set();
+
+		players.forEach((player) => {
+			if (!seenIds.has(player.id)) {
+				seenIds.add(player.id);
+				uniquePlayers.push(player);
+			}
+		});
+
+		if (uniquePlayers.length <= 0) {
 			return NextResponse.json(
 				{
 					success: false,
@@ -52,7 +67,7 @@ export async function GET(req) {
 		return NextResponse.json(
 			{
 				success: true,
-				data: players,
+				data: uniquePlayers,
 			},
 			{ status: 200 }
 		);

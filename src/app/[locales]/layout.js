@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/app/TranslationsProvider";
+import Script from "next/script";
 
 const i18nNamespaces = ["common"];
 
@@ -25,6 +26,20 @@ export default async function RootLayout({ children, params }) {
 			locale={locales}
 			namespaces={i18nNamespaces}>
 			<html lang={locales}>
+				<head>
+					<Script
+						async
+						src="https://www.googletagmanager.com/gtag/js?id=G-LYN8FBQPD2"></Script>
+					<Script id="google-analytics">
+						{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						
+						gtag('config', 'G-LYN8FBQPD2');
+						`}
+					</Script>
+				</head>
 				<body className={montserrat.className} id="services">
 					<FakeLoading />
 					<Header />

@@ -94,13 +94,3 @@ export default function Players({ data }) {
 		</div>
 	);
 }
-
-// export const CustomLeftArrow = ({ onClick, ...rest }) => {
-// 	const {
-// 		onMove,
-// 		carouselState: { currentSlide, deviceType },
-// 	} = rest;
-// 	// onMove means if dragging or swiping in progress.
-
-// 	return <button onClick={() => onClick()}>yeah</button>;
-// };

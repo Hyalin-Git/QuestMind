@@ -10,11 +10,9 @@ export async function POST(req) {
 		const firstname = formData.get("firstname");
 		const username = formData.get("username");
 		const picture = formData.get("picture");
+		const team = formData.get("team");
 		const genre = formData.get("genre");
 		const audience = formData.get("audience");
-		const firstPerformance = formData.get("firstPerformance");
-		const secondPerformance = formData.get("secondPerformance");
-		const thirdPerformance = formData.get("thirdPerformance");
 		const xUrl = formData.get("xUrl");
 		const tiktokUrl = formData.get("tiktokUrl");
 		const instagramUrl = formData.get("instagramUrl");
@@ -26,11 +24,9 @@ export async function POST(req) {
 			firstname,
 			username,
 			picture,
+			team,
 			genre,
 			audience,
-			firstPerformance,
-			secondPerformance,
-			thirdPerformance,
 			xUrl,
 			tiktokUrl,
 			instagramUrl,
@@ -54,17 +50,15 @@ export async function POST(req) {
 		const connection = await pool.getConnection();
 
 		const [savedPlayer] = await connection.execute(
-			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `genre`, `audience`, `first_performance`, `second_performance`, `third_performance`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `genre`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				lastname,
 				firstname,
 				username,
 				null,
+				team,
 				genre,
 				audience,
-				firstPerformance,
-				secondPerformance,
-				thirdPerformance,
 				xUrl,
 				tiktokUrl,
 				instagramUrl,

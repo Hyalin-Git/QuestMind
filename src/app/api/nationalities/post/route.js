@@ -7,11 +7,11 @@ export async function POST(req) {
 	try {
 		const formData = await req.formData();
 		const nationality = formData.get("nationality");
-		const picture = formData.get("picture");
+		const region = formData.get("region");
 
 		const validation = nationalitiesSchema.safeParse({
+			region,
 			nationality,
-			picture,
 		});
 
 		if (!validation.success) {
@@ -30,8 +30,8 @@ export async function POST(req) {
 		const connection = await pool.getConnection();
 
 		const [savedNationality] = await connection.execute(
-			"INSERT INTO `nationalities` (`nationality`, `picture`) VALUES (?, ?)",
-			[nationality, null]
+			"INSERT INTO `nationalities` (`nationality`, `region`) VALUES (?, ?)",
+			[nationality, region]
 		);
 
 		if (savedNationality.affectedRows <= 0) {
@@ -43,15 +43,6 @@ export async function POST(req) {
 				{ status: 500 }
 			);
 		}
-
-		const savedPicture = picture
-			? await saveFile(picture, nationality.toLowerCase(), "nationalities")
-			: null;
-
-		await connection.execute(
-			"UPDATE `nationalities` SET `picture` = ? WHERE `nationalities`.`id` = ?",
-			[savedPicture, savedNationality.insertId]
-		);
 
 		connection.release();
 

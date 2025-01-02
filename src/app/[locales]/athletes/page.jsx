@@ -11,7 +11,11 @@ import styles from "@/styles/page/athletes.module.css";
 export default async function Athletes({ searchParams }) {
 	const queries = await searchParams;
 
-	const players = await getPlayers(queries?.game, queries.region);
+	const players = await getPlayers(
+		queries?.game,
+		queries?.is_mobile,
+		queries.region
+	);
 	const games = await getGames();
 	const nationalities = await getNationalities();
 

@@ -1,9 +1,10 @@
 "use server";
 
-export async function getPlayers(game, region) {
+export async function getPlayers(game, isMobile, region) {
 	try {
 		const queries = [
 			game ? `game=${game}` : "",
+			isMobile ? `is_mobile=${isMobile}` : "",
 			region ? `region=${region}` : "",
 		]
 			.filter(Boolean)
