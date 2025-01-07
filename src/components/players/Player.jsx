@@ -34,7 +34,7 @@ export default function Player({ elt }) {
 					</div>
 					<div className={styles.info}>
 						<span className={`${styles.name} ${outfit.className}`}>
-							{elt?.firstName}
+							{elt?.username}
 						</span>
 						<span className={styles.game}>
 							{isFr || isEs ? (

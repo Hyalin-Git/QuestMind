@@ -6,6 +6,7 @@ import Cards from "@/components/cards/Cards";
 import Responses from "@/components/responses/Responses";
 import { outfit, roboto } from "@/libs/font";
 import initTranslations from "@/app/i18n";
+import Link from "next/link";
 
 export default async function Brands({ params }) {
 	const { locales } = await params;
@@ -79,9 +80,11 @@ export default async function Brands({ params }) {
 				</div>
 				<Sponsors data={sponsors} background={false} />
 				<div className={styles.button}>
-					<button id="contact" className={roboto.className}>
-						{t("btnContact")}
-					</button>
+					<Link href={"/contact"}>
+						<button id="contact" className={roboto.className}>
+							{t("btnContact")}
+						</button>
+					</Link>
 				</div>
 				<div className={styles.slogan}>
 					<p className={outfit.className}>

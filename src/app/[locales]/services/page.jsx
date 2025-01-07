@@ -3,6 +3,7 @@ import initTranslations from "@/app/i18n";
 import Service from "@/components/service/Service";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/services.module.css";
+import Link from "next/link";
 
 export default async function Services({ params }) {
 	const { locales } = await params;
@@ -59,9 +60,11 @@ export default async function Services({ params }) {
 				})}
 			</div>
 			<div className={styles.contact}>
-				<button id="contact" className={roboto.className}>
-					{t("btnContact")}
-				</button>
+				<Link href={"/contact"}>
+					<button id="contact" className={roboto.className}>
+						{t("btnContact")}
+					</button>
+				</Link>
 			</div>
 			<div className={styles.slogan}>
 				<p className={outfit.className}>

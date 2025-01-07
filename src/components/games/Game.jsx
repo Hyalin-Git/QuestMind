@@ -32,11 +32,12 @@ export default function Game({ elt }) {
 					className={styles.container}
 					onClick={(e) => {
 						e.preventDefault();
-						router.push(pathname + "?" + setQuery(elt.game));
-					}}>
+						router.push(pathname + "?" + setQuery(elt?.game));
+					}}
+					data-active={searchParams.get("game") === elt?.game.toLowerCase()}>
 					<Image
-						src={elt.picture}
-						alt={elt.game}
+						src={elt?.picture}
+						alt={elt?.game}
 						width={220}
 						height={220}
 						quality={100}
@@ -50,11 +51,12 @@ export default function Game({ elt }) {
 					className={styles.container}
 					onClick={(e) => {
 						e.preventDefault();
-						router.push(pathname + "?" + setQueryMobile(elt.is_mobile));
-					}}>
+						router.push(pathname + "?" + setQueryMobile(elt?.is_mobile));
+					}}
+					data-active={searchParams.get("is_mobile") ? true : false}>
 					<Image
-						src={elt.picture}
-						alt={elt.game}
+						src={elt?.picture}
+						alt={elt?.game}
 						width={220}
 						height={220}
 						quality={100}

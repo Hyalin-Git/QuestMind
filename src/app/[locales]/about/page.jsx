@@ -1,8 +1,9 @@
 "use server";
 import styles from "@/styles/page/about.module.css";
-import { outfit } from "@/libs/font";
+import { outfit, roboto } from "@/libs/font";
 import Image from "next/image";
 import initTranslations from "@/app/i18n";
+import Link from "next/link";
 
 export default async function About({ params }) {
 	const { locales } = await params;
@@ -90,7 +91,11 @@ export default async function About({ params }) {
 					</div>
 				</section>
 				<div className={styles.buttonWrapper}>
-					<button id="contact">{t("btnContact")}</button>
+					<Link href={"/contact"}>
+						<button id="contact" className={roboto.className}>
+							{t("btnContact")}
+						</button>
+					</Link>
 				</div>
 			</div>
 		</main>

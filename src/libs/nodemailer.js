@@ -1,12 +1,19 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-	host: "localhost",
-	port: 1025,
-	secure: false, // true for port 465, false for other ports
+	host: `${process.env.HOST}`,
+	port: 587,
+	secure: false,
+	auth: {
+		user: `${process.env.EMAIL}`,
+		pass: `${process.env.PASS}`,
+	},
+	tls: { rejectUnauthorized: false },
+	debug: true,
 });
 
-// async..await is not allowed in global scope, must use a wrapper
+// vfvv hari xtvv otmg
+
 export async function sendMail(sender, receiver, subject, text) {
 	// send mail with defined transport object
 	const mail = await transporter.sendMail({

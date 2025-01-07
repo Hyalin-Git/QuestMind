@@ -9,7 +9,9 @@ export async function GET(req, { params }) {
 		let query = `
         SELECT 
             players.id, 
+            players.username, 
             players.firstname, 
+            players.lastname, 
             players.picture, 
             players.audience, 
             players.x_url, 
@@ -17,25 +19,20 @@ export async function GET(req, { params }) {
             players.instagram_url, 
             players.twitch_url, 
             players.youtube_url,
-            games.game, 
-            nationalities.nationality,
+            games.game,
             GROUP_CONCAT(players_performances.performance SEPARATOR ', ') AS performances
         FROM players
         INNER JOIN players_games ON players.id = players_games.player_id
         INNER JOIN games ON games.id = players_games.game_id 
-        INNER JOIN players_nationalities ON players.id = players_nationalities.player_id
-        INNER JOIN nationalities ON nationalities.id = players_nationalities.nationality_id
         LEFT JOIN players_performances ON players.id = players_performances.player_id
         WHERE players.id = ?
-        GROUP BY players.id, players.firstname, players.picture, players.audience, 
+        GROUP BY players.id, players.username, players.firstname, players.lastname, players.picture, players.audience, 
                  players.x_url, players.tiktok_url, players.instagram_url, 
-                 players.twitch_url, players.youtube_url, games.game, nationalities.nationality
+                 players.twitch_url, players.youtube_url, games.game
         ;
     `;
 
 		const [player] = await connection.query(query, [id]);
-
-		console.log(player);
 
 		console.log(player);
 

@@ -7,7 +7,7 @@ export async function GET() {
 
 		const [results] = await connection.execute(
 			`
-				SELECT players.id, players.firstName, players.picture, players_trending.position, games.game 
+				SELECT players.id, players.username, players.picture, players_trending.position, games.game 
 				FROM players
 				INNER JOIN players_trending ON players.id = players_trending.player_id
 				INNER JOIN players_games ON players.id = players_games.player_id

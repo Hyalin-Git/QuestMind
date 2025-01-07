@@ -7,6 +7,7 @@ import Players from "@/components/players/Players";
 import Sponsors from "@/components/sponsors/Sponsors";
 import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/page/home.module.css";
+import Link from "next/link";
 
 export default async function Home({ params }) {
 	const { locales } = await params;
@@ -23,9 +24,11 @@ export default async function Home({ params }) {
 					Inspiring <span>Talent</span>. Achieving <span>Excellence</span>.
 				</h1>
 				<p>Turning Gamers into Icons and Passion into Opportunity.</p>
-				<button id="contact" className={roboto.className}>
-					{t("btnContact")}
-				</button>
+				<Link href={"/contact"}>
+					<button id="contact" className={roboto.className}>
+						{t("btnContact")}
+					</button>
+				</Link>
 			</div>
 			{/* Trending players */}
 			<div className={styles.trending}>

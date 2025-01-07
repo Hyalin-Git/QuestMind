@@ -67,14 +67,14 @@ button#contact {
 	font-size: clamp(0.8em, 2.5vw, 1rem);
 	text-transform: uppercase;
 	font-weight: 500;
-	box-shadow: 0px 0px 40px var(--green-color);
+	box-shadow: 0px 0px 15px var(--green-color);
 	opacity: 0.7;
 	transition: 0.3s all linear;
 }
 
 button#contact:hover {
 	background-color: #dda448;
-	box-shadow: 0px 0px 40px #dda448;
+	box-shadow: 0px 0px 15px #dda448;
 	transition: 0.3s all linear;
 }
 

@@ -11,8 +11,7 @@ export async function GET(req) {
 		const connection = await pool.getConnection();
 
 		let query = `
-				SELECT players.id, players.firstName, players.picture, games.game, 
-				nationalities.nationality,  
+				SELECT players.id, players.firstName, players.username, players.picture, games.game,   
 				nationalities.region
 				FROM players
 				INNER JOIN players_games ON players.id = players_games.player_id
@@ -21,20 +20,27 @@ export async function GET(req) {
 				INNER JOIN nationalities ON nationalities.id = players_nationalities.nationality_id
 			`;
 
+		const queryConditions = [];
 		const queryParams = [];
 
-		if (game && isMobile && region) {
-			query += ` WHERE games.game = ? AND games.is_mobile = ? AND nationalities.region = ?`;
-			queryParams.push(game, region);
-		} else if (region) {
-			query += ` WHERE nationalities.region = ?`;
-			queryParams.push(region);
-		} else if (game) {
-			query += ` WHERE games.game = ?`;
+		if (game) {
+			queryConditions.push(`games.game = ?`);
 			queryParams.push(game);
-		} else if (isMobile) {
-			query += ` WHERE games.is_mobile = ?`;
+		}
+
+		if (isMobile) {
+			queryConditions.push(`games.is_mobile = ?`);
 			queryParams.push(isMobile);
+		}
+
+		if (region) {
+			queryConditions.push(`nationalities.region = ?`);
+			queryParams.push(region);
+		}
+
+		// Ajout des conditions à la requête si elles existent
+		if (queryConditions.length > 0) {
+			query += ` WHERE ` + queryConditions.join(" AND ");
 		}
 
 		query += `;`;

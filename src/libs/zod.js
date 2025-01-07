@@ -28,7 +28,6 @@ export const playerSchema = z.object({
 
 export const nationalitiesSchema = z.object({
 	region: z.string().min(1).max(255),
-	nationality: z.string().min(1).max(255),
 });
 
 export const gameSchema = z.object({

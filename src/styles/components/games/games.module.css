@@ -12,3 +12,9 @@
 	flex-wrap: wrap;
 	column-gap: 35px;
 }
+
+@media screen and (max-width: 355px) {
+	.wrapper {
+		gap: 10px;
+	}
+}

@@ -5,12 +5,13 @@ import { outfit, roboto } from "@/libs/font";
 import Image from "next/image";
 import Link from "next/link";
 import initTranslations from "@/app/i18n";
+import Error from "../../error";
 
 export default async function Athlete({ params }) {
 	const { slug, locales } = await params;
 	const { t } = await initTranslations(locales, ["common"]);
 	const { data, success } = await getPlayer(slug);
-	console.log(data);
+	console.log(success);
 	const player = data[0];
 	const hasX = player?.x_url;
 	const hasTiktok = player?.tiktok_url;
@@ -26,6 +27,10 @@ export default async function Athlete({ params }) {
 			return (num / 1000).toFixed(1).replace(/\.0$/, "") + "k";
 		}
 		return num.toString();
+	}
+
+	if (success === false) {
+		<Error />;
 	}
 	return (
 		<main className={styles.main}>
@@ -118,9 +123,12 @@ export default async function Athlete({ params }) {
 						</div>
 					</div>
 					<div className={styles.right}>
-						<div>
+						<div className={styles.names}>
 							<span className={`${outfit.className} ${styles.firstname}`}>
-								{player.firstname}
+								{player.username}
+							</span>
+							<span className={styles.name}>
+								{player.lastname.toUpperCase() + " " + player.firstname}
 							</span>
 							<p className={`${roboto.className} ${styles.game}`}>
 								Professional {player.game} Player
@@ -141,9 +149,11 @@ export default async function Athlete({ params }) {
 				{/* contact */}
 				<div className={styles.contact}>
 					<p dangerouslySetInnerHTML={{ __html: t("getInTouch") }}></p>
-					<button id="contact" className={roboto.className}>
-						{t("btnContact")}
-					</button>
+					<Link href={"/contact"}>
+						<button id="contact" className={roboto.className}>
+							{t("btnContact")}
+						</button>
+					</Link>
 				</div>
 
 				{/* slogan */}

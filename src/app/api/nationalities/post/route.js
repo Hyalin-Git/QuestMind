@@ -6,12 +6,10 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
 	try {
 		const formData = await req.formData();
-		const nationality = formData.get("nationality");
 		const region = formData.get("region");
 
 		const validation = nationalitiesSchema.safeParse({
 			region,
-			nationality,
 		});
 
 		if (!validation.success) {
@@ -30,8 +28,8 @@ export async function POST(req) {
 		const connection = await pool.getConnection();
 
 		const [savedNationality] = await connection.execute(
-			"INSERT INTO `nationalities` (`nationality`, `region`) VALUES (?, ?)",
-			[nationality, region]
+			"INSERT INTO `nationalities` (`region`) VALUES (?)",
+			[region]
 		);
 
 		if (savedNationality.affectedRows <= 0) {

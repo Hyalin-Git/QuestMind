@@ -123,6 +123,7 @@ export default function Header() {
 												{t("headerContact")}
 											</li>
 										</Link>
+										<HeaderDropdown />
 									</ul>
 								</div>
 							)}
