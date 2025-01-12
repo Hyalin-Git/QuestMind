@@ -85,9 +85,9 @@ export default async function About({ params }) {
 					</div>
 				</section>
 				<section className={styles.question}>
-					<h3>{t("aboutQuestion")}</h3>
+					<h3 dangerouslySetInnerHTML={{ __html: t("aboutQuestion") }}></h3>
 					<div>
-						<p>{t("aboutResponse")}</p>
+						<p dangerouslySetInnerHTML={{ __html: t("aboutResponse") }}></p>
 					</div>
 				</section>
 				<div className={styles.buttonWrapper}>

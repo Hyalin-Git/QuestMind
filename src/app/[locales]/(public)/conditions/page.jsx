@@ -1,0 +1,122 @@
+"use client";
+import styles from "@/styles/page/terms-and-conditions.module.css";
+import { useTranslation } from "react-i18next";
+
+export default function Conditions() {
+	const { t } = useTranslation();
+
+	return (
+		<main className={styles.main}>
+			<div className={styles.background}></div>
+			<div className={styles.container}>
+				<h1>{t("conditionsHeader")}</h1>
+				<div>
+					<h2>{t("conditions.0.title")}</h2>
+					<p>{t("conditions.0.textOne")}</p>
+					<ul>
+						<li>{t("conditions.0.liOne")}</li>
+						<li>{t("conditions.0.liTwo")}</li>
+					</ul>
+					<p>{t("conditions.0.textTwo")}</p>
+				</div>
+				<div>
+					<h2>{t("conditions.1.title")}</h2>
+					<p>{t("conditions.1.textOne")}</p>
+					<ul>
+						<li>{t("conditions.1.liOne")}</li>
+						<li>{t("conditions.1.liTwo")}</li>
+						<li>{t("conditions.1.liThree")}</li>
+					</ul>
+					<p>{t("conditions.1.textTwo")}</p>
+				</div>
+				<div>
+					<h2>{t("conditions.2.title")}</h2>
+					<span>{t("conditions.2.spanOne")}</span>
+					<p>{t("conditions.2.textOne")}</p>
+					<ul>
+						<li>{t("conditions.2.liOne")}</li>
+						<li>{t("conditions.2.liTwo")}</li>
+					</ul>
+					<span>{t("conditions.2.spanTwo")}</span>
+					<ul>
+						<li>{t("conditions.2.liThree")}</li>
+					</ul>
+					<span>{t("conditions.2.spanThree")}</span>
+					<p>{t("conditions.2.textTwo")}</p>
+					<ul>
+						<li>{t("conditions.2.liFour")}</li>
+						<li>{t("conditions.2.liFive")}</li>
+						<li>{t("conditions.2.liSix")}</li>
+					</ul>
+					<span>{t("conditions.2.spanFour")}</span>
+					<p>{t("conditions.2.textThree")}</p>
+				</div>
+				<div>
+					<h2>{t("conditions.3.title")}</h2>
+					<span>{t("conditions.3.spanOne")}</span>
+					<ul>
+						<li>{t("conditions.3.liOne")}</li>
+						<li>{t("conditions.3.liTwo")}</li>
+					</ul>
+					<span>{t("conditions.3.spanTwo")}</span>
+					<p>{t("conditions.3.textOne")}</p>
+					<ul>
+						<li>{t("conditions.3.liThree")}</li>
+						<li>{t("conditions.3.liFour")}</li>
+					</ul>
+					<p>{t("conditions.3.textTwo")}</p>
+				</div>
+				<div>
+					<h2>{t("conditions.4.title")}</h2>
+					<span>{t("conditions.4.spanOne")}</span>
+					<ul>
+						<li>{t("conditions.4.liOne")}</li>
+						<li>{t("conditions.4.liTwo")}</li>
+					</ul>
+					<span>{t("conditions.4.spanTwo")}</span>
+					<ul>
+						<li>{t("conditions.4.liThree")}</li>
+					</ul>
+				</div>
+				<div>
+					<h2>{t("conditions.5.title")}</h2>
+					<span>{t("conditions.5.spanOne")}</span>
+					<ul>
+						<li>{t("conditions.5.liOne")}</li>
+					</ul>
+					<span>{t("conditions.5.spanTwo")}</span>
+					<ul>
+						<li>{t("conditions.5.liTwo")}</li>
+					</ul>
+					<span>{t("conditions.5.spanThree")}</span>
+					<ul>
+						<li>{t("conditions.5.liThree")}</li>
+					</ul>
+				</div>
+				<div>
+					<h2>{t("conditions.6.title")}</h2>
+					<span>{t("conditions.6.spanOne")}</span>
+					<ul>
+						<li>{t("conditions.6.liOne")}</li>
+					</ul>
+					<span>{t("conditions.6.spanTwo")}</span>
+					<ul>
+						<li>{t("conditions.6.liTwo")}</li>
+						<li>{t("conditions.6.liThree")}</li>
+					</ul>
+				</div>
+				<div>
+					<h2>{t("conditions.7.title")}</h2>
+					<span>{t("conditions.7.spanOne")}</span>
+					<p>{t("conditions.7.textOne")}</p>
+					<ul>
+						<li>{t("conditions.7.liOne")}</li>
+					</ul>
+					<span>{t("conditions.7.spanTwo")}</span>
+					<p>{t("conditions.7.textTwo")}</p>
+				</div>
+				<h3>{t("conditionsFooter")}</h3>
+			</div>
+		</main>
+	);
+}

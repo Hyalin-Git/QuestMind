@@ -43,7 +43,7 @@ export default async function Services({ params }) {
 		<main className={styles.container}>
 			<div className={styles.background}></div>
 			<div className={styles.heading}>
-				<p>{t("serviceTitle")}</p>
+				<p dangerouslySetInnerHTML={{ __html: t("serviceTitle") }}></p>
 			</div>
 			<div className={styles.content}>
 				{services.map((service) => {

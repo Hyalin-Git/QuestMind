@@ -7,6 +7,7 @@ import Player from "@/components/players/Player";
 import Regions from "@/components/regions/Regions";
 import { outfit } from "@/libs/font";
 import styles from "@/styles/page/athletes.module.css";
+import React from "react";
 
 export default async function Athletes({ searchParams }) {
 	const queries = await searchParams;
@@ -18,6 +19,15 @@ export default async function Athletes({ searchParams }) {
 	);
 	const games = await getGames();
 	const nationalities = await getNationalities();
+
+	// Group players by games
+	const groupedPlayers = players?.data?.reduce((acc, player) => {
+		if (!acc[player.game]) {
+			acc[player.game] = [];
+		}
+		acc[player.game].push(player);
+		return acc;
+	}, {});
 
 	return (
 		<main className={styles.main}>
@@ -35,9 +45,14 @@ export default async function Athletes({ searchParams }) {
 				</section>
 				{/* Athletes list */}
 				<div className={styles.players}>
-					{players?.data?.map((elt) => {
-						return <Player elt={elt} key={elt.id} />;
-					})}
+					{groupedPlayers &&
+						Object.entries(groupedPlayers).map(([game, players]) => (
+							<React.Fragment key={game}>
+								{players.map((elt) => (
+									<Player elt={elt} key={elt.id + game} />
+								))}
+							</React.Fragment>
+						))}
 				</div>
 			</div>
 			{/* Slogan */}

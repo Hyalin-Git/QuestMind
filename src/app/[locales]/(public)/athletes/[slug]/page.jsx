@@ -5,7 +5,7 @@ import { outfit, roboto } from "@/libs/font";
 import Image from "next/image";
 import Link from "next/link";
 import initTranslations from "@/app/i18n";
-import Error from "../../error";
+import Error from "@/app/[locales]/error";
 
 export default async function Athlete({ params }) {
 	const { slug, locales } = await params;

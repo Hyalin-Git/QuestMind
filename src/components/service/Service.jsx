@@ -17,7 +17,7 @@ export default function Service({
 				</div>
 				<div className={styles.content}>
 					<h2 className={outfit.className}>{title}</h2>
-					<p>{content}</p>
+					<p dangerouslySetInnerHTML={{ __html: content }}></p>
 					{subContent && (
 						<>
 							<br />

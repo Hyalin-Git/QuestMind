@@ -2,7 +2,6 @@
 import { getSponsors } from "@/api/sponsors";
 import { getTrendingPlayers } from "@/api/trending";
 import initTranslations from "@/app/i18n";
-// import initTranslations from "@/app/i18n";
 import Players from "@/components/players/Players";
 import Sponsors from "@/components/sponsors/Sponsors";
 import { outfit, roboto } from "@/libs/font";

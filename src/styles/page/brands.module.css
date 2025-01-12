@@ -40,9 +40,7 @@
 	font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 .text span {
-	color: var(--green-color);
 	font-weight: bold;
-	font-style: italic;
 }
 
 .slogan {

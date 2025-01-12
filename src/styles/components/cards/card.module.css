@@ -13,8 +13,8 @@
 .container::before {
 	position: absolute;
 	content: "";
-	top: -2;
-	left: 114;
+	top: -2px;
+	left: 114px;
 	width: 70px;
 	height: 2px;
 	background-color: var(--green-color);

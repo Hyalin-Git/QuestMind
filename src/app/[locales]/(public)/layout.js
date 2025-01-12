@@ -3,11 +3,10 @@ import "@/styles/globals.css";
 import { montserrat } from "@/libs/font";
 import FakeLoading from "@/components/FakeLoading";
 import Footer from "@/layouts/Footer";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/app/TranslationsProvider";
 import Script from "next/script";
+import Head from "next/head";
 
 const i18nNamespaces = ["common"];
 
@@ -27,6 +26,19 @@ export default async function RootLayout({ children, params }) {
 			namespaces={i18nNamespaces}>
 			<html lang={locales}>
 				<head>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="16x16"
+						href="/favicon-16x16.png"
+					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="32x32"
+						href="/favicon-32x32.png"
+					/>
+
 					<Script
 						async
 						src="https://www.googletagmanager.com/gtag/js?id=G-LYN8FBQPD2"></Script>

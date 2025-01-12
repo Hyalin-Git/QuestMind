@@ -84,7 +84,7 @@ export default function Header() {
 													pathname === "/es" ||
 													pathname === "/"
 												}>
-												Accueil
+												{t("headerHome")}
 											</li>
 										</Link>
 										<Link

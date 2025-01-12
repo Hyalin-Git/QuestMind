@@ -20,11 +20,10 @@
 html,
 body {
 	max-width: 100vw;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	min-height: 100svh;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
 }
 
 body {
@@ -123,6 +122,32 @@ textarea:focus {
   }
 } */
 
+/* .carousel-sponsor {
+	width: 100%;
+}
+.carousel-sponsor-item {
+	margin-inline: 20px;
+} */
+/* .slick-slide {
+	margin: 0 30px;
+}
+
+.slick-list {
+	margin: 0 -30px;
+} */
+.cc-slider-container {
+	pointer-events: none;
+}
+.carousel-sponsor {
+	pointer-events: none;
+}
+.carousel-sponsor div {
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+
+	padding: 5px 0 5px 0;
+}
 .carousel-container {
 	margin-inline: auto;
 	width: 90%;

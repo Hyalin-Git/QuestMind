@@ -10,7 +10,7 @@
 .container::before {
 	position: absolute;
 	content: "";
-	top: -3;
+	top: -3px;
 	left: 25%;
 	transform: translateX(-25%);
 	width: 60px;

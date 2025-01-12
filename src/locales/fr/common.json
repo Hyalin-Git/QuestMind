@@ -1,16 +1,19 @@
 {
+	"headerHome": "Accueil",
 	"headerServices": "Nos services",
 	"headerAthletes": "Nos athlètes",
 	"headerBrands": "Pour les marques",
 	"headerAbousUs": "À propos de nous",
 	"headerContact": "Contact",
+	"headerConditions": "Conditions générales",
+	"headerLegal": "Mentions légales",
 
 	"btnContact": "Contact",
 
 	"player": "Joueur",
 	"trust": "Ils ont <strong>confiance</strong> en nous:",
 
-	"serviceTitle": "Chez Questmind, nous mettons notre expertise au service de nos athlètes en les aidant à construire une carrière solide, à développer une image de marque authentique et à créer des collaborations d’exceptions. Avec plus de six ans d'expérience, nous avons élaboré une approche personnalisée et globale pour guider chaque joueur vers l’excellence.",
+	"serviceTitle": "Chez <strong>QuestMind</strong>, nous mettons notre expertise au service de nos athlètes en les aidant à construire une carrière solide, à développer une image de marque authentique et à créer des collaborations d’exceptions. Avec plus de six ans d'expérience, nous avons élaboré une approche personnalisée et globale pour guider chaque joueur vers l’excellence.",
 
 	"cards": [
 		{
@@ -24,18 +27,18 @@
 		},
 		{
 			"title": "Marketing",
-			"content": "Dans l’esport, la visibilité est un facteur clé de succès. Chez Questmind, nous collaborons étroitement avec chaque joueur pour développer une image de marque forte, authentique et fidèle à sa personnalité. Notre mission est de créer une identité qui capte l’attention, inspire la confiance des partenaires et renforce l’engagement des fans. Grâce à des stratégies de communication ciblées et sur mesure, nous aidons les athlètes à se démarquer dans un secteur en pleine croissance, tout en maximisant leur impact sur la scène nationale et internationale."
+			"content": "Dans l’esport, la visibilité est un facteur clé de succès. Chez <strong>QuestMind</strong>, nous collaborons étroitement avec chaque joueur pour développer une image de marque forte, authentique et fidèle à sa personnalité. Notre mission est de créer une identité qui capte l’attention, inspire la confiance des partenaires et renforce l’engagement des fans. Grâce à des stratégies de communication ciblées et sur mesure, nous aidons les athlètes à se démarquer dans un secteur en pleine croissance, tout en maximisant leur impact sur la scène nationale et internationale."
 		},
 		{
 			"title": "Soutien administratif et juridique",
-			"content": "L’esport exige une gestion experte des aspects administratifs et juridiques, souvent complexes et en constante évolution. Chez Questmind, nous offrons un accompagnement rigoureux à chaque joueur, en assurant l’examen minutieux, la validation et l’authenticité de tous les contrats pour garantir des accords solides et transparents. Nous fournissons également des conseils financiers stratégiques et prenons en charge la gestion des litiges et des négociations, protégeant ainsi au mieux les intérêts de nos athlètes. Grâce à cette approche complète, chaque joueur peut se concentrer pleinement sur ses performances, en toute sérénité, tandis que nous veillons à la solidité et à la stabilité de sa carrière."
+			"content": "L’esport exige une gestion experte des aspects administratifs et juridiques, souvent complexes et en constante évolution. Chez <strong>QuestMind</strong>, nous offrons un accompagnement rigoureux à chaque joueur, en assurant l’examen minutieux, la validation et l’authenticité de tous les contrats pour garantir des accords solides et transparents. Nous fournissons également des conseils financiers stratégiques et prenons en charge la gestion des litiges et des négociations, protégeant ainsi au mieux les intérêts de nos athlètes. Grâce à cette approche complète, chaque joueur peut se concentrer pleinement sur ses performances, en toute sérénité, tandis que nous veillons à la solidité et à la stabilité de sa carrière."
 		}
 	],
 
 	"game": "Jeux",
 	"region": "Région",
 
-	"brandsTitle": "Chez QuestMind, nous créons des partenariats stratégiques entre les marques et nos athlètes afin de maximiser l’impact et l’engagement. L’esport offre une opportunité unique de rassembler un public jeune, engagé et fidèle. Grâce à notre expertise, nous vous accompagnons dans la création de collaborations adaptées à vos objectifs, en concevant des activations sur mesure et des campagnes de sponsoring performantes. Notre approche innovante garantit une visibilité optimale et un retour sur investissement maximal, tout en donnant vie à des projets captivants qui créent une véritable valeur ajoutée pour les marques et les athlètes.",
+	"brandsTitle": "Chez <strong>QuestMind</strong>, nous créons des partenariats stratégiques entre les marques et nos athlètes afin de maximiser l’impact et l’engagement. L’esport offre une opportunité unique de rassembler un public jeune, engagé et fidèle. Grâce à notre expertise, nous vous accompagnons dans la création de collaborations adaptées à vos objectifs, en concevant des activations sur mesure et des campagnes de sponsoring performantes. Notre approche innovante garantit une visibilité optimale et un retour sur investissement maximal, tout en donnant vie à des projets captivants qui créent une véritable valeur ajoutée pour les marques et les athlètes.",
 
 	"brandsCards": [
 		{
@@ -76,7 +79,7 @@
 		}
 	],
 
-	"brandsFooterText": "L’esport représente un levier stratégique incontournable pour votre marque. <span>QuestMind</span> est votre allié pour établir des partenariats solides et pérennes dans cet univers. Contactez-nous dès maintenant pour découvrir les opportunités de collaboration qui s’offrent à vous.",
+	"brandsFooterText": "L’esport représente un levier stratégique incontournable pour votre marque. <strong>QuestMind</strong> est votre allié pour établir des partenariats solides et pérennes dans cet univers. Contactez-nous dès maintenant pour découvrir les opportunités de collaboration qui s’offrent à vous.",
 
 	"aboutUs": "à propos de nous",
 	"aboutText": "<strong>QuestMind</strong> a été fondé par une passion commune pour l’esport, nourrie au fil des années par une expérience riche et un réseau solide dans l’industrie. Nous comprenons les exigences du jeu compétitif et les défis spécifiques auxquels les joueurs font face. Notre équipe d’experts, véritablement immergée dans l’univers de l’esport, s'engage à accompagner chaque joueur dans la construction d’une carrière réussie et pérenne.",
@@ -108,8 +111,8 @@
 		}
 	],
 
-	"aboutQuestion": "Pourquoi QuestMind?",
-	"aboutResponse": "Chez Questmind, nous ne sommes plus qu'une agence, mais un véritable partenaire engagé dans la réussite de nos joueurs. Grâce à notre expertise, nous savons anticiper les évolutions du marché et positionner nos talents sur les opportunités les plus prometteuses. Avec QuestMind, vous transformez votre passion en succès au sein d’une agence qui partage pleinement vos ambitions.",
+	"aboutQuestion": "Pourquoi <strong>QuestMind</strong>?",
+	"aboutResponse": "Chez <strong>QuestMind</strong>, nous ne sommes plus qu'une agence, mais un véritable partenaire engagé dans la réussite de nos joueurs. Grâce à notre expertise, nous savons anticiper les évolutions du marché et positionner nos talents sur les opportunités les plus prometteuses. Avec <strong>QuestMind</strong>, vous transformez votre passion en succès au sein d’une agence qui partage pleinement vos ambitions.",
 
 	"contactText": "Envoyez-nous un e-mail ou remplissez le formulaire pour rejoindre nos talents dans leur voyage. Vous pouvez également l'utiliser pour nous contacter pour d'autres questions.",
 
@@ -169,5 +172,136 @@
 
 	"audience": "Audience Total",
 
-	"getInTouch": "Voulez-vous travailler avec notre talent ? <br/> Prenez contact avec nous"
+	"getInTouch": "Voulez-vous travailler avec notre talent ? <br/> Prenez contact avec nous",
+
+	"conditionsHeader": "Conditions Générales de Vente (CGV)",
+
+	"conditions": [
+		{
+			"title": "1/ PREAMBULE",
+			"textOne": "Les présentes Conditions Générales de Vente (ci-après \"CGV\") régissent les relations contractuelles entre :",
+			"liOne": "- Questmind, auto-entreprise immatriculée sous le numéro SIRET FR92488225100011, dont le siège social est situé La Ville Besnard, 35400 Saint-Malo, France, représentée par Killian SIMON.",
+			"liTwo": "- Le client : toute personne physique ou morale ayant recours aux services de Questmind (ci-après \"le Client\").",
+			"textTwo": "En utilisant les services de Questmind, le Client accepte sans réserve les présentes CGV."
+		},
+		{
+			"title": "2/ OBJET DES CGV",
+			"textOne": "Les présentes CGV définissent les droits et obligations des parties dans le cadre des prestations de Questmind, consistant en :",
+			"liOne": "- Le management d’athlètes esport.",
+			"liTwo": "- La recherche de partenariats et sponsors.",
+			"liThree": "- La gestion de la communication des athlètes esport.",
+			"textTwo": "Questmind perçoit une rémunération sous forme de commissions, directement facturées soit au Client (athlète), soit à l’équipe ou organisation partenaire selon les modalités définies contractuellement."
+		},
+		{
+			"title": "3/ MODALITÉS DE PAIEMENT",
+			"spanOne": "1. Moyen de paiement",
+			"textOne": "Questmind accepte les moyens de paiement suivants :",
+			"liOne": "- Carte bancaire : Les paiements par carte bancaire doivent être effectués via une plateforme sécurisée.",
+			"liTwo": "- Virement bancaire : Les coordonnées bancaires seront précisées sur chaque facture émise.",
+			"spanTwo": "2. Délais de paiement",
+			"liThree": "- Les factures émises par Questmind doivent être réglées dans un délai de 30 jours à compter de leur réception, sauf mention contraire sur la facture.",
+			"spanThree": "3. Retard de paiement",
+			"textTwo": "En cas de retard de paiement de la commission due à Questmind:",
+			"liFour": "- Des pénalités de retard seront appliquées à compter du lendemain de la date d'échéance mentionnées sur la facture. Ces pénalités sont calculées sur la base d’un taux annuel de 12 %, soit 1 % par mois de retard.",
+			"liFive": "- Une indemnité forfaitaire pour frais de recouvrement de 40 € sera également ajoutée à chaque facture impayée, conformément à l’article D441-5 du Code de commerce.",
+			"liSix": "- Questmind se réserve le droit de suspendre ses prestations ou collaborations en cours jusqu’à régularisation des sommes dues.",
+			"spanFour": "4. Exécution des prestations",
+			"textThree": "Les prestations de Questmind ne débuteront qu’après la signature d’un contrat ou d’un accord écrit et, si applicable, après le paiement de toute somme initiale convenue."
+		},
+		{
+			"title": "4/ MODALITES DE REMUNERATION",
+			"spanOne": "1. Base de commissionnement",
+			"liOne": "- Questmind perçoit une commission correspondant à un pourcentage des revenus générés par le Client dans le cadre des partenariats, sponsors ou tout autre revenu directement lié à l'activité esport gérée par Questmind.",
+			"liTwo": "- Le pourcentage de la commission et les modalités de facturation sont définis dans un accord écrit ou un contrat signé entre Questmind et le Client (ou l’équipe).",
+			"spanTwo": "2. Facturation",
+			"textOne": "La commission peut être facturée directement :",
+			"liThree": "- Au Client (athlète) : sur les revenus perçus grâce aux partenariats ou sponsors.",
+			"liFour": "- À l’équipe ou organisation partenaire : en fonction des revenus générés grâce à la collaboration entre l’athlète et l’équipe, ou en application des accords contractuels.",
+			"textTwo": "Une facture détaillée sera émise par Questmind précisant la base de calcul de la commission (montant du partenariat ou sponsor)."
+		},
+		{
+			"title": "5/ OBLIGATION DE QUESTMIND",
+			"spanOne": "1. Engagements",
+			"liOne": "- Questmind s’engage à déployer tous les efforts raisonnables pour rechercher des opportunités, partenaires et sponsors pour les athlètes esport qu’elle gère.",
+			"liTwo": "- Questmind ne garantit pas de résultats précis, ces derniers dépendant de nombreux facteurs extérieurs.",
+			"spanTwo": "2. Confidentialité",
+			"liThree": "- Questmind s’engage à respecter la confidentialité des informations fournies par le Client."
+		},
+		{
+			"title": "6/ OBLIGATION DU CLIENT",
+			"spanOne": "1. Engagements",
+			"liOne": "- Le Client s’engage à collaborer activement avec Questmind en fournissant toutes les informations nécessaires à la réalisation des prestations.",
+			"spanTwo": "2. Transparence",
+			"liTwo": "- Le Client s’engage à informer Questmind de tout revenu perçu dans le cadre des partenariats ou sponsors négociés grâce à ses services.",
+			"spanThree": "3. Relation avec les équipes",
+			"liThree": "- Si les commissions doivent être facturées directement aux équipes ou organisations partenaires, le Client doit faciliter la communication entre Questmind et les parties concernées."
+		},
+		{
+			"title": "7/ DROIT APPLICABLE ET LITIGES",
+			"spanOne": "1. Engagements",
+			"liOne": "- Les présentes CGV sont régies par le droit français.",
+			"spanTwo": "2. Résolution des litiges",
+			"liTwo": "- En cas de différend, les parties s’engagent à rechercher une solution amiable.",
+			"liThree": "- Si aucun accord n’est trouvé, le litige sera soumis aux juridictions compétentes du lieu du siège social de Questmind."
+		},
+		{
+			"title": "8/ DISPOSITION DIVERSE",
+			"spanOne": "1. Contact",
+			"textOne": "Pour toute question ou demande concernant les CGV, vous pouvez contacter Questmind :",
+			"liOne": "- E-mail : contact@questmind.gg",
+			"spanTwo": "2. Modifications ultérieures",
+			"textTwo": "Les CGV ainsi établies peuvent être modifiées à tout moment et unilatéralement. Toutefois l’acceptation des présentes CGV seront de nouveau nécessaires de la part du client."
+		}
+	],
+
+	"conditionsFooter": "CGV réalisée le 08/01/2025",
+
+	"termsHeader": "Mentions Légales",
+
+	"terms": [
+		{
+			"title": "1/ PRÉSENTATION DU SITE INTERNET",
+			"textOne": "En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site internet https://www.questmind.gg l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi :",
+			"textTwo": "Propriétaire : Questmind - Killian SIMON. Numéro de Siret: FR92488225100011– La Ville Besnard, 35400 Saint-Malo, France",
+			"textThree": "Responsable publication : Questmind - Killian SIMON – <u>contact@questmind.gg</u> <br/> Le responsable publication est une personne physique ou une personne morale.",
+			"textFour": "Webmaster : Killian SIMON – <u>ksimon@questmind.gg</u>",
+			"textFive": "Hébergeur : PlanetHoster – 4416 Louis B.Mayer – Laval Québec CANADA – H7P 0G1",
+			"textSix": "Délégué à la protection des données : Killian SIMON – ksimon@questmind.gg"
+		},
+		{
+			"title": "2/ PROPRIÉTÉ INTELLECTUELLE",
+			"textOne": "L’ensemble des contenus présents sur le Site, incluant mais ne se limitant pas aux textes, images, graphismes, logos, vidéos, et icônes, sont la propriété exclusive de Questmind ou de ses partenaires, sauf mention contraire explicite.",
+			"textTwo": "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du Site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Questmind."
+		},
+		{
+			"title": "3/ DONNÉES PERSONNELLES",
+			"textOne": "Dans le cadre de l’utilisation du formulaire de contact présent sur le Site, Questmind collecte des données personnelles nécessaires pour répondre à vos demandes.",
+			"spanOne": "Données collectées :",
+			"liOne": "-Nom et prénom",
+			"liTwo": "- Adresse e-mail",
+			"liThree": "- Message",
+			"spanTwo": "Finalité du traitement :",
+			"textTwo": "Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et pour assurer un suivi éventuel de vos échanges.",
+			"spanThree": "Durée de conservation des données :",
+			"textThree": "Les données sont conservées pour une durée de 3 (trois) ans à compter du dernier échange.",
+			"spanFour": "Droits des utilisateurs :.",
+			"textFour": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants :",
+			"liFour": "- Droit d’accès, de rectification, et de suppression de vos données.",
+			"liFive": "Droit à la portabilité de vos données.",
+			"liSix": "Droit d’opposition et de limitation au traitement de vos données.",
+			"textFive": "Pour exercer ces droits, vous pouvez contacter : <u>contact@questmind.gg</u>."
+		},
+		{
+			"title": "4/ COOKIES",
+			"textOne": "Le Site peut utiliser des cookies pour améliorer l’expérience de navigation et collecter des données anonymes sur l’utilisation du Site. Vous pouvez configurer votre navigateur pour refuser les cookies ou pour être averti avant d’accepter leur installation."
+		},
+		{
+			"title": "5/ RESPONSABILITÉ",
+			"textOne": "Questmind s’efforce de fournir sur le Site des informations aussi précises que possible. Toutefois, Questmind ne pourra être tenue responsable des omissions, des inexactitudes, ou des carences dans la mise à jour, qu'elles soient de son fait ou du fait de tiers partenaires qui fournissent ces informations."
+		},
+		{
+			"title": "6/ CONTACT",
+			"textOne": "Pour toute question ou demande concernant les mentions légales, vous pouvez contacter Questmind à l’adresse suivante : contact@questmind.gg."
+		}
+	]
 }

@@ -44,6 +44,16 @@ export default function Footer() {
 					</li>
 				</ul>
 			</div>
+			<div className={styles.links}>
+				<ul>
+					<li>
+						<Link href={"/conditions"}>{t("headerConditions")}</Link>
+					</li>
+					<li>
+						<Link href={"/terms"}>{t("headerLegal")}</Link>
+					</li>
+				</ul>
+			</div>
 			{/* social links */}
 			<div className={styles.socials}>
 				<span>{t("followUs")}</span>

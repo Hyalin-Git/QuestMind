@@ -65,7 +65,7 @@ export default async function Brands({ params }) {
 			<div className={styles.background}></div>
 			<div className={styles.container}>
 				<div className={styles.heading}>
-					<p>{t("brandsTitle")}</p>
+					<p dangerouslySetInnerHTML={{ __html: t("brandsTitle") }}></p>
 				</div>
 
 				<Cards data={Cardsdata} />
