@@ -1,4 +1,4 @@
-import styles from "@/styles/components/auth/sign.module.css";
+import styles from "@/styles/components/auth/signIn.module.css";
 import { roboto } from "@/libs/font";
 
 export default function SignIn({ setSignIn, setSignUp }) {

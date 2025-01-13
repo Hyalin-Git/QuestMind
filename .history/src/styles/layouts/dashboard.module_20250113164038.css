@@ -1,0 +1,4 @@
+.container aside {
+    background-color: var(--foreground);
+    max-width: 400px;
+}

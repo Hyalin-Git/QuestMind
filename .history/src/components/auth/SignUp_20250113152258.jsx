@@ -1,15 +1,15 @@
-import styles from "@/styles/components/auth/sign.module.css";
 import { roboto } from "@/libs/font";
+import styles from "@/styles/components/auth/signIn.module.css";
 
-export default function SignIn({ setSignIn, setSignUp }) {
-  function handleSignUp() {
-    setSignIn(false);
-    setSignUp(true);
+export default function SignUp({ setSignIn, setSignUp }) {
+  function handleSignIn() {
+    setSignUp(false);
+    setSignIn(true);
   }
 
   return (
     <div className={styles.container}>
-      <h1>J'ai déjà un compte</h1>
+      <h1>Créer un compte pour utilisateur</h1>
       <form action="">
         <div>
           <label htmlFor="email">Adresse e-mail</label>
@@ -20,12 +20,13 @@ export default function SignIn({ setSignIn, setSignUp }) {
           <input type="password" name="password" id="password" />
         </div>
         <div>
-          <button className={roboto.className}>Connexion</button>
+          <button className={roboto.className}>Créer le compte</button>
         </div>
       </form>
-      <span onClick={handleSignUp}>
-        Créer un compte pour un autre utilisateur
-      </span>
+      <p>
+        Vous avez déjà un compte ?{" "}
+        <span onClick={handleSignIn}>se connecter</span>
+      </p>
     </div>
   );
 }

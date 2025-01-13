@@ -1,6 +1,7 @@
 "use client";
 import styles from "@/styles/page/auth.module.css";
 import SignIn from "@/components/auth/SignIn";
+import Image from "next/image";
 import { useState } from "react";
 import SignUp from "@/components/auth/SignUp";
 

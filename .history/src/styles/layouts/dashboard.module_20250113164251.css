@@ -1,0 +1,7 @@
+.container aside {
+    background-color: var(--foreground);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 300px;
+    height: 100svh;
+}

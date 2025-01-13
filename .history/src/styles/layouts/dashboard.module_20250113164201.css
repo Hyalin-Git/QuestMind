@@ -1,0 +1,13 @@
+.container {
+
+    background-color: blue;
+}
+
+.container aside {
+
+    /* background-color: var(--foreground); */
+    background-color: red;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+}

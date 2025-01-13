@@ -1,0 +1,10 @@
+.container {}
+
+.container aside {
+
+    background-color: var(--foreground);
+
+    width: 100%;
+    max-width: 300px;
+    height: 100svh;
+}
