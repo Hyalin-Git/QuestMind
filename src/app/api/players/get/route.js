@@ -11,7 +11,7 @@ export async function GET(req) {
 		const connection = await pool.getConnection();
 
 		let query = `
-				SELECT players.id, players.firstName, players.username, players.picture, games.game,   
+				SELECT players.id,  players.lastName, players.firstName, players.username, players.picture, players.team, players.audience, players.created_at, players.updated_at, games.game,   
 				nationalities.region
 				FROM players
 				INNER JOIN players_games ON players.id = players_games.player_id

@@ -77,6 +77,10 @@ button#contact:hover {
 	transition: 0.3s all linear;
 }
 
+button[data-disabled="true"] {
+	background-color: #0ead6881 !important;
+}
+
 address {
 	font-style: normal;
 }

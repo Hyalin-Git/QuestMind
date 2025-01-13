@@ -58,7 +58,7 @@ export async function POST(req) {
 				role: user[0].role,
 			},
 			process.env.JWT_SECRET,
-			{ expiresIn: "30m" }
+			{ expiresIn: "15m" }
 		);
 
 		const refreshToken = jwt.sign(

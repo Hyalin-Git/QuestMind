@@ -16,6 +16,11 @@ export async function getTrendingPlayers() {
 		// }
 
 		const data = await res.json();
+
+		if (data.error) {
+			throw new Error(data?.message);
+		}
+
 		return data;
 	} catch (err) {
 		console.error("Failed to fetch trending players:", err);

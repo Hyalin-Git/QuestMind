@@ -50,3 +50,8 @@
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+.errorMessage {
+	text-align: center;
+	color: #e53935;
+}
