@@ -16,39 +16,45 @@ export default function Player({ elt }) {
 
 	const isMobileGame = elt?.game;
 
+	console.log(elt);
+
 	console.log(isMobileGame);
 	return (
-		<div>
-			<Link href={`/athletes/${elt?.id}`}>
-				<div className={styles.container}>
-					<div className={styles.imgWrapper}>
-						<Image
-							className={styles.img}
-							src={elt.picture}
-							width={500}
-							height={500}
-							quality={100}
-							alt={`Photo de ${elt?.firstName}`}
-						/>
-					</div>
-					<div className={styles.info}>
-						<span className={`${styles.name} ${outfit.className}`}>
-							{elt?.username}
-						</span>
-						<span className={styles.game}>
-							{isFr || isEs ? (
-								<>
-									{t("player")} {elt?.game}
-								</>
-							) : (
-								<>
-									{elt?.game} {t("player")}
-								</>
-							)}
-						</span>
-					</div>
+		<>
+			{(elt?.game || elt?.region) && (
+				<div>
+					<Link href={`/athletes/${elt?.id}`}>
+						<div className={styles.container}>
+							<div className={styles.imgWrapper}>
+								<Image
+									className={styles.img}
+									src={elt.picture}
+									width={500}
+									height={500}
+									quality={100}
+									alt={`Photo de ${elt?.firstName}`}
+								/>
+							</div>
+							<div className={styles.info}>
+								<span className={`${styles.name} ${outfit.className}`}>
+									{elt?.username}
+								</span>
+								<span className={styles.game}>
+									{isFr || isEs ? (
+										<>
+											{t("player")} {elt?.game}
+										</>
+									) : (
+										<>
+											{elt?.game} {t("player")}
+										</>
+									)}
+								</span>
+							</div>
+						</div>
+					</Link>
 				</div>
-			</Link>
-		</div>
+			)}
+		</>
 	);
 }

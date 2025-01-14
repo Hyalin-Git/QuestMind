@@ -54,27 +54,30 @@ ul {
 button {
 	border: none;
 	cursor: pointer;
+	background-color: var(--green-color);
+	color: rgba(255, 255, 255, 0.95);
+	font-weight: 500;
+	font-size: clamp(0.8em, 2.5vw, 1rem);
+	transition: 0.3s all linear;
+}
+
+button:hover {
+	background-color: #dda448;
+	transition: 0.3s all linear;
 }
 
 button#contact {
 	position: relative;
 	margin-top: 60px;
-	background-color: var(--green-color);
 	padding: 20px 60px 20px 60px;
 	border-radius: 40px;
-	color: rgba(255, 255, 255, 0.95);
-	font-size: clamp(0.8em, 2.5vw, 1rem);
 	text-transform: uppercase;
-	font-weight: 500;
 	box-shadow: 0px 0px 15px var(--green-color);
 	opacity: 0.7;
-	transition: 0.3s all linear;
 }
 
 button#contact:hover {
-	background-color: #dda448;
 	box-shadow: 0px 0px 15px #dda448;
-	transition: 0.3s all linear;
 }
 
 button[data-disabled="true"] {
@@ -91,14 +94,15 @@ label {
 	font-size: 15px;
 }
 
-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
 textarea {
 	margin-top: 12px;
 	background-color: #d9d9d948;
 	border: none;
 	padding: 20px;
 	border-radius: 15px;
-
 	outline: none;
 	caret-color: var(--text-color);
 	border: 2px solid transparent;
@@ -214,4 +218,18 @@ textarea:focus {
 	.carousel-container {
 		width: 100%;
 	}
+}
+
+#layout {
+	position: fixed;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+html:has(#modal) {
+	overflow: hidden;
 }

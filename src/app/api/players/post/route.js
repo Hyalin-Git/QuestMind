@@ -11,7 +11,6 @@ export async function POST(req) {
 		const username = formData.get("username");
 		const picture = formData.get("picture");
 		const team = formData.get("team");
-		const genre = formData.get("genre");
 		const audience = formData.get("audience");
 		const xUrl = formData.get("xUrl");
 		const tiktokUrl = formData.get("tiktokUrl");
@@ -25,7 +24,6 @@ export async function POST(req) {
 			username,
 			picture,
 			team,
-			genre,
 			audience,
 			xUrl,
 			tiktokUrl,
@@ -50,14 +48,13 @@ export async function POST(req) {
 		const connection = await pool.getConnection();
 
 		const [savedPlayer] = await connection.execute(
-			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `genre`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				lastname,
 				firstname,
 				username,
 				null,
 				team,
-				genre,
 				audience,
 				xUrl,
 				tiktokUrl,
@@ -93,6 +90,7 @@ export async function POST(req) {
 			{
 				success: true,
 				message: "Player successfully created",
+				insertId: savedPlayer?.insertId,
 			},
 			{ status: 201 }
 		);

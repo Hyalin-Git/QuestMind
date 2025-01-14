@@ -49,7 +49,7 @@ export default async function Athletes({ searchParams }) {
 						Object.entries(groupedPlayers).map(([game, players]) => (
 							<React.Fragment key={game}>
 								{players.map((elt) => (
-									<Player elt={elt} key={elt.id + game} />
+									<Player elt={elt} key={elt.id} />
 								))}
 							</React.Fragment>
 						))}

@@ -11,13 +11,18 @@ export async function GET(req) {
 		const connection = await pool.getConnection();
 
 		let query = `
-				SELECT players.id,  players.lastName, players.firstName, players.username, players.picture, players.team, players.audience, players.created_at, players.updated_at, games.game,   
+				SELECT players.id,  players.lastName, players.firstName, players.username, players.picture, players.team, players.audience, players.x_url, 
+				players.tiktok_url, 
+				players.instagram_url, 
+				players.twitch_url, 
+				players.youtube_url,
+				players.created_at, players.updated_at, games.game,   
 				nationalities.region
 				FROM players
-				INNER JOIN players_games ON players.id = players_games.player_id
-				INNER JOIN games ON games.id = players_games.game_id 
-				INNER JOIN players_nationalities ON players.id = players_nationalities.player_id
-				INNER JOIN nationalities ON nationalities.id = players_nationalities.nationality_id
+				LEFT JOIN players_games ON players.id = players_games.player_id
+				LEFT JOIN games ON games.id = players_games.game_id 
+				LEFT JOIN players_nationalities ON players.id = players_nationalities.player_id
+				LEFT JOIN nationalities ON nationalities.id = players_nationalities.nationality_id
 			`;
 
 		const queryConditions = [];

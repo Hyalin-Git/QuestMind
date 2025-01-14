@@ -1,6 +1,5 @@
 .main {
 	margin: 60px;
-	width: 100%;
 }
 
 .container {
@@ -10,29 +9,4 @@
 	align-items: center;
 	text-align: center;
 	gap: 40px;
-}
-
-.container section {
-	display: flex;
-	flex-direction: column;
-	gap: 40px;
-}
-
-.container table thead th {
-	background-color: var(--green-color);
-	padding: 8px;
-	color: white;
-}
-.container table tbody th {
-	font-size: 0.8rem;
-	font-weight: 400;
-	color: black;
-}
-
-.container table tbody > tr {
-	background-color: white;
-}
-
-.container table tbody > tr:nth-of-type(even) {
-	background-color: var(--border-color);
 }

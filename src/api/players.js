@@ -1,5 +1,8 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
+
 export async function getPlayers(game, isMobile, region) {
 	try {
 		const queries = [
@@ -17,7 +20,8 @@ export async function getPlayers(game, isMobile, region) {
 				headers: {
 					"Content-Type": "application/json",
 				},
-			}
+			},
+			{ next: { tags: ["players"] } }
 		);
 
 		const data = await res.json();
@@ -47,5 +51,40 @@ export async function getPlayer(playerId) {
 		return data;
 	} catch (err) {
 		console.log();
+	}
+}
+
+export async function deletePlayer(playerId) {
+	try {
+		const cookie = await cookies();
+		const session = cookie?.get("session");
+
+		if (!playerId) {
+			throw new Error("Paramètre manquant");
+		}
+
+		const res = await fetch(
+			`${process.env.API_URL}/api/players/delete/${playerId}`,
+			{
+				method: "DELETE",
+				headers: {
+					Authorization: `Bearer ${session?.value}`,
+				},
+			}
+		);
+
+		const response = await res.json();
+
+		if (!response.success) {
+			throw new Error(response?.message);
+		}
+
+		revalidateTag("players");
+
+		return response;
+	} catch (err) {
+		console.error("Failed to delete player:", err);
+
+		return err;
 	}
 }

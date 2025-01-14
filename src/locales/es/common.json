@@ -13,12 +13,12 @@
 	"player": "Jugadores de",
 	"trust": "<strong>Confían</strong> en nosotros:",
 
-	"serviceTitle": "En <strong>QuestMind</strong>, ponemos nuestra experiencia al servicio de nuestros deportistas ayudándoles a construir una carrera sólida, desarrollar una imagen de marca auténtica y crear asociaciones excepcionales. Con más de seis años de experiencia, hemos desarrollado un enfoque integral y a medida diseñado para impulsar a cada jugador a la cima de su carrera.",
+	"serviceTitle": "En <strong>Questmind</strong>, ponemos nuestra experiencia al servicio de nuestros deportistas ayudándoles a construir una carrera sólida, desarrollar una imagen de marca auténtica y crear asociaciones excepcionales. Con más de seis años de experiencia, hemos desarrollado un enfoque integral y a medida diseñado para impulsar a cada jugador a la cima de su carrera.",
 
 	"cards": [
 		{
 			"title": "Career Management",
-			"content": "Creemos que cada atleta merece un apoyo personalizado, una gestión integral de su carrera y una visión estratégica para el futuro. Nuestra misión es ofrecerles las mejores oportunidades para garantizar su éxito a largo plazo. En <strong>QuestMind</strong>, ofrecemos un servicio personalizado destinado a definir un plan de carrera que plasme las ambiciones y el potencial únicos de cada individuo.",
+			"content": "Creemos que cada atleta merece un apoyo personalizado, una gestión integral de su carrera y una visión estratégica para el futuro. Nuestra misión es ofrecerles las mejores oportunidades para garantizar su éxito a largo plazo. En <strong>Questmind</strong>, ofrecemos un servicio personalizado destinado a definir un plan de carrera que plasme las ambiciones y el potencial únicos de cada individuo.",
 			"subContent": "También nos ocupamos de encontrar el equipo adecuado para nuestros jugadores, teniendo en cuenta sus objetivos, su voluntad y su compatibilidad. Negociamos con los equipos para garantizar acuerdos beneficiosos adaptados a las aspiraciones de cada atleta."
 		},
 		{
@@ -38,7 +38,7 @@
 	"game": "Juegos",
 	"region": "Región",
 
-	"brandsTitle": "En <strong>QuestMind</strong>, creamos partnership estratégicas entre las marcas y nuestros atletas de esports para maximizar el impacto y el compromiso. Los deportes electrónicos ofrecen una oportunidad única para unir a un público joven y fiel. Utilizamos nuestra experiencia para ayudarle a desarrollar activaciones a medida y campañas de patrocinio eficaces. Nuestras soluciones de asociación :",
+	"brandsTitle": "En <strong>Questmind</strong>, creamos partnership estratégicas entre las marcas y nuestros atletas de esports para maximizar el impacto y el compromiso. Los deportes electrónicos ofrecen una oportunidad única para unir a un público joven y fiel. Utilizamos nuestra experiencia para ayudarle a desarrollar activaciones a medida y campañas de patrocinio eficaces. Nuestras soluciones de asociación :",
 
 	"brandsCards": [
 		{
@@ -61,7 +61,7 @@
 		}
 	],
 
-	"question": "Why choose <strong>QuestMind</strong>?",
+	"question": "Why choose <strong>Questmind</strong>?",
 
 	"brandsResponses": [
 		{
@@ -81,10 +81,10 @@
 		}
 	],
 
-	"brandsFooterText": "Los deportes electrónicos son una poderosa palanca estratégica para su marca. <strong>QuestMind</strong> es su socio para crear asociaciones sólidas y duraderas en este mundo. Póngase en contacto con nosotros hoy mismo para explorar sus oportunidades de colaboración.",
+	"brandsFooterText": "Los deportes electrónicos son una poderosa palanca estratégica para su marca. <strong>Questmind</strong> es su socio para crear asociaciones sólidas y duraderas en este mundo. Póngase en contacto con nosotros hoy mismo para explorar sus oportunidades de colaboración.",
 
 	"aboutUs": "Nosotros",
-	"aboutText": "<strong>QuestMind</strong> se fundó a partir de una pasión compartida por los deportes electrónicos, reforzada con el tiempo por años de experiencia y una sólida red dentro del sector. Entendemos las exigencias del juego competitivo y los desafíos únicos a los que se enfrentan los jugadores. Nuestro equipo está formado por expertos que viven y respiran los deportes electrónicos, dedicados a ayudar a cada jugador a construir una carrera exitosa y sostenible.",
+	"aboutText": "<strong>Questmind</strong> se fundó a partir de una pasión compartida por los deportes electrónicos, reforzada con el tiempo por años de experiencia y una sólida red dentro del sector. Entendemos las exigencias del juego competitivo y los desafíos únicos a los que se enfrentan los jugadores. Nuestro equipo está formado por expertos que viven y respiran los deportes electrónicos, dedicados a ayudar a cada jugador a construir una carrera exitosa y sostenible.",
 
 	"aboutCards": [
 		{
@@ -113,8 +113,8 @@
 		}
 	],
 
-	"aboutQuestion": "¿Por qué <strong>QuestMind</strong>?",
-	"aboutResponse": "En <strong>QuestMind</strong>, somos más que una agencia: somos un socio de confianza que invierte en el éxito de nuestros jugadores. Nuestra experiencia nos permite anticiparnos a las necesidades del mercado y posicionar a nuestros talentos para las mejores oportunidades. Con <strong>QuestMind</strong>, convierta su pasión en éxito y únase a una agencia que comparte sus ambiciones.",
+	"aboutQuestion": "¿Por qué <strong>Questmind</strong>?",
+	"aboutResponse": "En <strong>Questmind</strong>, somos más que una agencia: somos un socio de confianza que invierte en el éxito de nuestros jugadores. Nuestra experiencia nos permite anticiparnos a las necesidades del mercado y posicionar a nuestros talentos para las mejores oportunidades. Con <strong>Questmind</strong>, convierta su pasión en éxito y únase a una agencia que comparte sus ambiciones.",
 
 	"contactText": "Envíenos un correo electrónico o rellene el formulario para unirse a nuestros talentos en su viaje. También puedes utilizarlo para otras consultas.",
 
@@ -222,7 +222,7 @@
 			"textTwo": "Questmind emitirá una factura detallada especificando la base de cálculo de la comisión (monto de la asociación o patrocinio)."
 		},
 		{
-			"title": "5/ OBLIGACIONES DE QUESTMIND",
+			"title": "5/ OBLIGACIONES DE Questmind",
 			"spanOne": "1. Compromisos",
 			"liOne": "- Questmind se compromete a realizar todos los esfuerzos razonables para buscar oportunidades, socios y patrocinadores para los atletas de esports que gestiona.",
 			"liTwo": "- Questmind no garantiza resultados específicos, ya que estos dependen de muchos factores externos.",
@@ -250,7 +250,7 @@
 			"title": "8/ DISPOSICIONES DIVERSAS",
 			"spanOne": "1. Contacto",
 			"textOne": "Para cualquier consulta o solicitud relacionada con las CGV, puede contactar a Questmind:",
-			"liOne": "- Correo electrónico: contact@questmind.gg",
+			"liOne": "- Correo electrónico: contact@Questmind.gg",
 			"spanTwo": "2. Modificaciones Posteriores",
 			"textTwo": "Las CGV establecidas pueden ser modificadas en cualquier momento y de manera unilateral. Sin embargo, será necesario que el Cliente acepte nuevamente estas CGV."
 		}
@@ -263,12 +263,12 @@
 	"terms": [
 		{
 			"title": "1/ PRESENTACIÓN DEL SITIO WEB",
-			"textOne": "De conformidad con el artículo 6 de la Ley n° 2004-575 del 21 de junio de 2004 sobre la confianza en la economía digital, se proporciona a los usuarios del sitio web https://www.questmind.gg la identidad de los diferentes actores involucrados en su realización y seguimiento:",
+			"textOne": "De conformidad con el artículo 6 de la Ley n° 2004-575 del 21 de junio de 2004 sobre la confianza en la economía digital, se proporciona a los usuarios del sitio web https://www.Questmind.gg la identidad de los diferentes actores involucrados en su realización y seguimiento:",
 			"textTwo": "Propietario: Questmind - Killian SIMON. Número de SIRET: FR92488225100011 – La Ville Besnard, 35400 Saint-Malo, Francia",
-			"textThree": "Responsable de la publicación: Questmind - Killian SIMON – <u>contact@questmind.gg</u> <br/> El responsable de la publicación puede ser una persona física o una persona jurídica.",
-			"textFour": "Webmaster: Killian SIMON – <u>ksimon@questmind.gg</u>",
+			"textThree": "Responsable de la publicación: Questmind - Killian SIMON – <u>contact@Questmind.gg</u> <br/> El responsable de la publicación puede ser una persona física o una persona jurídica.",
+			"textFour": "Webmaster: Killian SIMON – <u>ksimon@Questmind.gg</u>",
 			"textFive": "Proveedor de hospedaje: PlanetHoster – 4416 Louis B. Mayer – Laval Quebec CANADÁ – H7P 0G1",
-			"textSix": "Delegado de protección de datos: Killian SIMON – ksimon@questmind.gg"
+			"textSix": "Delegado de protección de datos: Killian SIMON – ksimon@Questmind.gg"
 		},
 		{
 			"title": "2/ PROPIEDAD INTELECTUAL",
@@ -291,7 +291,7 @@
 			"liFour": "- Derecho de acceso, rectificación y eliminación de sus datos.",
 			"liFive": "Derecho a la portabilidad de sus datos.",
 			"liSix": "Derecho a oponerse y restringir el tratamiento de sus datos.",
-			"textFive": "Para ejercer estos derechos, puede contactar a: <u>contact@questmind.gg</u>."
+			"textFive": "Para ejercer estos derechos, puede contactar a: <u>contact@Questmind.gg</u>."
 		},
 		{
 			"title": "4/ COOKIES",
@@ -303,7 +303,7 @@
 		},
 		{
 			"title": "6/ CONTACTO",
-			"textOne": "Para cualquier consulta o solicitud sobre el aviso legal, puede contactar a Questmind en la siguiente dirección: contact@questmind.gg."
+			"textOne": "Para cualquier consulta o solicitud sobre el aviso legal, puede contactar a Questmind en la siguiente dirección: contact@Questmind.gg."
 		}
 	]
 }
