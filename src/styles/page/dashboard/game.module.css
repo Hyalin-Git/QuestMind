@@ -1,15 +1,11 @@
 .main {
 	margin: 60px;
-	overflow-x: hidden;
-
 	width: 100%;
 }
 
 .container {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	text-align: center;
-	gap: 40px;
 }

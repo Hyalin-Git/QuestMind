@@ -26,9 +26,10 @@ export async function decryptToken(session) {
 		const data = await res.json();
 
 		console.log(data, "from decrypt token");
+		console.log(res.status);
 
 		if (!data.success) {
-			if (data.message.includes("expired")) {
+			if (res.status === 401) {
 				const cookie = await cookies();
 				const token = cookie.get("rtk");
 				console.log("expired token so trying to refresh");
@@ -96,7 +97,7 @@ export async function refreshToken(token) {
 		});
 
 		const newSessionToken = cookie.get("session");
-
+		console.log(res, "token refresh damn");
 		return await decryptToken(newSessionToken);
 	} catch (err) {
 		console.log(err);

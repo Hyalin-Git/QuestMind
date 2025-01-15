@@ -26,6 +26,10 @@
 	width: 100%;
 	min-width: 1200px;
 }
+
+.container table tbody tr {
+	height: 50px; /* Hauteur minimale */
+}
 .container table thead th {
 	background-color: var(--green-color);
 	padding: 8px;

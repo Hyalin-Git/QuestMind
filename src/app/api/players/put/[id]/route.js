@@ -11,27 +11,23 @@ export async function PUT(req, { params }) {
 		const firstname = formData.get("firstname");
 		const username = formData.get("username");
 		const picture = formData.get("picture");
-		const genre = formData.get("genre");
+		const team = formData.get("team");
 		const audience = formData.get("audience");
-		const firstPerformance = formData.get("firstPerformance");
-		const secondPerformance = formData.get("secondPerformance");
-		const thirdPerformance = formData.get("thirdPerformance");
 		const xUrl = formData.get("xUrl");
 		const tiktokUrl = formData.get("tiktokUrl");
 		const instagramUrl = formData.get("instagramUrl");
 		const youtubeUrl = formData.get("youtubeUrl");
 		const twitchUrl = formData.get("twitchUrl");
 
+		console.log(picture);
+
 		const validation = playerSchema.safeParse({
 			lastname,
 			firstname,
 			username,
 			picture,
-			genre,
+			team,
 			audience,
-			firstPerformance,
-			secondPerformance,
-			thirdPerformance,
 			xUrl,
 			tiktokUrl,
 			instagramUrl,
@@ -41,6 +37,8 @@ export async function PUT(req, { params }) {
 
 		if (!validation.success) {
 			const { errors } = validation.error;
+
+			console.log(errors);
 
 			return NextResponse.json(
 				{
@@ -69,24 +67,24 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		if (result[0].picture) await deleteFile(result[0].picture);
+		if (result[0].picture && picture.name !== "undefined") {
+			await deleteFile(result[0].picture);
+		}
 
-		const savedPicture = picture
-			? await saveFile(picture, username.toLowerCase(), "players")
-			: null;
+		const savedPicture =
+			picture.name !== "undefined"
+				? await saveFile(picture, username.toLowerCase(), "players")
+				: result[0].picture;
 
 		await connection.execute(
-			"UPDATE `players` SET `lastname` = ?, `firstname` = ?, `username` = ?, `picture` = ?, `genre` = ?, `audience` = ?, `first_performance` = ?, `second_performance` = ?, `third_performance` = ?, `x_url` = ?, `tiktok_url` = ?, `instagram_url` = ?, `youtube_url` = ?, `twitch_url` = ?, updated_at = NOW() WHERE `players`.`id` = ?",
+			"UPDATE `players` SET `lastname` = ?, `firstname` = ?, `username` = ?, `picture` = ?, `team` = ?, `audience` = ?, `x_url` = ?, `tiktok_url` = ?, `instagram_url` = ?, `youtube_url` = ?, `twitch_url` = ?, updated_at = NOW() WHERE `players`.`id` = ?",
 			[
 				lastname,
 				firstname,
 				username,
 				savedPicture,
-				genre,
+				team,
 				audience,
-				firstPerformance,
-				secondPerformance,
-				thirdPerformance,
 				xUrl,
 				tiktokUrl,
 				instagramUrl,

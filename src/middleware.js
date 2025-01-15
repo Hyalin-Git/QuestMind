@@ -43,7 +43,7 @@ export async function middleware(req) {
 						error: true,
 						message: "Access denied : Token expired",
 					},
-					{ status: 403 }
+					{ status: 401 }
 				);
 			}
 			return NextResponse.json(
@@ -67,8 +67,8 @@ export const config = {
 
 		// API routes that need JWT auth
 		"/api/auth/sign-up",
-		"/api/auth/refresh-token",
 		"/api/auth/update-email",
+		"/api/auth/get-session",
 		"/api/auth/logout",
 		"/api/users/:path*",
 		"/api/games/post",

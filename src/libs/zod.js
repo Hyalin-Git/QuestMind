@@ -45,31 +45,31 @@ export const playerSchema = z.object({
 	audience: z.string(),
 	xUrl: z
 		.string()
-		.regex(playerRegex.xUrl, "URL X invalide")
+		.regex(playerRegex.url, "URL X invalide")
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
 	tiktokUrl: z
 		.string()
-		.regex(playerRegex.tiktokUrl, "URL TikTok invalide")
+		.regex(playerRegex.url, "URL TikTok invalide")
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
 	instagramUrl: z
 		.string()
-		.regex(playerRegex.instagramUrl, "URL Instagram invalide")
+		.regex(playerRegex.url, "URL Instagram invalide")
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
 	youtubeUrl: z
 		.string()
-		.regex(playerRegex.youtubeUrl, "URL YouTube invalide")
+		.regex(playerRegex.url, "URL YouTube invalide")
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
 	twitchUrl: z
 		.string()
-		.regex(playerRegex.twitchUrl, "URL Twitch invalide")
+		.regex(playerRegex.url, "URL Twitch invalide")
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
