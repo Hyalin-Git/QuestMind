@@ -9,7 +9,6 @@
 .formWrapper {
 	display: flex;
 	flex-direction: column;
-
 	gap: 24px;
 }
 
@@ -17,7 +16,6 @@
 	display: flex;
 	justify-content: center;
 	gap: 30px;
-	/* flex-wrap: wrap; */
 	text-align: left;
 }
 

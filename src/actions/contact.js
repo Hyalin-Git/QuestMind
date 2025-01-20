@@ -1,6 +1,6 @@
 "use server";
 
-import { playerContactSchema } from "@/libs/zod";
+import { companyContactSchema, playerContactSchema } from "@/libs/zod";
 
 export async function sendContactForm(state, prevState, formData) {
 	try {
@@ -17,14 +17,16 @@ export async function sendContactForm(state, prevState, formData) {
 				message: formData.get("message"),
 			};
 
-			const validation = playerContactSchema.safeParse({ ...data });
+			const validation = playerContactSchema.safeParse(data);
 
 			if (!validation.success) {
-				const error = validation.error.flatten().fieldErrors;
+				const errors = validation.error.flatten().fieldErrors;
 
-				console.log(error);
-                
-				return;
+				return {
+					status: "failure",
+					message: "Le formulaire est invalide",
+					errors: errors,
+				};
 			}
 		}
 
@@ -38,6 +40,18 @@ export async function sendContactForm(state, prevState, formData) {
 				budget: formData.get("budget"),
 				message: formData.get("message"),
 			};
+
+			const validation = companyContactSchema.safeParse(data);
+
+			if (!validation.success) {
+				const errors = validation.error.flatten().fieldErrors;
+
+				return {
+					status: "failure",
+					message: "Le formulaire est invalide",
+					errors: errors,
+				};
+			}
 		}
 
 		const res = await fetch(
@@ -53,12 +67,27 @@ export async function sendContactForm(state, prevState, formData) {
 
 		const response = await res.json();
 
+		if (!response.success) {
+			throw new Error(response?.message);
+		}
+
 		console.log(response);
 
 		return {
-			message: "E-mail envoyé avec succès",
+			status: "success",
+			message: "E-mail successfully sent",
 		};
 	} catch (err) {
-		console.log(err);
+		if (err?.message === "Invalid request") {
+			return {
+				status: "failure",
+				message: err?.message,
+				errors: err?.errors,
+			};
+		}
+		return {
+			status: "failure",
+			message: err?.message,
+		};
 	}
 }

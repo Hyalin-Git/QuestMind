@@ -1,23 +1,35 @@
-"use server";
-import styles from "@/styles/page/athlete.module.css";
 import { getPlayer } from "@/api/players";
 import { outfit, roboto } from "@/libs/font";
 import Image from "next/image";
 import Link from "next/link";
 import initTranslations from "@/app/i18n";
+import styles from "@/styles/page/athlete.module.css";
 import Error from "@/app/[locales]/error";
+
+export const revalidate = 120; // Temps de revalidation en secondes
 
 export default async function Athlete({ params }) {
 	const { slug, locales } = await params;
 	const { t } = await initTranslations(locales, ["common"]);
 	const { data, success } = await getPlayer(slug);
-	console.log(success);
+
+	if (success === false) {
+		// Si l'appel API échoue, afficher l'erreur
+		return <Error />;
+	}
+
 	const player = data[0];
 	const hasX = player?.x_url;
 	const hasTiktok = player?.tiktok_url;
 	const hasInstagram = player?.instagram_url;
 	const hasYoutube = player?.youtube_url;
 	const hasTwitch = player?.twitch_url;
+	const hasLeaguepedia = player?.leaguepedia_url;
+	const hasLolpro = player?.lolpro_url;
+	const hasLiquipedia = player?.liquipedia_url;
+	const hasVlr = player?.vlr_url;
+	const hasHltv = player?.hltv_url;
+
 	const performances = player?.performances?.split(",");
 
 	function formatNumber(num) {
@@ -29,9 +41,6 @@ export default async function Athlete({ params }) {
 		return num.toString();
 	}
 
-	if (success === false) {
-		<Error />;
-	}
 	return (
 		<main className={styles.main}>
 			<div className={styles.background}></div>
@@ -115,6 +124,73 @@ export default async function Athlete({ params }) {
 												height={30}
 												quality={100}
 												alt="Twitch"
+											/>
+										</a>
+									</li>
+								)}
+								{hasLeaguepedia && (
+									<li>
+										<a href={player?.leaguepedia_url} target="_blank">
+											<Image
+												src={"/leaguepedia.svg"}
+												width={30}
+												height={30}
+												className={styles.leaguepedia}
+												quality={100}
+												alt="Leaguepedia"
+											/>
+										</a>
+									</li>
+								)}
+								{hasLolpro && (
+									<li>
+										<a href={player?.lolpro_url} target="_blank">
+											<Image
+												src={"/lolpro.png"}
+												width={30}
+												height={30}
+												quality={100}
+												alt="lol pro"
+											/>
+										</a>
+									</li>
+								)}
+								{hasLiquipedia && (
+									<li>
+										<a href={player?.liquipedia_url} target="_blank">
+											<Image
+												src={"/liquipedia.svg"}
+												width={30}
+												height={30}
+												quality={100}
+												alt="Liquipedia"
+											/>
+										</a>
+									</li>
+								)}
+								{hasVlr && (
+									<li>
+										<a href={player?.vlr_url} target="_blank">
+											<Image
+												src={"/vlr.png"}
+												width={30}
+												height={30}
+												quality={100}
+												alt="VLR"
+											/>
+										</a>
+									</li>
+								)}
+								{hasHltv && (
+									<li>
+										<a href={player?.hltv_url} target="_blank">
+											<Image
+												src={"/hltv.png"}
+												width={30}
+												height={30}
+												quality={100}
+												className={styles.hltv}
+												alt="HLTV"
 											/>
 										</a>
 									</li>

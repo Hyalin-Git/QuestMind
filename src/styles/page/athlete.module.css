@@ -84,6 +84,16 @@
 	justify-content: center;
 	gap: 10px;
 }
+
+.leaguepedia {
+	filter: invert(100%) sepia(52%) saturate(674%) hue-rotate(272deg)
+		brightness(115%) contrast(100%);
+}
+
+.hltv {
+	object-fit: contain;
+}
+
 .names {
 	display: flex;
 	flex-direction: column;

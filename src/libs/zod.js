@@ -95,13 +95,59 @@ export const sponsorsSchema = z.object({
 });
 
 export const playerContactSchema = z.object({
-	sender: z.string().min(4).regex(userRegex.email, {
-		message: "Invalid email address",
+	sender: z.string().regex(userRegex.email, {
+		message: "Veuillez entrer une adresse email valide.",
 	}),
-	firstName: z.string().min(1).max(255),
-	lastName: z.string().min(1).max(255),
-	nationality: z.string().min(1).max(255),
-	country: z.string().min(1).max(255),
-	game: z.string().min(1).max(255),
-	message: z.string().min(1).max(1500),
+	firstName: z
+		.string()
+		.min(1, "Le prénom est obligatoire.")
+		.max(255, "Le prénom ne peut pas dépasser 255 caractères."),
+	lastName: z
+		.string()
+		.min(1, "Le nom de famille est obligatoire.")
+		.max(255, "Le nom de famille ne peut pas dépasser 255 caractères."),
+	nationality: z
+		.string()
+		.min(1, "La nationalité est obligatoire.")
+		.max(255, "La nationalité ne peut pas dépasser 255 caractères."),
+	country: z
+		.string()
+		.min(1, "Le pays est obligatoire.")
+		.max(255, "Le pays ne peut pas dépasser 255 caractères."),
+	game: z
+		.string()
+		.min(1, "Le nom du jeu est obligatoire.")
+		.max(255, "Le nom du jeu ne peut pas dépasser 255 caractères."),
+	message: z
+		.string()
+		.min(1, "Le message est obligatoire.")
+		.max(5000, "Le message ne peut pas dépasser 5000 caractères."),
+});
+
+export const companyContactSchema = z.object({
+	sender: z.string().min(4).regex(userRegex.email, {
+		message: "Veuillez entrer une adresse email valide.",
+	}),
+	firstName: z
+		.string()
+		.min(1, "Le prénom est obligatoire.")
+		.max(255, "Le prénom ne peut pas dépasser 255 caractères."),
+	lastName: z
+		.string()
+		.min(1, "Le nom de famille est obligatoire.")
+		.max(255, "Le nom de famille ne peut pas dépasser 255 caractères."),
+	companyName: z
+		.string()
+		.min(1, "Le nom de l'entreprise est obligatoire.")
+		.max(255, "Le nom de l'entreprise ne peut pas dépasser 255 caractères."),
+	campaignDate: z
+		.string()
+		.max(255, "La date ne peut pas dépasser 255 caractères.")
+		.or(z.literal(""))
+		.optional(),
+	budget: z.string().max(255, "Le budget ne peut pas dépasser 255 caractères."),
+	message: z
+		.string()
+		.min(1, "Le message est obligatoire.")
+		.max(5000, "Le message ne peut pas dépasser 5000 caractères."),
 });

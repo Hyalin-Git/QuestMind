@@ -8,16 +8,16 @@ export async function getTrendingPlayers() {
 				headers: {
 					"Content-Type": "application/json",
 				},
+				cache: "force-cache",
+			},
+			{
+				next: { revalidate: 120 },
 			}
 		);
 
-		// if (!res.ok) {
-		// 	throw new Error(`HTTP error! status: ${res.status}`);
-		// }
-
 		const data = await res.json();
 
-		if (data.error) {
+		if (data?.error) {
 			throw new Error(data?.message);
 		}
 

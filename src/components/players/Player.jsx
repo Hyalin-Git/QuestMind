@@ -14,11 +14,6 @@ export default function Player({ elt }) {
 	const isFr = /\/fr(\/|$)/.test(pathname);
 	const isEs = /\/es(\/|$)/.test(pathname);
 
-	const isMobileGame = elt?.game;
-
-	console.log(elt);
-
-	console.log(isMobileGame);
 	return (
 		<>
 			{(elt?.game || elt?.region) && (
@@ -28,7 +23,7 @@ export default function Player({ elt }) {
 							<div className={styles.imgWrapper}>
 								<Image
 									className={styles.img}
-									src={elt.picture}
+									src={elt?.picture}
 									width={500}
 									height={500}
 									quality={100}

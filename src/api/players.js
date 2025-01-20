@@ -21,14 +21,14 @@ export async function getPlayers(game, isMobile, region) {
 					"Content-Type": "application/json",
 				},
 			},
-			{ next: { tags: ["players"] } }
+			{ next: { tags: ["players"], revalidate: 120 } }
 		);
 
 		const data = await res.json();
 
 		return data;
 	} catch (err) {
-		console.log();
+		console.log(err.message || "An unexpected error occurred");
 	}
 }
 
@@ -41,16 +41,19 @@ export async function getPlayer(playerId) {
 				headers: {
 					"Content-Type": "application/json",
 				},
-			}
+			},
+			{ next: { revalidate: 120 } }
 		);
 
 		const data = await res.json();
 
-		console.log(data);
+		if (!data?.success) {
+			throw new Error("An unexpected error occurred");
+		}
 
 		return data;
 	} catch (err) {
-		console.log();
+		console.log(err.message || "An unexpected error occurred");
 	}
 }
 
@@ -84,7 +87,5 @@ export async function deletePlayer(playerId) {
 		return response;
 	} catch (err) {
 		console.error("Failed to delete player:", err);
-
-		return err;
 	}
 }

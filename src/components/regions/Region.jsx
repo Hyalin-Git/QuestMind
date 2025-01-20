@@ -6,14 +6,14 @@ export default function Region({ elt }) {
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
+
 	function setQuery(elt) {
 		const params = new URLSearchParams(searchParams.toString());
 		params.set("region", elt);
 
 		return params.toString().toLowerCase();
 	}
-	console.log(searchParams.get("region"), elt.region.toLowerCase());
-	console.log(searchParams.get("region") === elt?.region?.toLowerCase());
+
 	return (
 		<div
 			className={styles.container}

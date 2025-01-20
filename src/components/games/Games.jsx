@@ -23,7 +23,7 @@ export default function Games({ data }) {
 			</strong>
 			<div className={styles.wrapper}>
 				{data.map((elt) => {
-					return <Game elt={elt} key={elt.id} />;
+					return <Game elt={elt} key={elt?.id} />;
 				})}
 			</div>
 		</div>

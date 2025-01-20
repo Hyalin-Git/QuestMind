@@ -18,7 +18,11 @@ export async function GET(req, { params }) {
             players.tiktok_url, 
             players.instagram_url, 
             players.twitch_url, 
-            players.youtube_url,
+            players.lolpro_url,
+            players.leaguepedia_url,
+            players.vlr_url,
+            players.liquipedia_url,
+            players.hltv_url,
             games.game,
             GROUP_CONCAT(players_performances.performance SEPARATOR ', ') AS performances
         FROM players
@@ -27,14 +31,16 @@ export async function GET(req, { params }) {
         LEFT JOIN players_performances ON players.id = players_performances.player_id
         WHERE players.id = ?
         GROUP BY players.id, players.username, players.firstname, players.lastname, players.picture, players.audience, 
-                 players.x_url, players.tiktok_url, players.instagram_url, 
-                 players.twitch_url, players.youtube_url, games.game
+				players.x_url, players.tiktok_url, players.instagram_url, 
+				players.twitch_url, players.youtube_url,  players.lolpro_url,
+				players.leaguepedia_url,
+				players.vlr_url,
+				players.liquipedia_url,
+				players.hltv_url, games.game
         ;
     `;
 
 		const [player] = await connection.query(query, [id]);
-
-		console.log(player);
 
 		if (player.length <= 0) {
 			return NextResponse.json(

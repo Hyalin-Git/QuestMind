@@ -58,12 +58,14 @@ export default function Footer() {
 			<div className={styles.socials}>
 				<span>{t("followUs")}</span>
 				<div>
-					<Image
-						src={"/twitter.svg"}
-						width={30}
-						height={30}
-						alt="Logo twitter"
-					/>
+					<a href="https://x.com/questmindgg" target="_blank">
+						<Image
+							src={"/twitter.svg"}
+							width={30}
+							height={30}
+							alt="Logo twitter"
+						/>
+					</a>
 					<a href="https://www.linkedin.com/company/questmind" target="_blank">
 						<Image
 							src={"/linkedin.svg"}

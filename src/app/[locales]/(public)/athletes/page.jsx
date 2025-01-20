@@ -1,4 +1,3 @@
-"use server";
 import { getGames } from "@/api/games";
 import { getNationalities } from "@/api/nationalities";
 import { getPlayers } from "@/api/players";
@@ -6,21 +5,24 @@ import Games from "@/components/games/Games";
 import Player from "@/components/players/Player";
 import Regions from "@/components/regions/Regions";
 import { outfit } from "@/libs/font";
+import { isNotEmpty } from "@/libs/utils";
 import styles from "@/styles/page/athletes.module.css";
 import React from "react";
+
+// Définir la revalidation ISR
+export const revalidate = 120;
 
 export default async function Athletes({ searchParams }) {
 	const queries = await searchParams;
 
-	const players = await getPlayers(
-		queries?.game,
-		queries?.is_mobile,
-		queries.region
-	);
-	const games = await getGames();
-	const nationalities = await getNationalities();
+	// Lancer les appels API en parallèle
+	const [players, games, nationalities] = await Promise.all([
+		getPlayers(queries?.game, queries?.is_mobile, queries?.region),
+		getGames(),
+		getNationalities(),
+	]);
 
-	// Group players by games
+	// Regroupement des joueurs par jeu
 	const groupedPlayers = players?.data?.reduce((acc, player) => {
 		if (!acc[player.game]) {
 			acc[player.game] = [];
@@ -34,26 +36,28 @@ export default async function Athletes({ searchParams }) {
 			<div className={styles.background}></div>
 			<div>
 				<section className={styles.filters}>
-					{/* Game filters */}
+					{/* Filtres des jeux */}
+					<div>{isNotEmpty(games?.data) && <Games data={games?.data} />}</div>
+					{/* Filtres des régions */}
 					<div>
-						<Games data={games?.data} />
-					</div>
-					{/* Region filters */}
-					<div>
-						<Regions data={nationalities?.data} />
+						{isNotEmpty(nationalities?.data) && (
+							<Regions data={nationalities?.data} />
+						)}
 					</div>
 				</section>
-				{/* Athletes list */}
-				<div className={styles.players}>
-					{groupedPlayers &&
-						Object.entries(groupedPlayers).map(([game, players]) => (
-							<React.Fragment key={game}>
-								{players.map((elt) => (
-									<Player elt={elt} key={elt.id} />
-								))}
-							</React.Fragment>
-						))}
-				</div>
+				{/* Liste des athlètes */}
+				{isNotEmpty(players?.data) && (
+					<div className={styles.players}>
+						{groupedPlayers &&
+							Object.entries(groupedPlayers).map(([game, players]) => (
+								<React.Fragment key={game}>
+									{players.map((elt) => (
+										<Player elt={elt} key={elt.id} />
+									))}
+								</React.Fragment>
+							))}
+					</div>
+				)}
 			</div>
 			{/* Slogan */}
 			<div className={styles.slogan}>

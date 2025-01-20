@@ -47,7 +47,7 @@ export default function GamesSection({ games }) {
 												/>
 											)}
 										</th>
-										<th>{game?.is_mobile}</th>
+										<th>{game?.is_mobile ? "Oui" : "Non"}</th>
 										<th>
 											<FontAwesomeIcon icon={faPenToSquare} />
 											<FontAwesomeIcon icon={faXmark} />

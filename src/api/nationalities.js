@@ -13,6 +13,6 @@ export async function getNationalities() {
 
 		return data;
 	} catch (err) {
-		console.log();
+		console.log(err.message || "An unexpected error occurred");
 	}
 }

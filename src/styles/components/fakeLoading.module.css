@@ -8,7 +8,7 @@
 	left: 0;
 	width: 100%;
 	height: 100svh;
-	animation: forwards slidesOut 0.2s 1.2s ease-in;
+	animation: forwards slidesOut 0.5s 1.2s ease-in;
 }
 
 .background {
@@ -62,8 +62,6 @@
 		transform: translate(0, 0);
 	}
 	to {
-		transform: translate(0, -1050px);
+		transform: translate(0, -2050px);
 	}
 }
-
-

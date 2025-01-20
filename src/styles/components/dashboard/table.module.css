@@ -1,0 +1,65 @@
+.container {
+	position: relative;
+	width: 100%;
+}
+
+.container h2 {
+	margin-bottom: 40px;
+}
+
+.btn {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.btn button {
+	padding: 8px;
+	font-size: 1rem;
+	border-radius: 4px;
+}
+.tableContainer {
+	overflow-x: auto;
+}
+
+.container table {
+	border-collapse: collapse; /* Pour un style propre */
+	width: 100%;
+	min-width: 1200px;
+}
+
+.container table tbody tr {
+	height: 50px; /* Hauteur minimale */
+}
+.container table thead th {
+	background-color: var(--green-color);
+	padding: 8px;
+	color: white;
+}
+.container table tbody th {
+	font-size: 0.8rem;
+	font-weight: 400;
+	color: black;
+}
+
+.container table tbody th svg {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.container table tbody th svg:first-child {
+	color: var(--dark-blue);
+}
+
+.container table tbody th svg:last-child {
+	margin-left: 10px;
+	color: red;
+}
+
+.container table tbody > tr {
+	background-color: white;
+}
+
+.container table tbody > tr:nth-of-type(even) {
+	background-color: var(--border-color);
+}
