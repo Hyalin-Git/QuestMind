@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
 	try {
+		
 		const connection = await pool.getConnection();
 
 		const [results] = await connection.execute(

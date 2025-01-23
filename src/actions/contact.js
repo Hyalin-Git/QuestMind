@@ -67,11 +67,11 @@ export async function sendContactForm(state, prevState, formData) {
 
 		const response = await res.json();
 
+		console.log(response);
+
 		if (!response.success) {
 			throw new Error(response?.message);
 		}
-
-		console.log(response);
 
 		return {
 			status: "success",

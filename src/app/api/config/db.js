@@ -8,4 +8,7 @@ const pool = mysql.createPool({
 	port: process.env.DB_PORT,
 });
 
+console.log("DB_HOST:", process.env.DB_HOST);
+console.log("DB_USER:", process.env.DB_USER);
+
 export default pool;

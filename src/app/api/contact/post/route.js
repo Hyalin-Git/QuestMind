@@ -35,7 +35,7 @@ export async function POST(req) {
 			}
 
 			await sendMail(
-				sender,
+				body?.sender,
 				"contact@questmind.gg",
 				"Prise de contact d'un joueur",
 				`
@@ -88,7 +88,7 @@ export async function POST(req) {
 			}
 
 			await sendMail(
-				sender,
+				body?.sender,
 				"contact@questmind.gg",
 				"Prise de contact d'une entreprise",
 				`

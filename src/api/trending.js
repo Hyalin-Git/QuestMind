@@ -21,6 +21,8 @@ export async function getTrendingPlayers() {
 			throw new Error(data?.message);
 		}
 
+		console.log(data);
+
 		return data;
 	} catch (err) {
 		console.error("Failed to fetch trending players:", err);

@@ -51,6 +51,8 @@ export async function getPlayer(playerId) {
 			throw new Error("An unexpected error occurred");
 		}
 
+		console.log(data);
+
 		return data;
 	} catch (err) {
 		console.log(err.message || "An unexpected error occurred");
