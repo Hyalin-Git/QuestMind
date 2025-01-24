@@ -28,6 +28,10 @@ export default async function RootLayout({ children, params }) {
 			namespaces={i18nNamespaces}>
 			<html lang={locales}>
 				<Head>
+					<meta
+						name="google-site-verification"
+						content="JpoDado7YDLik75S6lKVc964I9B73hcGXojKDUbITNc"
+					/>
 					<link
 						rel="icon"
 						type="image/png"
