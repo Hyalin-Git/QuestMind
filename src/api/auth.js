@@ -24,6 +24,7 @@ export async function decryptToken(session) {
 		});
 
 		const data = await res.json();
+		console.log("played");
 
 		console.log(data, "from decrypt token");
 		console.log(res.status);
@@ -77,7 +78,7 @@ export async function refreshToken(token) {
 		if (!data.success) {
 			throw new Error(data?.message);
 		}
-
+		console.log(data);
 		const cookie = await cookies();
 
 		cookie.set("session", data.newAccessToken, {

@@ -80,8 +80,10 @@ export const nationalitiesSchema = z.object({
 });
 
 export const gameSchema = z.object({
-	game: z.string().min(1).max(255),
-	isMobile: z.enum(["0", "1"]),
+	game: z.string().min(1, "Le nom du jeu est obligatoire").max(255),
+	isMobile: z.enum(["0", "1"], {
+		errorMap: (issue, ctx) => ({ message: "Veuillez faire un choix" }),
+	}),
 });
 
 export const teamSchema = z.object({

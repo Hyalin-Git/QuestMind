@@ -8,21 +8,8 @@ export async function PUT(req, { params }) {
 		const { id } = await params;
 		const formData = await req.formData();
 		const game = formData.get("game");
-		const picture = formData.get("picture");
+		const picture = formData?.get("picture");
 		const isMobile = formData.get("isMobile");
-
-		// If not a mobile game the picture is needed
-		if (isMobile === "0") {
-			if (!picture) {
-				return NextResponse.json(
-					{
-						success: false,
-						message: "Invalid request",
-					},
-					{ status: 400 }
-				);
-			}
-		}
 
 		const validation = gameSchema.safeParse({ game, isMobile });
 
@@ -56,11 +43,15 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		if (game[0].picture) await deleteFile(game[0].picture);
+		console.log(picture);
+
+		if (game[0].picture && picture?.name !== "undefined") {
+			await deleteFile(game[0].picture);
+		}
 
 		const savedPicture = picture
 			? await saveFile(picture, game.toLowerCase(), "games")
-			: null;
+			: result[0].picture;
 
 		await connection.execute(
 			"UPDATE `games` SET `game` = ?, `picture` = ?, `is_mobile` = ?, `updated_at` = NOW() WHERE `games`.`id` = ?",

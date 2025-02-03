@@ -10,19 +10,6 @@ export async function POST(req) {
 		const picture = formData.get("picture");
 		const isMobile = formData.get("isMobile");
 
-		// If not a mobile game the picture is needed
-		if (isMobile === "0") {
-			if (!picture) {
-				return NextResponse.json(
-					{
-						success: false,
-						message: "Invalid request",
-					},
-					{ status: 400 }
-				);
-			}
-		}
-
 		const validation = gameSchema.safeParse({ game, isMobile });
 
 		if (!validation.success) {

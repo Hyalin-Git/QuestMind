@@ -9,7 +9,6 @@ export async function getSponsors() {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				cache: "force-cache",
 			},
 			{
 				next: { revalidate: 120 },

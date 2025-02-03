@@ -22,9 +22,6 @@ export default function FormPlayer({
 	);
 	const errors = state?.errors;
 
-	console.log(errors);
-	console.log(player);
-
 	useEffect(() => {
 		if (state?.status === "success") {
 			setOpenModal(false);

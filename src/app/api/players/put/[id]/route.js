@@ -38,8 +38,6 @@ export async function PUT(req, { params }) {
 		if (!validation.success) {
 			const { errors } = validation.error;
 
-			console.log(errors);
-
 			return NextResponse.json(
 				{
 					success: false,
