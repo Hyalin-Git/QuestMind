@@ -5,7 +5,14 @@ import styles from "@/styles/page/dashboard/game.module.css";
 
 export default async function Games() {
 	const games = await getGames();
-	const theads = ["Jeu", "Photo", "Jeu mobile", "Actions"];
+	const theads = [
+		"Jeu",
+		"Photo",
+		"Jeu mobile",
+		"Date de création",
+		"Date de mise à jour",
+		"Actions",
+	];
 
 	return (
 		<main className={styles.main}>

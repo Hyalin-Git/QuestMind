@@ -12,7 +12,6 @@ export async function PUT(req, { params }) {
 
 		const validation = sponsorsSchema.safeParse({
 			sponsor,
-			picture,
 		});
 
 		if (!validation.success) {
@@ -45,11 +44,14 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		if (result[0].picture) await deleteFile(result[0].picture);
+		console.log(picture);
+		if (result[0].picture && picture?.name !== "undefined") {
+			await deleteFile(result[0].picture);
+		}
 
 		const savedPicture = picture
 			? await saveFile(picture, sponsor.toLowerCase(), "sponsors")
-			: null;
+			: result[0].picture;
 
 		await connection.execute(
 			"UPDATE `sponsors` SET `sponsor` = ?, `picture` = ?, updated_at = NOW() WHERE `sponsors`.`id` = ?",

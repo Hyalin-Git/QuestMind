@@ -25,7 +25,10 @@ export async function DELETE(req, { params }) {
 			);
 		}
 
-		if (game[0].picture) await deleteFile(game[0].picture);
+		if (game[0].picture) {
+			const res = await deleteFile(game[0].picture);
+			console.log(res);
+		}
 
 		await connection.execute("DELETE FROM `games` WHERE `games`.`id` = ?", [
 			id,

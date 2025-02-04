@@ -43,10 +43,8 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		console.log(picture);
-
-		if (game[0].picture && picture?.name !== "undefined") {
-			await deleteFile(game[0].picture);
+		if (result[0].picture && picture?.name !== "undefined") {
+			await deleteFile(result[0].picture);
 		}
 
 		const savedPicture = picture

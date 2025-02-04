@@ -6,13 +6,10 @@ import { NextResponse } from "next/server";
 export async function PUT(req, { params }) {
 	try {
 		const { id } = await params;
-		const formData = await req.formData();
-		const nationality = formData.get("nationality");
-		const picture = formData.get("picture");
+		const { region } = await req.json();
 
 		const validation = nationalitiesSchema.safeParse({
-			nationality,
-			picture,
+			region,
 		});
 
 		if (!validation.success) {
@@ -30,30 +27,9 @@ export async function PUT(req, { params }) {
 
 		const connection = await pool.getConnection();
 
-		const [result] = await connection.execute(
-			"SELECT * FROM `nationalities` WHERE `nationalities`.`id` = ?",
-			[id]
-		);
-
-		if (result.length <= 0) {
-			return NextResponse.json(
-				{
-					success: false,
-					message: "Impossible to update a non-existant nationality",
-				},
-				{ status: 404 }
-			);
-		}
-
-		if (result[0].picture) await deleteFile(result[0].picture);
-
-		const savedPicture = picture
-			? await saveFile(picture, nationality.toLowerCase(), "nationalities")
-			: null;
-
 		await connection.execute(
-			"UPDATE `nationalities` SET `nationality` = ?, `picture` = ?, updated_at = NOW() WHERE `nationalities`.`id` = ?",
-			[nationality, savedPicture, id]
+			"UPDATE `nationalities` SET `region` = ?, updated_at = NOW() WHERE `nationalities`.`id` = ?",
+			[region, id]
 		);
 
 		connection.release();

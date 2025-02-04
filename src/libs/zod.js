@@ -86,14 +86,8 @@ export const gameSchema = z.object({
 	}),
 });
 
-export const teamSchema = z.object({
-	team: z.string().min(1).max(255),
-	picture: z.instanceof(File),
-});
-
 export const sponsorsSchema = z.object({
-	sponsor: z.string().min(1).max(255),
-	picture: z.instanceof(File),
+	sponsor: z.string().min(1, "Le nom du sponsor est obligatoire").max(255),
 });
 
 export const playerContactSchema = z.object({

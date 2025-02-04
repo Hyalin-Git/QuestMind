@@ -41,6 +41,7 @@ export default function FormGames({ game, setOpenModal }) {
 							id="game"
 							name="game"
 							defaultValue={game?.game}
+							required
 						/>
 						{errors?.game && <i>{errors?.game[0]}</i>}
 					</div>

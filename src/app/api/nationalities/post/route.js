@@ -1,12 +1,10 @@
 import { nationalitiesSchema } from "@/libs/zod";
 import pool from "../../config/db";
-import { saveFile } from "@/libs/handleFiles";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
 	try {
-		const formData = await req.formData();
-		const region = formData.get("region");
+		const { region } = await req.json();
 
 		const validation = nationalitiesSchema.safeParse({
 			region,

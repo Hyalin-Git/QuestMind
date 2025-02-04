@@ -1,14 +1,13 @@
 "use server";
-import { getSponsors } from "@/api/sponsors";
+import { getNationalities } from "@/api/nationalities";
 import Table from "@/components/dashboard/Table";
 import styles from "@/styles/page/dashboard/game.module.css";
 
-export default async function Sponsors() {
-	const sponsors = await getSponsors();
+export default async function Region() {
+	const nationalities = await getNationalities();
 
 	const theads = [
-		"Sponsor",
-		"Photo",
+		"Région",
 		"Date de création",
 		"Date de mise à jour",
 		"Actions",
@@ -17,14 +16,14 @@ export default async function Sponsors() {
 		<main className={styles.main}>
 			<div className={styles.container}>
 				<div>
-					<h1>Gestion des sponsors</h1>
+					<h1>Gestion des régions</h1>
 				</div>
-				{sponsors?.success && (
+				{nationalities?.success && (
 					<Table
-						data={sponsors?.data}
+						data={nationalities?.data}
 						theads={theads}
-						btnText={"Ajouter un sponsor"}
-						type={"sponsor"}
+						btnText={"Ajouter une région"}
+						type={"region"}
 					/>
 				)}
 			</div>

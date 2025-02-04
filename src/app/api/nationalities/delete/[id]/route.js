@@ -1,5 +1,4 @@
 import pool from "@/app/api/config/db";
-import { deleteFile } from "@/libs/handleFiles";
 import { NextResponse } from "next/server";
 
 export async function DELETE(req, { params }) {
@@ -22,8 +21,6 @@ export async function DELETE(req, { params }) {
 				{ status: 404 }
 			);
 		}
-
-		if (nationality[0].picture) await deleteFile(nationality[0].picture);
 
 		await connection.execute(
 			"DELETE FROM `nationalities` WHERE `nationalities`.`id` = ?",

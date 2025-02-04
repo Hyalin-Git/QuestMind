@@ -10,6 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import FormGames from "./games/FormGames";
 import { deleteGame } from "@/api/games";
+import FormSponsor from "./FormSponsor";
+import { deleteSponsor } from "@/api/sponsors";
+import FormRegion from "./FormRegion";
+import { deleteNationality } from "@/api/nationalities";
 
 export default function Table({
 	data,
@@ -21,31 +25,23 @@ export default function Table({
 	type,
 }) {
 	const [openModal, setOpenModal] = useState(false);
-	const [selectedGame, setSelectedGame] = useState(null);
-	const [selectedPlayer, setSelectedPlayer] = useState(null);
+	const [selectedForm, setSelectedForm] = useState(null);
 
 	const handleEdit = (data) => {
-		if (type === "player") {
-			setSelectedPlayer(data);
-		}
-		if (type === "game") {
-			setSelectedGame(data);
-		}
+		setSelectedForm(data);
 		setOpenModal(true);
 	};
 
 	const handleOpenModal = () => {
 		setOpenModal(true);
 
-		setSelectedPlayer(null);
-		setSelectedGame(null);
+		setSelectedForm(null);
 	};
 
 	const handleCloseModal = () => {
 		setOpenModal(false);
 
-		setSelectedPlayer(null);
-		setSelectedGame(null);
+		setSelectedForm(null);
 	};
 
 	async function handleDelete(data) {
@@ -57,6 +53,14 @@ export default function Table({
 
 		if (type === "game") {
 			text = "Voulez-vous vraimment supprimer ce jeu ? ";
+		}
+
+		if (type === "sponsor") {
+			text = "Voulez-vous vraimment supprimer ce sponsor ? ";
+		}
+
+		if (type === "region") {
+			text = "Voulez-vous vraimment supprimer cette région ? ";
 		}
 
 		const isConfirmed = window.confirm(text);
@@ -78,6 +82,24 @@ export default function Table({
 					return alert("Jeu supprimé avec succès");
 				} else {
 					return alert(res.message || "Impossible de supprimer ce jeu");
+				}
+			}
+			if (type === "sponsor") {
+				const res = await deleteSponsor(data);
+
+				if (res?.success) {
+					return alert("Sponsor supprimé avec succès");
+				} else {
+					return alert(res.message || "Impossible de supprimer ce jeu");
+				}
+			}
+			if (type === "region") {
+				const res = await deleteNationality(data);
+
+				if (res?.success) {
+					return alert("Région supprimé avec succès");
+				} else {
+					return alert(res.message || "Impossible de supprimer cette région");
 				}
 			}
 		}
@@ -121,6 +143,20 @@ export default function Table({
 							handleDelete={handleDelete}
 						/>
 					)}
+					{type === "sponsor" && (
+						<SponsorsList
+							data={data}
+							handleEdit={handleEdit}
+							handleDelete={handleDelete}
+						/>
+					)}
+					{type === "region" && (
+						<RegionList
+							data={data}
+							handleEdit={handleEdit}
+							handleDelete={handleDelete}
+						/>
+					)}
 				</table>
 			</div>
 			{openModal && (
@@ -128,13 +164,19 @@ export default function Table({
 					{type === "player" && (
 						<FormPlayer
 							setOpenModal={handleCloseModal}
-							player={selectedPlayer}
+							player={selectedForm}
 							games={games}
 							nationalities={nationalities}
 						/>
 					)}
 					{type === "game" && (
-						<FormGames game={selectedGame} setOpenModal={setOpenModal} />
+						<FormGames game={selectedForm} setOpenModal={setOpenModal} />
+					)}
+					{type === "sponsor" && (
+						<FormSponsor sponsor={selectedForm} setOpenModal={setOpenModal} />
+					)}
+					{type === "region" && (
+						<FormRegion region={selectedForm} setOpenModal={setOpenModal} />
 					)}
 				</>
 			)}
@@ -261,6 +303,8 @@ export function GameList({ data, handleEdit, handleDelete }) {
 		<tbody>
 			{data?.length > 0 &&
 				data?.map((game) => {
+					const createdAt = game?.created_at?.split("T")[0];
+					const updatedAt = game?.updated_at?.split("T")[0];
 					return (
 						<tr key={game?.id}>
 							<th scope="row">{game?.game}</th>
@@ -282,6 +326,8 @@ export function GameList({ data, handleEdit, handleDelete }) {
 								)}
 							</th>
 							<th>{game?.is_mobile ? "Oui" : "Non"}</th>
+							<th>{createdAt}</th>
+							<th>{updatedAt}</th>
 							<th>
 								<FontAwesomeIcon
 									icon={faPenToSquare}
@@ -290,6 +336,81 @@ export function GameList({ data, handleEdit, handleDelete }) {
 								<FontAwesomeIcon
 									icon={faXmark}
 									onClick={() => handleDelete(game?.id)}
+								/>
+							</th>
+						</tr>
+					);
+				})}
+		</tbody>
+	);
+}
+
+export function SponsorsList({ data, handleEdit, handleDelete }) {
+	return (
+		<tbody>
+			{data?.length > 0 &&
+				data?.map((sponsor) => {
+					const createdAt = sponsor?.created_at?.split("T")[0];
+					const updatedAt = sponsor?.updated_at?.split("T")[0];
+					return (
+						<tr key={sponsor?.id}>
+							<th scope="row">{sponsor?.sponsor}</th>
+							<th>
+								{sponsor?.picture && (
+									<Image
+										src={sponsor?.picture}
+										width={80}
+										height={80}
+										quality={100}
+										alt={`Photo de ${sponsor?.sponsor}`}
+										className={styles.logo}
+										style={{
+											position: "relative",
+											top: "1.5px",
+											objectFit: "contain",
+										}}
+									/>
+								)}
+							</th>
+							<th>{createdAt}</th>
+							<th>{updatedAt}</th>
+							<th>
+								<FontAwesomeIcon
+									icon={faPenToSquare}
+									onClick={() => handleEdit(sponsor)}
+								/>
+								<FontAwesomeIcon
+									icon={faXmark}
+									onClick={() => handleDelete(sponsor?.id)}
+								/>
+							</th>
+						</tr>
+					);
+				})}
+		</tbody>
+	);
+}
+
+export function RegionList({ data, handleEdit, handleDelete }) {
+	return (
+		<tbody>
+			{data?.length > 0 &&
+				data?.map((region) => {
+					const createdAt = region?.created_at?.split("T")[0];
+					const updatedAt = region?.updated_at?.split("T")[0];
+					return (
+						<tr key={region?.id}>
+							<th scope="row">{region?.region}</th>
+							<th>{createdAt}</th>
+							<th>{updatedAt}</th>
+							<th>
+								<FontAwesomeIcon
+									icon={faPenToSquare}
+									onClick={() => handleEdit(region)}
+								/>
+								<FontAwesomeIcon
+									icon={faXmark}
+									onClick={() => handleDelete(region?.id)}
 								/>
 							</th>
 						</tr>
