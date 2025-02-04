@@ -34,7 +34,7 @@ export async function saveFile(file, fileName, folder) {
 export async function deleteFile(filePath) {
 	try {
 		// Résoudre le chemin complet du fichier
-		const fullPath = path.join(process.cwd(), filePath);
+		const fullPath = path.join(process.cwd(), "public" + filePath);
 
 		// Supprimer le fichier
 		await unlink(fullPath);
