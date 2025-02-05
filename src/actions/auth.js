@@ -1,5 +1,6 @@
 "use server";
 
+import { userRegex } from "@/libs/regex";
 import { authSchema } from "@/libs/zod";
 import { cookies } from "next/headers";
 
@@ -71,6 +72,139 @@ export async function signIn(prevState, formData) {
 				message: "Identifiants incorrects, veuillez réessayer.",
 			};
 		}
+
+		return {
+			status: "failure",
+			message: "Une erreur inattendue est survenue",
+		};
+	}
+}
+
+export async function sendResetCode(prevState, formData) {
+	try {
+		const email = formData.get("email");
+
+		if (!email || !userRegex.email.test(email)) {
+			return {
+				status: "failure",
+				message: "Veuillez entrer une adresse e-mail valide",
+				errors: { email: "Veuillez entrer une adresse e-mail valide" },
+			};
+		}
+
+		const res = await fetch(`${process.env.API_URL}/api/auth/forgot-password`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ email }),
+		});
+
+		if (res.status === 404) {
+			return {
+				status: "failure",
+				message: "Aucun compte n'a été trouvé avec cette adresse e-mail",
+				errors: {
+					email: "Aucun compte n'a été trouvé avec cette adresse e-mail",
+				},
+			};
+		}
+
+		const response = await res.json();
+
+		if (!response?.success) throw new Error(response?.message);
+
+		return {
+			status: "success",
+			message:
+				"Un e-mail de réinitialisation a été envoyé à l'adresse indiquée",
+		};
+	} catch (err) {
+		console.error("Failed to send reset code:", err);
+
+		return {
+			status: "failure",
+			message: "Une erreur inattendue est survenue",
+		};
+	}
+}
+
+export async function resetForgotPassword(prevState, formData) {
+	try {
+		const resetCode = formData.get("reset-code");
+		const newPassword = formData.get("new-password");
+		const confirmPassword = formData.get("confirm-password");
+
+		if (!newPassword) {
+			return {
+				status: "failure",
+				message: "Veuillez remplir tous les champs",
+				errors: { newPassword: "Veuillez saisir un mot de passe" },
+			};
+		}
+
+		if (!confirmPassword) {
+			return {
+				status: "failure",
+				message: "Veuillez remplir tous les champs",
+				errors: { newPassword: "Veuillez confirmer votre mot de passe" },
+			};
+		}
+
+		if (newPassword !== confirmPassword) {
+			return {
+				status: "failure",
+				message: "Les mots de passe ne correspondent pas",
+				errors: { newPassword: "Les mots de passe ne correspondent pas" },
+			};
+		}
+
+		if (!userRegex.password.test(newPassword)) {
+			return {
+				status: "failure",
+				message:
+					"Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial",
+				errors: {
+					newPassword:
+						"Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial",
+				},
+			};
+		}
+
+		const res = await fetch(`${process.env.API_URL}/api/auth/forgot-password`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ resetCode, newPassword, confirmPassword }),
+		});
+
+		const response = await res.json();
+
+		if (
+			!response?.success &&
+			response?.message ===
+				"The new password cannot be the same as the old password"
+		) {
+			return {
+				status: "failure",
+				message:
+					"Le nouveau mot de passe ne peut pas être le même que l'ancien",
+				errors: {
+					newPassword:
+						"Le nouveau mot de passe ne peut pas être le même que l'ancien",
+				},
+			};
+		}
+
+		if (!response?.success) throw new Error(response?.message);
+
+		return {
+			status: "success",
+			message: "Le mot de passe a été réinitialisé avec succès",
+		};
+	} catch (err) {
+		console.log("Failed to reset password:", err);
 
 		return {
 			status: "failure",

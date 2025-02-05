@@ -3,12 +3,19 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 20px;
+	width: 100%;
+	max-width: 400px;
 }
 
 .container form {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+}
+
+.headingError i {
+	text-align: center;
+	left: 0px !important;
 }
 
 .container h1 {
@@ -24,7 +31,8 @@
 	border-radius: 8px;
 }
 
-.container form button {
+.container form button,
+.signInBtn {
 	margin-top: 10px;
 	background-color: var(--green-color);
 	width: 100%;
@@ -44,7 +52,8 @@
 	text-align: center;
 }
 
-.container span {
+.createAccount,
+.haveAccount {
 	text-align: center;
 	color: var(--border-color);
 	text-decoration: underline;
@@ -53,5 +62,28 @@
 
 .errorMessage {
 	text-align: center;
+	color: #e53935;
+}
+
+.forgotPassword {
+	display: block;
+	margin-top: 5px;
+	margin-right: 5px;
+	text-align: right;
+	color: var(--border-color);
+	cursor: pointer;
+}
+
+.forgotPassword:hover {
+	text-decoration: underline;
+}
+
+.container i[data-status="success"] {
+	color: var(--green-color);
+}
+
+.container i[data-status="failure"] {
+	top: 4px;
+	left: 0;
 	color: #e53935;
 }

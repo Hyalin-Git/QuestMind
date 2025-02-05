@@ -11,7 +11,7 @@ const initialState = {
 	errors: null,
 };
 
-export default function SignIn({ setSignIn, setSignUp }) {
+export default function SignIn({ setSignIn, setSignUp, setForgotPassword }) {
 	const router = useRouter();
 	const [state, formAction, pending] = useActionState(signIn, initialState);
 
@@ -44,6 +44,14 @@ export default function SignIn({ setSignIn, setSignUp }) {
 				<div>
 					<label htmlFor="password">Mot de passe</label>
 					<input type="password" name="password" id="password" />
+					<span
+						className={styles.forgotPassword}
+						onClick={(e) => {
+							setSignIn(false);
+							setForgotPassword(true);
+						}}>
+						Mot de passe oublié ?
+					</span>
 				</div>
 				<div>
 					<button
@@ -54,7 +62,7 @@ export default function SignIn({ setSignIn, setSignUp }) {
 					</button>
 				</div>
 			</form>
-			<span onClick={handleSignUp}>
+			<span onClick={handleSignUp} className={styles.createAccount}>
 				Créer un compte pour un autre utilisateur
 			</span>
 		</div>
