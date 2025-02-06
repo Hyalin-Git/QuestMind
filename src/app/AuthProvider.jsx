@@ -11,7 +11,7 @@ export default function AuthProvider({ children }) {
 
 	const { error } = useSWR("/auth/get-session", getSession, {
 		onSuccess: (data, key, config) => {
-			if (data.success) {
+			if (data?.success) {
 				setUid(data?.data?.userId);
 			} else {
 				router.push(`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`);

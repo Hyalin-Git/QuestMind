@@ -41,6 +41,17 @@ export async function signIn(prevState, formData) {
 
 		if (!data?.success) throw new Error(data?.message);
 
+		console.log("====================================");
+		console.log(data);
+		console.log("====================================");
+
+		if (data?.role === "user") {
+			return {
+				status: "failure",
+				message: "Seul un administrateur peut se connecter",
+			};
+		}
+
 		const cookie = await cookies();
 
 		cookie.set("session", data?.accessToken, {
@@ -80,6 +91,69 @@ export async function signIn(prevState, formData) {
 	}
 }
 
+export async function signUp(prevState, formData) {
+	try {
+		const cookie = await cookies();
+		const session = cookie.get("session");
+
+		const email = formData.get("email");
+		const password = formData.get("password");
+
+		const validation = authSchema.safeParse({ email, password });
+
+		if (!validation.success) {
+			const errors = validation.error.flatten().fieldErrors;
+
+			if (errors) {
+				return {
+					status: "failure",
+					message: "Veuillez remplir tous les champs",
+					errors: errors,
+				};
+			}
+		}
+
+		const res = await fetch(`${process.env.API_URL}/api/auth/sign-up`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${session?.value}`,
+			},
+			body: JSON.stringify({ email, password }),
+		});
+
+		if (res.status === 403) {
+			return {
+				status: "failure",
+				message: "Seul un administrateur peut créer un compte",
+			};
+		}
+
+		const data = await res.json();
+
+		if (!data?.success && data?.message?.includes(email)) {
+			return {
+				status: "failure",
+				message: "Un compte existe déjà avec cette adresse e-mail",
+				errors: { email: ["Un compte existe déjà avec cette adresse e-mail"] },
+			};
+		}
+
+		if (!data?.success) throw new Error(data?.message);
+
+		return {
+			status: "success",
+			message: "Votre compte a été créé avec succès",
+		};
+	} catch (err) {
+		console.error("Failed to sign up:", err);
+
+		return {
+			status: "failure",
+			message: "Une erreur inattendue est survenue",
+		};
+	}
+}
 export async function sendResetCode(prevState, formData) {
 	try {
 		const email = formData.get("email");

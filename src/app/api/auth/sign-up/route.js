@@ -10,7 +10,7 @@ export async function POST(req) {
 		const validation = authSchema.safeParse({ email, password });
 
 		if (!validation.success) {
-			const { errors } = validation.error;
+			const errors = validation.error.flatten().fieldErrors;
 
 			return NextResponse.json(
 				{

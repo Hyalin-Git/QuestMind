@@ -2,13 +2,19 @@ import { z } from "zod";
 import { playerRegex, userRegex } from "./regex";
 
 export const authSchema = z.object({
-	email: z.string().min(4).regex(userRegex.email, {
-		message: "Invalid email address",
+	email: z.string().min(4, "Adresse mail invalide").regex(userRegex.email, {
+		message: "Adresse email invalide",
 	}),
-	password: z.string().min(8).regex(userRegex.password, {
-		message:
-			"Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character (e.g., #?!@$%^&*-)",
-	}),
+	password: z
+		.string()
+		.min(
+			8,
+			"Le mot de passe doit contenir au moins 8 caractères, inclure une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial (par exemple, #?!@$%^&*-)"
+		)
+		.regex(userRegex.password, {
+			message:
+				"Le mot de passe doit contenir au moins 8 caractères, inclure une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial (par exemple, #?!@$%^&*-)",
+		}),
 });
 
 export const playerSchema = z.object({

@@ -39,11 +39,23 @@ export default function SignIn({ setSignIn, setSignUp, setForgotPassword }) {
 				)}
 				<div>
 					<label htmlFor="email">Adresse e-mail</label>
-					<input type="email" name="email" id="email" />
+					<input
+						type="email"
+						name="email"
+						id="email"
+						autoComplete="email"
+						required
+					/>
 				</div>
 				<div>
 					<label htmlFor="password">Mot de passe</label>
-					<input type="password" name="password" id="password" />
+					<input
+						type="password"
+						name="password"
+						id="password"
+						required
+						autoComplete="off"
+					/>
 					<span
 						className={styles.forgotPassword}
 						onClick={(e) => {

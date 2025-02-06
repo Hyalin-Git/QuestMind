@@ -6,6 +6,7 @@ import Footer from "@/layouts/Footer";
 import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/app/TranslationsProvider";
 import Head from "next/head";
+import CookieConsentPopup from "@/layouts/CookieConsentPopup";
 // import Script from "next/script";
 
 const i18nNamespaces = ["common"];
@@ -50,6 +51,7 @@ export default async function RootLayout({ children, params }) {
 					<Header />
 					{children}
 					<Footer />
+					<CookieConsentPopup />
 				</body>
 			</html>
 		</TranslationsProvider>

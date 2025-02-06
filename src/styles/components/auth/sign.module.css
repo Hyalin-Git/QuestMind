@@ -31,6 +31,11 @@
 	border-radius: 8px;
 }
 
+.container form i {
+	top: 4px;
+	left: 0;
+}
+
 .container form button,
 .signInBtn {
 	margin-top: 10px;
