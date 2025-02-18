@@ -65,7 +65,7 @@ export default async function Athlete({ params }) {
 							<ul className={styles.socials}>
 								{hasX && (
 									<li>
-										<a href={player?.x_url} target="_blank">
+										<a href={player?.x_url} target="_blank" title="X">
 											<Image
 												src={"/twitter.svg"}
 												width={30}
@@ -78,7 +78,7 @@ export default async function Athlete({ params }) {
 								)}
 								{hasTiktok && (
 									<li>
-										<a href={player?.tiktok_url} target="_blank">
+										<a href={player?.tiktok_url} target="_blank" title="Tiktok">
 											<Image
 												src={"/tiktok.svg"}
 												width={30}
@@ -91,7 +91,10 @@ export default async function Athlete({ params }) {
 								)}
 								{hasInstagram && (
 									<li>
-										<a href={player?.instagram_url} target="_blank">
+										<a
+											href={player?.instagram_url}
+											target="_blank"
+											title="Instagram">
 											<Image
 												src={"/instagram.svg"}
 												width={30}
@@ -104,7 +107,10 @@ export default async function Athlete({ params }) {
 								)}
 								{hasYoutube && (
 									<li>
-										<a href={player?.youtube_url} target="_blank">
+										<a
+											href={player?.youtube_url}
+											target="_blank"
+											title="Youtube">
 											<Image
 												src={"/youtube.svg"}
 												width={30}
@@ -117,7 +123,7 @@ export default async function Athlete({ params }) {
 								)}
 								{hasTwitch && (
 									<li>
-										<a href={player?.twitch_url} target="_blank">
+										<a href={player?.twitch_url} target="_blank" title="Twitch">
 											<Image
 												src={"/twitch.svg"}
 												width={30}
@@ -130,7 +136,10 @@ export default async function Athlete({ params }) {
 								)}
 								{hasLeaguepedia && (
 									<li>
-										<a href={player?.leaguepedia_url} target="_blank">
+										<a
+											href={player?.leaguepedia_url}
+											target="_blank"
+											title="Leaguepedia">
 											<Image
 												src={"/leaguepedia.svg"}
 												width={30}
@@ -144,7 +153,10 @@ export default async function Athlete({ params }) {
 								)}
 								{hasLolpro && (
 									<li>
-										<a href={player?.lolpro_url} target="_blank">
+										<a
+											href={player?.lolpro_url}
+											target="_blank"
+											title="LoL Pro">
 											<Image
 												src={"/lolpro.png"}
 												width={30}
@@ -157,7 +169,10 @@ export default async function Athlete({ params }) {
 								)}
 								{hasLiquipedia && (
 									<li>
-										<a href={player?.liquipedia_url} target="_blank">
+										<a
+											href={player?.liquipedia_url}
+											target="_blank"
+											title="Liquipedia">
 											<Image
 												src={"/liquipedia.svg"}
 												width={30}
@@ -170,7 +185,7 @@ export default async function Athlete({ params }) {
 								)}
 								{hasVlr && (
 									<li>
-										<a href={player?.vlr_url} target="_blank">
+										<a href={player?.vlr_url} target="_blank" title="VLR">
 											<Image
 												src={"/vlr.png"}
 												width={30}
@@ -183,7 +198,7 @@ export default async function Athlete({ params }) {
 								)}
 								{hasHltv && (
 									<li>
-										<a href={player?.hltv_url} target="_blank">
+										<a href={player?.hltv_url} target="_blank" title="HLTV">
 											<Image
 												src={"/hltv.png"}
 												width={30}

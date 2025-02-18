@@ -13,9 +13,23 @@ export async function sendContactForm(state, prevState, formData) {
 				lastName: formData.get("last-name"),
 				nationality: formData.get("nationality"),
 				country: formData.get("country"),
+				age: formData.get("age"),
 				game: formData.get("game"),
+				pseudo: formData.get("pseudo"),
+				xUrl: formData.get("x-url"),
 				message: formData.get("message"),
 			};
+
+			const xRegex =
+				/^(https?:\/\/)?(www\.)?x\.com\/(@[a-zA-Z0-9_]+|[a-zA-Z0-9_]+)$/;
+
+			if (data.xUrl && !xRegex.test(data.xUrl)) {
+				return {
+					status: "failure",
+					message: "Le formulaire est invalide",
+					errors: { xUrl: "L'URL X n'est pas valide" },
+				};
+			}
 
 			const validation = playerContactSchema.safeParse(data);
 

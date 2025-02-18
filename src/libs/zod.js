@@ -79,6 +79,36 @@ export const playerSchema = z.object({
 		.max(255)
 		.or(z.literal(""))
 		.optional(),
+	lolproUrl: z
+		.string()
+		.regex(playerRegex.url, "URL LolPro invalide")
+		.max(255)
+		.or(z.literal(""))
+		.optional(),
+	leaguepediaUrl: z
+		.string()
+		.regex(playerRegex.url, "URL Leaguepedia invalide")
+		.max(255)
+		.or(z.literal(""))
+		.optional(),
+	vlrUrl: z
+		.string()
+		.regex(playerRegex.url, "URL VLR invalide")
+		.max(255)
+		.or(z.literal(""))
+		.optional(),
+	liquipediaUrl: z
+		.string()
+		.regex(playerRegex.url, "URL Liquipedia invalide")
+		.max(255)
+		.or(z.literal(""))
+		.optional(),
+	hltvUrl: z
+		.string()
+		.regex(playerRegex.url, "URL HLTV invalide")
+		.max(255)
+		.or(z.literal(""))
+		.optional(),
 });
 
 export const nationalitiesSchema = z.object({
@@ -120,6 +150,10 @@ export const playerContactSchema = z.object({
 		.string()
 		.min(1, "Le nom du jeu est obligatoire.")
 		.max(255, "Le nom du jeu ne peut pas dépasser 255 caractères."),
+	pseudo: z
+		.string()
+		.min(1, "Le pseudo est obligatoire.")
+		.max(255, "Le pseudo ne peut pas dépasser 255 caractères."),
 	message: z
 		.string()
 		.min(1, "Le message est obligatoire.")

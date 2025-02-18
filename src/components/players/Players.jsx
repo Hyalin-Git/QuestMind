@@ -89,8 +89,8 @@ export default function Players({ data }) {
 				customTransition="all 1s"
 				transitionDuration={1000}
 				removeArrowOnDeviceType={["tablet", "mobile"]}>
-				{data?.map((elt) => {
-					return <Player elt={elt} key={elt.id} />;
+				{data?.map((elt, idx) => {
+					return <Player elt={elt} key={idx} />;
 				})}
 			</Carousel>
 		</div>

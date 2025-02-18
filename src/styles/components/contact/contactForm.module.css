@@ -42,6 +42,28 @@
 	transition: 0.3s all linear;
 }
 
+.modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	min-width: 300px;
+}
+
+.modal span {
+	font-size: 1.8rem;
+	color: var(--green-color);
+}
+
+.modal button {
+	width: 100%;
+	padding: 8px;
+	font-size: 1.4rem;
+	border-radius: 4px;
+}
+
 .button button:hover {
 	background-color: #dda448;
 	transition: 0.3s all linear;

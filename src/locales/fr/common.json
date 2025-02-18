@@ -7,6 +7,7 @@
 	"headerContact": "Contact",
 	"headerConditions": "Conditions générales de Vente",
 	"headerLegal": "Mentions légales",
+	"headerChart": "Charte éthique",
 
 	"btnContact": "Contact",
 
@@ -120,10 +121,10 @@
 
 	"playerForm": [
 		{
-			"label": "Prénom"
+			"label": "Nom de famille"
 		},
 		{
-			"label": "Nom de famille"
+			"label": "Prénom"
 		},
 		{
 			"label": "Nationalité"
@@ -132,10 +133,19 @@
 			"label": "Pays de résidence"
 		},
 		{
+			"label": "Âge"
+		},
+		{
 			"label": "E-mail"
 		},
 		{
 			"label": "Jeu"
+		},
+		{
+			"label": "Pseudo"
+		},
+		{
+			"label": "Lien X"
 		},
 		{
 			"label": "Message"
@@ -302,6 +312,60 @@
 		{
 			"title": "6/ CONTACT",
 			"textOne": "Pour toute question ou demande concernant les mentions légales, vous pouvez contacter Questmind à l’adresse suivante : contact@Questmind.gg."
+		}
+	],
+
+	"chartHeader": "Charte d'éthique et de déontologie de Questmind",
+	"chartPreamble": "Préambule",
+
+	"chartPreambleText": "L'agence Questmind s'engage à promouvoir une activité professionnelle éthique, responsable et respectueuse des valeurs fondamentales de transparence, d'intégrité et d'inclusion. Cette charte établit les principes et les règles de conduite que l’ensemble des collaborateurs, partenaires et intervenants doivent respecter.",
+
+	"chart": [
+		{
+			"title": "1/ RESPECT DES LOIS ET DES RÉGLEMENTATIONS",
+			"textOne": "L’ensemble des membres de Questmind s’engage à respecter les lois et réglementations en vigueur, tant au niveau national qu’international, applicables à son domaine d’activité."
+		},
+		{
+			"title": "2/ INTÉGRITÉ ET TRANSPARENCE",
+			"textOne": "- Nous nous engageons à agir avec honnêteté et loyauté dans toutes nos interactions professionnelles.",
+			"textTwo": "- Nous garantissons une transparence totale sur nos activités, nos partenariats et nos engagements.",
+			"textThree": "- Nous refusons toute forme de corruption, de fraude ou de conflit d’intérêts."
+		},
+		{
+			"title": "3/ RESPECT ET INCLUSION",
+			"textOne": "- Nous promouvons un environnement de travail inclusif et respectueux de la diversité.",
+			"textTwo": "- Nous nous engageons à lutter contre toute forme de discrimination, de harcèlement ou de violence.",
+			"textThree": "- Nous veillons à ce que chacun puisse évoluer dans un cadre bienveillant et équitable."
+		},
+		{
+			"title": "4/ RESPONSABILITÉ SOCIÉTALE ET ENVIRONNEMENTALE",
+			"textOne": "- Nous nous engageons à minimiser notre impact environnemental en adoptant des pratiques écoresponsables.",
+			"textTwo": "- Nous encourageons des initiatives favorisant le développement durable et la responsabilité sociale."
+		},
+		{
+			"title": "5/ PROTECTION DES DONNÉES ET DE LA VIE PRIVÉE",
+			"textOne": "- Nous garantissons la protection des données personnelles et professionnelles conformément aux réglementations en vigueur.",
+			"textTwo": "- Nous assurons la confidentialité des informations échangées dans le cadre de nos activités."
+		},
+		{
+			"title": "6/ ENGAGEMENT PROFESSIONNEL",
+			"textOne": "- Nous encourageons l’excellence et la rigueur dans nos missions et nos prestations.",
+			"textTwo": "- Nous favorisons le partage des connaissances et la montée en compétence de nos collaborateurs.",
+			"textThree": "- Nous valorisons l’innovation et la créativité dans l’ensemble de nos projets."
+		},
+		{
+			"title": "7/ ÉTHIQUE ET BONNES PRATIQUES DANS LES COLLABORATIONS",
+			"textOne": "- Nous nous engageons à entretenir des relations professionnelles fondées sur le respect mutuel et la confiance.",
+			"textTwo": "- Nous favorisons des partenariats alignés avec nos valeurs éthiques et responsables.",
+			"textThree": "- Nous veillons à ce que chaque collaboration soit menée dans un cadre légal et transparent."
+		},
+		{
+			"title": "8/ SANCTIONS ET APPLICATION",
+			"textOne": "Toute violation des principes de cette charte pourra entraîner des mesures disciplinaires, pouvant aller jusqu’à la cessation de la collaboration. <br/> Questmind se réserve le droit d’évaluer et d’adapter cette charte afin de garantir son efficacité et sa pertinence."
+		},
+		{
+			"title": "CONCLUSION",
+			"textOne": "En adhérant à cette charte, chaque membre de Questmind s’engage à respecter et promouvoir ces valeurs au quotidien. <br /> Cette charte reflète notre volonté de construire un environnement professionnel éthique, responsable et durable."
 		}
 	]
 }

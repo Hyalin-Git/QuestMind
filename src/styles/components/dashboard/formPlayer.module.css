@@ -40,6 +40,16 @@
 	margin-top: 5px;
 }
 
+.form select {
+	padding: 8px;
+	border-radius: 4px;
+	margin-top: 5px;
+	width: 100%;
+}
+.form select option {
+	color: black;
+}
+
 .form i {
 	color: red;
 	font-size: 0.8rem;

@@ -9,27 +9,24 @@ export default function AuthProvider({ children }) {
 	const router = useRouter();
 	const [uid, setUid] = useState(null);
 
-	const { error } = useSWR("/auth/get-session", getSession, {
-		onSuccess: (data, key, config) => {
-			if (data?.success) {
-				setUid(data?.data?.userId);
-			} else {
-				router.push(`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`);
-			}
-		},
+	const { data, error } = useSWR("/auth/get-session", getSession, {
 		refreshInterval: 15 * 60 * 1000, // Refresh every 15 minutes
 		revalidateOnMount: true,
 		revalidateOnFocus: true,
 		refreshWhenHidden: true,
 	});
 
-	console.log(error);
-
 	useEffect(() => {
-		if (error) {
+		if (data?.success === false) {
 			router.push(`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`);
 		}
-	}, [error]);
+
+		setUid(data?.data?.userId);
+	}, [data, router]);
+
+	if (error) {
+		router.push(`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`);
+	}
 
 	return (
 		<AuthContext.Provider value={{ uid, setUid }}>

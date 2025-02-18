@@ -5,6 +5,6 @@ export const userRegex = {
 
 export const playerRegex = {
 	url: /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}([\/a-zA-Z0-9-._~:?#[\]@!$&'()*+,;=]*)?$/,
-	name: /^[a-zA-ZÀ-ÖØ-öø-ÿ \'-]+$/,
+	name: /^[a-zA-ZÀ-ÖØ-öø-ÿĀ-žʼ\ -]+$/,
 	username: /^[a-zA-Z0-9_-]+$/,
 };

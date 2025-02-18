@@ -8,7 +8,9 @@
 .container:nth-child(n + 4) {
 	margin-top: -30px;
 }
-
+/* .container:last-child {
+	margin-right: auto;
+} */
 .container img {
 	width: 100%;
 	height: 100%;

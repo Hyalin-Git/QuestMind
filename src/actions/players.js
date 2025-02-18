@@ -21,6 +21,11 @@ export async function savePlayer(prevState, formData) {
 			instagramUrl: formData.get("instagram-url") || "",
 			youtubeUrl: formData.get("youtube-url") || "",
 			tiktokUrl: formData.get("tiktok-url") || "",
+			lolproUrl: formData.get("lolpro-url") || "",
+			leaguepediaUrl: formData.get("leaguepedia-url") || "",
+			vlrUrl: formData.get("vlr-url") || "",
+			liquipediaUrl: formData.get("liquipedia-url") || "",
+			hltvUrl: formData.get("hltv-url") || "",
 		};
 
 		const validation = playerSchema.safeParse(playerData);
@@ -51,6 +56,10 @@ export async function savePlayer(prevState, formData) {
 			data.append(key, value);
 		});
 
+		if (!formData.get("game") && !formData.get("region")) {
+			return;
+		}
+
 		const playerRes = await fetch(`${process.env.API_URL}/api/players/post`, {
 			method: "POST",
 			headers: {
@@ -62,6 +71,26 @@ export async function savePlayer(prevState, formData) {
 		const playerResponse = await playerRes.json();
 
 		if (!playerResponse.success) throw new Error(playerResponse?.message);
+
+		if (!formData.get("game")) {
+			return {
+				status: "failure",
+				message: "Veuillez vérifier le formulaire",
+				errors: {
+					games: ["Veuillez sélectionner un jeu"],
+				},
+			};
+		}
+
+		if (!formData.get("region")) {
+			return {
+				status: "failure",
+				message: "Veuillez vérifier le formulaire",
+				errors: {
+					region: ["Veuillez sélectionner une région"],
+				},
+			};
+		}
 
 		if (formData.get("game")) {
 			const rawData = {
@@ -140,6 +169,11 @@ export async function updatePlayer(prevState, formData) {
 			instagramUrl: formData.get("instagram-url") || "",
 			youtubeUrl: formData.get("youtube-url") || "",
 			tiktokUrl: formData.get("tiktok-url") || "",
+			lolproUrl: formData.get("lolpro-url") || "",
+			leaguepediaUrl: formData.get("leaguepedia-url") || "",
+			vlrUrl: formData.get("vlr-url") || "",
+			liquipediaUrl: formData.get("liquipedia-url") || "",
+			hltvUrl: formData.get("hltv-url") || "",
 		};
 
 		// Ajouter "picture" uniquement si elle n'est pas vide

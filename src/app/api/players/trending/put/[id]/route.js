@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 
 export async function PUT(req, { params }) {
 	try {
-		const { id } = await params;
-		const { playerId } = await req.json();
+		const { id } = params;
+		const { playerId, position } = await req.json();
 
-		if (!playerId) {
+		if (!playerId || position === null || position > 12) {
 			return NextResponse.json(
 				{
 					success: false,
@@ -18,12 +18,14 @@ export async function PUT(req, { params }) {
 
 		const connection = await pool.getConnection();
 
+		// Vérifier si le joueur existe
 		const [player] = await connection.execute(
 			"SELECT * FROM `players` WHERE `players`.`id` = ?",
 			[playerId]
 		);
 
 		if (player.length <= 0) {
+			connection.release();
 			return NextResponse.json(
 				{
 					success: false,
@@ -33,16 +35,31 @@ export async function PUT(req, { params }) {
 			);
 		}
 
+		// Vérifier si la position est déjà prise
+		const [existing] = await connection.execute(
+			"SELECT * FROM `players_trending`"
+		);
+
+		if (existing.length > 0) {
+			// Décaler l'ancien joueur à une autre position (ex: dernière place)
+			await connection.execute(
+				"UPDATE `players_trending` SET `position` = ? WHERE `position` = ?",
+				[existing.length, position]
+			);
+		}
+
+		// Mettre à jour le joueur dans trending
 		const [result] = await connection.execute(
-			"UPDATE `players_trending` SET `player_id` = ? WHERE `players_trending`.`id` = ?",
-			[playerId, id]
+			"UPDATE `players_trending` SET `player_id` = ?, `position` = ? WHERE `id` = ?",
+			[playerId, position, id]
 		);
 
 		if (result.affectedRows <= 0) {
+			connection.release();
 			return NextResponse.json(
 				{
 					success: false,
-					message: "Impossible to update a non-existant player trending",
+					message: "Impossible to update a non-existent player trending",
 				},
 				{ status: 404 }
 			);
@@ -53,7 +70,7 @@ export async function PUT(req, { params }) {
 		return NextResponse.json(
 			{
 				success: true,
-				message: "Players trending successfully updated",
+				message: "Player trending successfully updated",
 			},
 			{ status: 200 }
 		);

@@ -14,9 +14,16 @@ import FormSponsor from "./FormSponsor";
 import { deleteSponsor } from "@/api/sponsors";
 import FormRegion from "./FormRegion";
 import { deleteNationality } from "@/api/nationalities";
+import { deleteUser } from "@/api/users";
+import FormUser from "./FormUser";
+import { deleteTrendingPlayer } from "@/api/trending";
+import FormTrending from "./FormTrending";
+import FormPerformance from "./FormPerformance";
+import { deletePlayerPerformance } from "@/api/performances";
 
 export default function Table({
 	data,
+	players,
 	games,
 	nationalities,
 	section,
@@ -48,19 +55,31 @@ export default function Table({
 		let text = "";
 
 		if (type === "player") {
-			text = "Voulez-vous vraimment supprimer ce joueur ? ";
+			text = "Voulez-vous vraimment supprimer ce joueur ?";
 		}
 
 		if (type === "game") {
-			text = "Voulez-vous vraimment supprimer ce jeu ? ";
+			text = "Voulez-vous vraimment supprimer ce jeu ?";
 		}
 
 		if (type === "sponsor") {
-			text = "Voulez-vous vraimment supprimer ce sponsor ? ";
+			text = "Voulez-vous vraimment supprimer ce sponsor ?";
 		}
 
 		if (type === "region") {
-			text = "Voulez-vous vraimment supprimer cette région ? ";
+			text = "Voulez-vous vraimment supprimer cette région ?";
+		}
+
+		if (type === "users") {
+			text = "Voulez-vous vraimment supprimer cet utilisateur ?";
+		}
+
+		if (type === "trending") {
+			text = "Voulez-vous vraimment supprimer ce joueur en trending ?";
+		}
+
+		if (type === "performance") {
+			text = "Voulez-vous vraimment supprimer cette performance ?";
 		}
 
 		const isConfirmed = window.confirm(text);
@@ -102,6 +121,42 @@ export default function Table({
 					return alert(res.message || "Impossible de supprimer cette région");
 				}
 			}
+
+			if (type === "users") {
+				const res = await deleteUser(data);
+
+				if (res?.success) {
+					return alert("Utilisateur supprimé avec succès");
+				} else {
+					return alert(
+						res.message || "Impossible de supprimer cet utilisateur"
+					);
+				}
+			}
+
+			if (type === "trending") {
+				const res = await deleteTrendingPlayer(data);
+
+				if (res?.success) {
+					return alert("Joueur en trending supprimé avec succès");
+				} else {
+					return alert(
+						res.message || "Impossible de supprimer ce joueur en trending"
+					);
+				}
+			}
+
+			if (type === "performance") {
+				const res = await deletePlayerPerformance(data);
+
+				if (res?.success) {
+					return alert("Performance supprimée avec succès");
+				} else {
+					return alert(
+						res.message || "Impossible de supprimer cette performance"
+					);
+				}
+			}
 		}
 
 		return;
@@ -112,9 +167,15 @@ export default function Table({
 			{section && <h2>{section}</h2>}
 
 			<div className={styles.btn}>
-				<button className={montserrat.className} onClick={handleOpenModal}>
-					{btnText}
-				</button>
+				{type === "users" ? (
+					<Link href={`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`}>
+						<button className={montserrat.className}>{btnText}</button>
+					</Link>
+				) : (
+					<button className={montserrat.className} onClick={handleOpenModal}>
+						{btnText}
+					</button>
+				)}
 			</div>
 			<div className={styles.tableContainer}>
 				<table>
@@ -157,6 +218,27 @@ export default function Table({
 							handleDelete={handleDelete}
 						/>
 					)}
+					{type === "users" && (
+						<UsersList
+							data={data}
+							handleEdit={handleEdit}
+							handleDelete={handleDelete}
+						/>
+					)}
+					{type === "trending" && (
+						<TrendingList
+							data={data}
+							handleEdit={handleEdit}
+							handleDelete={handleDelete}
+						/>
+					)}
+					{type === "performance" && (
+						<PerformanceList
+							data={data}
+							handleEdit={handleEdit}
+							handleDelete={handleDelete}
+						/>
+					)}
 				</table>
 			</div>
 			{openModal && (
@@ -177,6 +259,24 @@ export default function Table({
 					)}
 					{type === "region" && (
 						<FormRegion region={selectedForm} setOpenModal={setOpenModal} />
+					)}
+					{type === "users" && (
+						<FormUser user={selectedForm} setOpenModal={setOpenModal} />
+					)}
+					{type === "trending" && (
+						<FormTrending
+							player={selectedForm}
+							players={players}
+							trending={data}
+							setOpenModal={setOpenModal}
+						/>
+					)}
+					{type === "performance" && (
+						<FormPerformance
+							performance={selectedForm}
+							players={players}
+							setOpenModal={setOpenModal}
+						/>
 					)}
 				</>
 			)}
@@ -411,6 +511,120 @@ export function RegionList({ data, handleEdit, handleDelete }) {
 								<FontAwesomeIcon
 									icon={faXmark}
 									onClick={() => handleDelete(region?.id)}
+								/>
+							</th>
+						</tr>
+					);
+				})}
+		</tbody>
+	);
+}
+
+export function UsersList({ data, handleEdit, handleDelete }) {
+	return (
+		<tbody>
+			{data?.length > 0 &&
+				data?.map((user) => {
+					const createdAt = user?.created_at?.split("T")[0];
+					const updatedAt = user?.updated_at?.split("T")[0];
+					return (
+						<tr key={user?.id}>
+							<th scope="row">{user?.email}</th>
+							<th>{user?.role}</th>
+							<th>{createdAt}</th>
+							<th>{updatedAt}</th>
+							<th>
+								<FontAwesomeIcon
+									icon={faPenToSquare}
+									onClick={() => handleEdit(user)}
+								/>
+								<FontAwesomeIcon
+									icon={faXmark}
+									onClick={() => handleDelete(user?.id)}
+								/>
+							</th>
+						</tr>
+					);
+				})}
+		</tbody>
+	);
+}
+
+export function PerformanceList({ data, handleEdit, handleDelete }) {
+	return (
+		<tbody>
+			{data?.length > 0 &&
+				data?.map((elt) => {
+					return (
+						<tr key={elt?.id}>
+							<th scope="row">{elt?.username}</th>
+							<th>
+								{elt?.picture && (
+									<Image
+										src={elt?.picture}
+										width={50}
+										height={50}
+										quality={100}
+										alt={`Photo de ${elt?.username}`}
+										style={{
+											position: "relative",
+											top: "1.5px",
+											objectFit: "contain",
+										}}
+									/>
+								)}
+							</th>
+							<th>{elt?.performance}</th>
+							<th>
+								<FontAwesomeIcon
+									icon={faPenToSquare}
+									onClick={() => handleEdit(elt)}
+								/>
+								<FontAwesomeIcon
+									icon={faXmark}
+									onClick={() => handleDelete(elt?.id)}
+								/>
+							</th>
+						</tr>
+					);
+				})}
+		</tbody>
+	);
+}
+
+export function TrendingList({ data, handleEdit, handleDelete }) {
+	return (
+		<tbody>
+			{data?.length > 0 &&
+				data?.map((player) => {
+					return (
+						<tr key={player?.player_id}>
+							<th scope="row">{player?.username}</th>
+							<th>
+								{player?.picture && (
+									<Image
+										src={player?.picture}
+										width={50}
+										height={50}
+										quality={100}
+										alt={`Photo de ${player?.username}`}
+										style={{
+											position: "relative",
+											top: "1.5px",
+											objectFit: "contain",
+										}}
+									/>
+								)}
+							</th>
+							<th>{player?.position}</th>
+							<th>
+								<FontAwesomeIcon
+									icon={faPenToSquare}
+									onClick={() => handleEdit(player)}
+								/>
+								<FontAwesomeIcon
+									icon={faXmark}
+									onClick={() => handleDelete(player?.trending_id)}
 								/>
 							</th>
 						</tr>

@@ -1,8 +1,8 @@
 "use client";
 import { sendContactForm } from "@/actions/contact";
-import { roboto } from "@/libs/font";
+import { outfit, roboto } from "@/libs/font";
 import styles from "@/styles/components/contact/contactForm.module.css";
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const initialState = {
@@ -12,6 +12,7 @@ const initialState = {
 };
 
 export default function PlayerForm() {
+	const [modal, setModal] = useState(false);
 	const { t, i18n } = useTranslation();
 	const currLanguage = i18n.language;
 	const sendContactFormWithState = sendContactForm.bind(null, "player");
@@ -19,6 +20,13 @@ export default function PlayerForm() {
 		sendContactFormWithState,
 		initialState
 	);
+
+	useEffect(() => {
+		if (state?.status === "success") {
+			setModal(true);
+		}
+	}, [state]);
+
 	const isFr = currLanguage === "fr";
 	const isEn = currLanguage === "en";
 	const isEs = currLanguage === "es";
@@ -56,10 +64,22 @@ export default function PlayerForm() {
 	const gameEn = "Invalid game";
 	const gameEs = "Juego inválido";
 
+	const pseudo = errors?.pseudo;
+	const pseudoFr = "Pseudo invalide";
+	const pseudoEn = "Invalid pseudo";
+	const pseudoEs = "Pseudo inválido";
+
+	const xUrl = errors?.xUrl;
+	const xUrlFr = "URL X invalide";
+	const xUrlEn = "Invalid X URL";
+	const xUrlEs = "URL X inválida";
+
 	const message = errors?.message;
 	const messageFr = "Message invalide";
 	const messageEn = "Invalid message";
 	const messageEs = "Mensaje inválido";
+
+	console.log(state);
 
 	return (
 		<div className={styles.container}>
@@ -67,22 +87,8 @@ export default function PlayerForm() {
 				<div className={styles.formWrapper}>
 					<div className={styles.row}>
 						<div>
-							<label htmlFor="first-name" className={roboto.className}>
-								{t("playerForm.0.label")}
-							</label>
-							<br />
-							<input type="text" name="first-name" id="first-name" required />
-							{firstName && (
-								<i>
-									{(isFr && firstNameFr) ||
-										(isEn && firstNameEn) ||
-										(isEs && firstNameEs)}
-								</i>
-							)}
-						</div>
-						<div>
 							<label htmlFor="last-name" className={roboto.className}>
-								{t("playerForm.1.label")}
+								{t("playerForm.0.label")}
 							</label>
 							<br />
 							<input type="text" name="last-name" id="last-name" required />
@@ -91,6 +97,20 @@ export default function PlayerForm() {
 									{(isFr && lastNameFr) ||
 										(isEn && lastNameEn) ||
 										(isEs && lastNameEs)}
+								</i>
+							)}
+						</div>
+						<div>
+							<label htmlFor="first-name" className={roboto.className}>
+								{t("playerForm.1.label")}
+							</label>
+							<br />
+							<input type="text" name="first-name" id="first-name" required />
+							{firstName && (
+								<i>
+									{(isFr && firstNameFr) ||
+										(isEn && firstNameEn) ||
+										(isEs && firstNameEs)}
 								</i>
 							)}
 						</div>
@@ -125,8 +145,20 @@ export default function PlayerForm() {
 							)}
 						</div>
 						<div>
-							<label htmlFor="email" className={roboto.className}>
+							<label htmlFor="age" className={roboto.className}>
 								{t("playerForm.4.label")}
+							</label>
+							<br />
+							<input type="number" name="age" id="age" required />
+							{email && (
+								<i>
+									{(isFr && emailFr) || (isEn && emailEn) || (isEs && emailEs)}
+								</i>
+							)}
+						</div>
+						<div>
+							<label htmlFor="email" className={roboto.className}>
+								{t("playerForm.5.label")}
 							</label>
 							<br />
 							<input type="email" name="email" id="email" required />
@@ -136,9 +168,11 @@ export default function PlayerForm() {
 								</i>
 							)}
 						</div>
+					</div>
+					<div className={styles.row}>
 						<div>
 							<label htmlFor="game" className={roboto.className}>
-								{t("playerForm.5.label")}
+								{t("playerForm.6.label")}
 							</label>
 							<br />
 							<input type="text" name="game" id="game" required />
@@ -148,10 +182,32 @@ export default function PlayerForm() {
 								</i>
 							)}
 						</div>
+						<div>
+							<label htmlFor="pseudo">{t("playerForm.7.label")}</label>
+							<br />
+							<input type="text" name="pseudo" id="pseudo" required />
+							{pseudo && (
+								<i>
+									{(isFr && pseudoFr) ||
+										(isEn && pseudoEn) ||
+										(isEs && pseudoEs)}
+								</i>
+							)}
+						</div>
+						<div>
+							<label htmlFor="x-url">{t("playerForm.8.label")}</label>
+							<br />
+							<input type="text" id="x-url" name="x-url" />
+							{xUrl && (
+								<i>
+									{(isFr && xUrlFr) || (isEn && xUrlEn) || (isEs && xUrlEs)}
+								</i>
+							)}
+						</div>
 					</div>
 					<div className={styles.message}>
 						<label htmlFor="message" className={roboto.className}>
-							{t("playerForm.6.label")}
+							{t("playerForm.9.label")}
 						</label>
 
 						<textarea name="message" id="message" required />
@@ -170,6 +226,23 @@ export default function PlayerForm() {
 					</button>
 				</div>
 			</form>
+			{modal && (
+				<>
+					<div id="modal" className={styles.modal}>
+						<span>E-mail reçu !</span>
+						<p className={styles.success}>
+							Merci pour votre message, nous l'avons bien reçu et vous
+							contacterons prochainement.
+						</p>
+						<button
+							className={outfit.className}
+							onClick={(e) => setModal(false)}>
+							Parfait
+						</button>
+					</div>
+					<div id="layout" onClick={(e) => setModal(false)}></div>
+				</>
+			)}
 		</div>
 	);
 }

@@ -52,13 +52,16 @@ export default function Footer() {
 					<li>
 						<Link href={"/terms"}>{t("headerLegal")}</Link>
 					</li>
+					<li>
+						<Link href={"/charts"}>{t("headerChart")}</Link>
+					</li>
 				</ul>
 			</div>
 			{/* social links */}
 			<div className={styles.socials}>
 				<span>{t("followUs")}</span>
 				<div>
-					<a href="https://x.com/questmindgg" target="_blank">
+					<a href="https://x.com/questmindgg" target="_blank" title="X">
 						<Image
 							src={"/twitter.svg"}
 							width={30}
@@ -66,7 +69,10 @@ export default function Footer() {
 							alt="Logo twitter"
 						/>
 					</a>
-					<a href="https://www.linkedin.com/company/questmind" target="_blank">
+					<a
+						href="https://www.linkedin.com/company/questmind"
+						target="_blank"
+						title="LinkedIn">
 						<Image
 							src={"/linkedin.svg"}
 							width={30}

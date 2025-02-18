@@ -7,6 +7,7 @@
 	"headerContact": "Contacto",
 	"headerConditions": "Términos y Condiciones",
 	"headerLegal": "Aviso legal",
+	"headerChart": "Carta ética",
 
 	"btnContact": "Contacto",
 
@@ -122,22 +123,31 @@
 
 	"playerForm": [
 		{
-			"label": "First Name"
+			"label": "Last Name"
 		},
 		{
-			"label": "Last Name"
+			"label": "First Name"
 		},
 		{
 			"label": "Nationality"
 		},
 		{
-			"label": "Residency Country"
+			"label": "Country of Residence"
 		},
 		{
-			"label": "E-mail"
+			"label": "Age"
+		},
+		{
+			"label": "Email"
 		},
 		{
 			"label": "Game"
+		},
+		{
+			"label": "Username"
+		},
+		{
+			"label": "Link X"
 		},
 		{
 			"label": "Message"
@@ -304,6 +314,60 @@
 		{
 			"title": "6/ CONTACTO",
 			"textOne": "Para cualquier consulta o solicitud sobre el aviso legal, puede contactar a Questmind en la siguiente dirección: contact@Questmind.gg."
+		}
+	],
+
+	"chartHeader": "Código de Ética y Conducta Profesional de Questmind",
+	"chartPreamble": "Preámbulo",
+
+	"chartPreambleText": "Questmind se compromete a promover una actividad profesional ética, responsable y respetuosa de los valores fundamentales de transparencia, integridad e inclusión. Esta carta establece los principios y las normas de conducta que todos los empleados, socios y partes interesadas deben seguir.",
+
+	"chart": [
+		{
+			"title": "1/ CUMPLIMIENTO DE LAS LEYES Y REGULACIONES",
+			"textOne": "Todos los miembros de Questmind se comprometen a respetar las leyes y regulaciones aplicables, tanto a nivel nacional como internacional, en su área de actividad."
+		},
+		{
+			"title": "2/ INTEGRIDAD Y TRANSPARENCIA",
+			"textOne": "- Nos comprometemos a actuar con honestidad y lealtad en todas nuestras interacciones profesionales.",
+			"textTwo": "- Garantizamos total transparencia respecto a nuestras actividades, asociaciones y compromisos.",
+			"textThree": "- Rechazamos cualquier forma de corrupción, fraude o conflicto de interés."
+		},
+		{
+			"title": "3/ RESPETO E INCLUSIÓN",
+			"textOne": "- Promovemos un entorno de trabajo inclusivo y respetuoso con la diversidad.",
+			"textTwo": "- Nos comprometemos a luchar contra cualquier forma de discriminación, acoso o violencia.",
+			"textThree": "- Velamos para que todos puedan desarrollarse en un entorno de apoyo y equidad."
+		},
+		{
+			"title": "4/ RESPONSABILIDAD SOCIAL Y AMBIENTAL",
+			"textOne": "- Nos comprometemos a minimizar nuestro impacto ambiental adoptando prácticas ecológicas.",
+			"textTwo": "- Fomentamos iniciativas que promuevan el desarrollo sostenible y la responsabilidad social."
+		},
+		{
+			"title": "5/ PROTECCIÓN DE DATOS Y PRIVACIDAD",
+			"textOne": "- Garantizamos la protección de los datos personales y profesionales conforme a las regulaciones aplicables.",
+			"textTwo": "- Aseguramos la confidencialidad de la información intercambiada en el marco de nuestras actividades."
+		},
+		{
+			"title": "6/ COMPROMISO PROFESIONAL",
+			"textOne": "- Fomentamos la excelencia y la rigurosidad en nuestras misiones y servicios.",
+			"textTwo": "- Promovemos el intercambio de conocimientos y el desarrollo de las competencias de nuestros colaboradores.",
+			"textThree": "- Valoramos la innovación y la creatividad en todos nuestros proyectos."
+		},
+		{
+			"title": "7/ ÉTICA Y BUENAS PRÁCTICAS EN LAS COLABORACIONES",
+			"textOne": "- Nos comprometemos a mantener relaciones profesionales basadas en el respeto mutuo y la confianza.",
+			"textTwo": "- Fomentamos asociaciones alineadas con nuestros valores éticos y responsables.",
+			"textThree": "- Velamos para que cada colaboración se lleve a cabo de manera legal y transparente."
+		},
+		{
+			"title": "8/ SANCIONES Y APLICACIÓN",
+			"textOne": "Cualquier violación de los principios de esta carta puede dar lugar a medidas disciplinarias, incluida la terminación de la colaboración. <br /> Questmind se reserva el derecho de evaluar y adaptar esta carta para garantizar su eficacia y relevancia."
+		},
+		{
+			"title": "CONCLUSIÓN",
+			"textOne": "Al adherirse a esta carta, cada miembro de Questmind se compromete a respetar y promover estos valores diariamente. <br /> Esta carta refleja nuestro deseo de construir un entorno profesional ético, responsable y sostenible."
 		}
 	]
 }

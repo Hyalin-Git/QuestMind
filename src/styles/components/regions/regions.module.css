@@ -2,20 +2,40 @@
 	max-width: 500px;
 	width: 100%;
 }
+
 .container strong {
 	cursor: pointer;
+	margin-bottom: 10px;
 }
+
 .wrapper {
 	margin-top: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: 100%;
 	gap: 35px;
+}
+
+@media screen and (max-width: 530px) {
+	.wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.wrapper {
+		gap: 40px;
+	}
 }
 
 @media screen and (max-width: 355px) {
 	.wrapper {
-		gap: 10px;
+		gap: 30px;
+	}
+}
+
+@media screen and (max-width: 309px) {
+	.wrapper {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }

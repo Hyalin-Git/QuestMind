@@ -12,6 +12,8 @@ export async function DELETE(req, { params }) {
 			[id]
 		);
 
+		console.log(result);
+
 		if (result.affectedRows <= 0) {
 			return NextResponse.json(
 				{

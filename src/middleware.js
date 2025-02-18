@@ -90,5 +90,9 @@ export const config = {
 		"/api/players/trending/post",
 		"/api/players/trending/put",
 		"/api/players/trending/delete",
+		"/api/players/performance/get",
+		"/api/players/performance/post",
+		"/api/players/performance/put",
+		"/api/players/performance/delete",
 	],
 };

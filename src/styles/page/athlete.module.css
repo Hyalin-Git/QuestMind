@@ -133,6 +133,7 @@
 	border-radius: 34px;
 	padding-inline: 8px;
 	font-weight: 600;
+	min-width: 165px;
 }
 
 .contact {

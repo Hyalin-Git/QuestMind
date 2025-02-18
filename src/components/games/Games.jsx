@@ -4,7 +4,6 @@ import Game from "./Game";
 import styles from "@/styles/components/games/games.module.css";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import Image from "next/image";
 
 export default function Games({ data }) {
 	const { t } = useTranslation();
@@ -21,10 +20,11 @@ export default function Games({ data }) {
 				}}>
 				{t("game")}
 			</strong>
+
 			<div className={styles.wrapper}>
-				{data.map((elt) => {
-					return <Game elt={elt} key={elt?.id} />;
-				})}
+				{data.map((elt) => (
+					<Game elt={elt} key={elt?.id} />
+				))}
 			</div>
 		</div>
 	);

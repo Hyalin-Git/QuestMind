@@ -18,7 +18,7 @@ export default function Player({ elt }) {
 		<>
 			{(elt?.game || elt?.region) && (
 				<div>
-					<Link href={`/athletes/${elt?.id}`}>
+					<Link href={`/athletes/${elt?.player_id || elt?.id}`}>
 						<div className={styles.container}>
 							<div className={styles.imgWrapper}>
 								<Image

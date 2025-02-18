@@ -12,6 +12,7 @@ export default function DashboardAside() {
 	const games = pathname?.includes("games");
 	const sponsors = pathname?.includes("sponsors");
 	const region = pathname?.includes("region");
+	const users = pathname?.includes("users");
 	async function handleLogout(e) {
 		await logout();
 	}
@@ -41,6 +42,9 @@ export default function DashboardAside() {
 						</li>
 						<li data-active={region}>
 							<Link href={`region`}>Gestion des régions</Link>
+						</li>
+						<li data-active={users}>
+							<Link href={`users`}>Gestion des utilisateurs</Link>
 						</li>
 					</ul>
 				</div>

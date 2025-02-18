@@ -17,6 +17,11 @@ export async function POST(req) {
 		const instagramUrl = formData.get("instagramUrl");
 		const youtubeUrl = formData.get("youtubeUrl");
 		const twitchUrl = formData.get("twitchUrl");
+		const lolproUrl = formData.get("lolproUrl");
+		const leaguepediaUrl = formData.get("leaguepediaUrl");
+		const vlrUrl = formData.get("vlrUrl");
+		const liquipediaUrl = formData.get("liquipediaUrl");
+		const hltvUrl = formData.get("hltvUrl");
 
 		const validation = playerSchema.safeParse({
 			lastname,
@@ -30,6 +35,11 @@ export async function POST(req) {
 			instagramUrl,
 			youtubeUrl,
 			twitchUrl,
+			lolproUrl,
+			leaguepediaUrl,
+			vlrUrl,
+			liquipediaUrl,
+			hltvUrl,
 		});
 
 		if (!validation.success) {
@@ -48,7 +58,7 @@ export async function POST(req) {
 		const connection = await pool.getConnection();
 
 		const [savedPlayer] = await connection.execute(
-			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`, `lolpro_url`, `leaguepedia_url`, `vlr_url`, `liquipedia_url`, `hltv_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				lastname,
 				firstname,
@@ -61,6 +71,11 @@ export async function POST(req) {
 				instagramUrl,
 				youtubeUrl,
 				twitchUrl,
+				lolproUrl,
+				leaguepediaUrl,
+				vlrUrl,
+				liquipediaUrl,
+				hltvUrl,
 			]
 		);
 

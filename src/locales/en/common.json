@@ -7,6 +7,8 @@
 	"headerContact": "Contact Us",
 	"headerConditions": "Terms and Conditions",
 	"headerLegal": "Terms and Legal Notice",
+	"headerChart": "Ethical Charter",
+
 	"btnContact": "Contact us",
 	"player": "Player",
 	"trust": "They <strong>trust</strong> us:",
@@ -104,22 +106,31 @@
 	"company": "company",
 	"playerForm": [
 		{
-			"label": "First Name"
+			"label": "Last Name"
 		},
 		{
-			"label": "Last Name"
+			"label": "First Name"
 		},
 		{
 			"label": "Nationality"
 		},
 		{
-			"label": "Residency Country"
+			"label": "Country of Residence"
 		},
 		{
-			"label": "E-mail"
+			"label": "Age"
+		},
+		{
+			"label": "Email"
 		},
 		{
 			"label": "Game"
+		},
+		{
+			"label": "Username"
+		},
+		{
+			"label": "Link X"
 		},
 		{
 			"label": "Message"
@@ -276,6 +287,60 @@
 		{
 			"title": "6/ CONTACT",
 			"textOne": "For any questions or requests regarding the legal notice, you can contact Questmind at the following address: contact@Questmind.gg."
+		}
+	],
+
+	"chartHeader": "Questmind's Code of Ethics and Professional Conduct",
+	"chartPreamble": "Preamble",
+
+	"chartPreambleText": "Questmind is committed to promoting an ethical, responsible professional activity that respects the fundamental values of transparency, integrity, and inclusion. This charter establishes the principles and rules of conduct that all employees, partners, and stakeholders must adhere to.",
+
+	"chart": [
+		{
+			"title": "1/ COMPLIANCE WITH LAWS AND REGULATIONS",
+			"textOne": "All members of Questmind are committed to respecting the applicable laws and regulations, both at the national and international levels, in their area of activity."
+		},
+		{
+			"title": "2/ INTEGRITY AND TRANSPARENCY",
+			"textOne": "- We are committed to acting with honesty and loyalty in all our professional interactions.",
+			"textTwo": "- We guarantee full transparency regarding our activities, partnerships, and commitments.",
+			"textThree": "- We reject any form of corruption, fraud, or conflict of interest."
+		},
+		{
+			"title": "3/ RESPECT AND INCLUSION",
+			"textOne": "- We promote an inclusive work environment that respects diversity.",
+			"textTwo": "- We are committed to combating any form of discrimination, harassment, or violence.",
+			"textThree": "- We ensure that everyone can thrive in a supportive and fair environment."
+		},
+		{
+			"title": "4/ SOCIAL AND ENVIRONMENTAL RESPONSIBILITY",
+			"textOne": "- We are committed to minimizing our environmental impact by adopting eco-friendly practices.",
+			"textTwo": "- We encourage initiatives that promote sustainable development and social responsibility."
+		},
+		{
+			"title": "5/ DATA PROTECTION AND PRIVACY",
+			"textOne": "- We guarantee the protection of personal and professional data in accordance with applicable regulations.",
+			"textTwo": "- We ensure the confidentiality of information exchanged within the scope of our activities."
+		},
+		{
+			"title": "6/ PROFESSIONAL COMMITMENT",
+			"textOne": "- We encourage excellence and rigor in our missions and services.",
+			"textTwo": "- We promote the sharing of knowledge and the development of our employees' skills.",
+			"textThree": "- We value innovation and creativity in all of our projects."
+		},
+		{
+			"title": "7/ ETHICS AND BEST PRACTICES IN COLLABORATIONS",
+			"textOne": "- We are committed to maintaining professional relationships based on mutual respect and trust.",
+			"textTwo": "- We favor partnerships that align with our ethical and responsible values.",
+			"textThree": "- We ensure that each collaboration is carried out in a legal and transparent manner."
+		},
+		{
+			"title": "8/ SANCTIONS AND ENFORCEMENT",
+			"textOne": "Any violation of the principles of this charter may result in disciplinary measures, including the termination of the collaboration. <br /> Questmind reserves the right to evaluate and adapt this charter to ensure its effectiveness and relevance."
+		},
+		{
+			"title": "CONCLUSION",
+			"textOne": "By adhering to this charter, each member of Questmind commits to respecting and promoting these values on a daily basis. <br /> This charter reflects our desire to build an ethical, responsible, and sustainable professional environment."
 		}
 	]
 }

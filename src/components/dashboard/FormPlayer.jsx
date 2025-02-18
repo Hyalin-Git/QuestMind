@@ -22,6 +22,8 @@ export default function FormPlayer({
 	);
 	const errors = state?.errors;
 
+	console.log(player);
+
 	useEffect(() => {
 		if (state?.status === "success") {
 			setOpenModal(false);
@@ -80,6 +82,7 @@ export default function FormPlayer({
 						<label htmlFor="game-select">Jeux *</label>
 						<br />
 						<select name="game" id="game-select">
+							<option value="">-- Choisir un jeu --</option>
 							{games.map((game) => {
 								return (
 									<option value={game?.id} key={game?.id}>
@@ -88,11 +91,13 @@ export default function FormPlayer({
 								);
 							})}
 						</select>
+						{errors?.games && <i>{errors?.games[0]}</i>}
 					</div>
 					<div>
 						<label htmlFor="region-select">Région *</label>
 						<br />
 						<select name="region" id="region-select">
+							<option value="">-- Choisir une région --</option>
 							{nationalities.map((nationality) => {
 								return (
 									<option value={nationality?.id} key={nationality?.id}>
@@ -101,6 +106,7 @@ export default function FormPlayer({
 								);
 							})}
 						</select>
+						{errors?.region && <i>{errors?.region[0]}</i>}
 					</div>
 					<div>
 						<label htmlFor="team">L'équipe *</label>
@@ -174,6 +180,57 @@ export default function FormPlayer({
 						/>
 						{errors?.tiktokUrl && <i>{errors?.tiktokUrl[0]}</i>}
 					</div>
+					<div>
+						<label htmlFor="lolpro-url">Lien LolPro</label>
+						<input
+							type="text"
+							id="lolpro-url"
+							name="lolpro-url"
+							defaultValue={player?.lolpro_url}
+						/>
+						{errors?.lolproUrl && <i>{errors?.lolproUrl[0]}</i>}
+					</div>
+					<div>
+						<label htmlFor="leaguepedia-url">Lien Leaguepedia</label>
+						<input
+							type="text"
+							id="leaguepedia-url"
+							name="leaguepedia-url"
+							defaultValue={player?.leaguepedia_url}
+						/>
+						{errors?.leaguepediaUrl && <i>{errors?.leaguepediaUrl[0]}</i>}
+					</div>
+					<div>
+						<label htmlFor="vlr-url">Lien VLR</label>
+						<input
+							type="text"
+							id="vlr-url"
+							name="vlr-url"
+							defaultValue={player?.vlr_url}
+						/>
+						{errors?.vlrUrl && <i>{errors?.vlrUrl[0]}</i>}
+					</div>
+					<div>
+						<label htmlFor="liquipedia-url">Lien Liquipedia</label>
+						<input
+							type="text"
+							id="liquipedia-url"
+							name="liquipedia-url"
+							defaultValue={player?.liquipedia_url}
+						/>
+						{errors?.liquipediaUrl && <i>{errors?.liquipediaUrl[0]}</i>}
+					</div>
+					<div>
+						<label htmlFor="hltv-url">Lien HLTV</label>
+						<input
+							type="text"
+							id="hltv-url"
+							name="hltv-url"
+							defaultValue={player?.hltv_url}
+						/>
+						{errors?.hltvUrl && <i>{errors?.hltvUrl[0]}</i>}
+					</div>
+
 					<div className={styles.buttons}>
 						<button
 							className={outfit.className}

@@ -7,7 +7,9 @@ import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/app/TranslationsProvider";
 import Head from "next/head";
 import CookieConsentPopup from "@/layouts/CookieConsentPopup";
-// import Script from "next/script";
+import Script from "next/script";
+import { cookies } from "next/headers";
+import HeadComponenent from "@/components/HeadComponent";
 
 const i18nNamespaces = ["common"];
 
@@ -28,24 +30,7 @@ export default async function RootLayout({ children, params }) {
 			locale={locales}
 			namespaces={i18nNamespaces}>
 			<html lang={locales}>
-				<Head>
-					<meta
-						name="google-site-verification"
-						content="JpoDado7YDLik75S6lKVc964I9B73hcGXojKDUbITNc"
-					/>
-					<link
-						rel="icon"
-						type="image/png"
-						sizes="16x16"
-						href="/favicon-16x16.png"
-					/>
-					<link
-						rel="icon"
-						type="image/png"
-						sizes="32x32"
-						href="/favicon-32x32.png"
-					/>
-				</Head>
+				<HeadComponenent />
 				<body className={montserrat.className} id="services">
 					<FakeLoading />
 					<Header />

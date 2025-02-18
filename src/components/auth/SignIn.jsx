@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/styles/components/auth/sign.module.css";
 import { roboto } from "@/libs/font";
-import { useActionState, useEffect } from "react";
+import { useActionState, useContext, useEffect } from "react";
 import { signIn } from "@/actions/auth";
 import { useRouter } from "next/navigation";
 
@@ -74,6 +74,7 @@ export default function SignIn({ setSignIn, setSignUp, setForgotPassword }) {
 					</button>
 				</div>
 			</form>
+
 			<span onClick={handleSignUp} className={styles.createAccount}>
 				Créer un compte pour un autre utilisateur
 			</span>

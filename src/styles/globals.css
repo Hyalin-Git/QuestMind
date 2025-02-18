@@ -103,6 +103,8 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
+select,
 textarea {
 	margin-top: 12px;
 	background-color: #d9d9d948;

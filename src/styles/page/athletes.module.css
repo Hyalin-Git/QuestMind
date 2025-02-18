@@ -110,3 +110,11 @@
 		flex-wrap: wrap;
 	}
 }
+
+@media screen and (max-width: 309px) {
+	.filters {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

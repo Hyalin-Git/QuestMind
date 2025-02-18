@@ -47,17 +47,26 @@ export async function POST(req) {
                     <div>
                         <strong>Prénom :</strong> ${body?.firstName}
                     </div>
-                    <div>
-                        <strong>E-mail :</strong> ${body?.sender}
-                    </div>
-                    <div>
+					<div>
                         <strong>Nationalitié :</strong> ${body?.nationality}
                     </div>
                     <div>
                         <strong>Pays :</strong> ${body?.country}
                     </div>
-                      <div>
+					<div>
+                        <strong>Âge :</strong> ${body?.age}
+                    </div>
+                    <div>
+                        <strong>E-mail :</strong> ${body?.sender}
+                    </div>
+					<div>
                         <strong>Jeu :</strong> ${body?.game}
+                    </div>
+					<div>
+                        <strong>Pseudo :</strong> ${body?.pseudo}
+                    </div>
+					<div>
+                        <strong>Twitter :</strong> ${body?.xUrl}
                     </div>
                     </br>
                     <div>
