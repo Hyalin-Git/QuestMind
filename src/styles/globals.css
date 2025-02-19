@@ -47,6 +47,10 @@ body:has(#fake-loading) {
 	margin: 0;
 }
 
+html:has(#burger[data-open="true"]) {
+	overflow: hidden;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;

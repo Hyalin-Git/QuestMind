@@ -84,7 +84,7 @@ export async function refreshToken(token) {
 		cookie.set("session", data.newAccessToken, {
 			secure: true,
 			httpOnly: true,
-			sameSite: "strict",
+			sameSite: "lax",
 			expires: Date.now() + 30 * 60 * 1000, // expires in 30m
 			// Add domain
 		});
@@ -92,7 +92,7 @@ export async function refreshToken(token) {
 		cookie.set("rtk", data.newRefreshToken, {
 			secure: true,
 			httpOnly: true,
-			sameSite: "strict",
+			sameSite: "lax",
 			expires: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), // 14 jours en millisecondes
 			// Add domain
 		});

@@ -1,5 +1,5 @@
 import pool from "@/app/api/config/db";
-import { deleteFile, saveFile } from "@/libs/handleFiles";
+import { destroyFile, uploadFile } from "@/helpers/cloudinary";
 import { gameSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
 
@@ -43,13 +43,19 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		if (result[0].picture && picture?.name !== "undefined") {
-			await deleteFile(result[0].picture);
+		if (result[0].picture && picture) {
+			await destroyFile(result[0].picture);
 		}
 
-		const savedPicture = picture
-			? await saveFile(picture, game.toLowerCase(), "games")
-			: result[0].picture;
+		let savedPicture = result[0].picture;
+
+		if (picture) {
+			const base64 = await picture?.arrayBuffer();
+			const buffer = Buffer.from(base64);
+
+			const res = await uploadFile(buffer);
+			savedPicture = res?.secure_url;
+		}
 
 		await connection.execute(
 			"UPDATE `games` SET `game` = ?, `picture` = ?, `is_mobile` = ?, `updated_at` = NOW() WHERE `games`.`id` = ?",

@@ -6,6 +6,9 @@ const nextConfig = {
 			bodySizeLimit: "3mb",
 		},
 	},
+	images: {
+		domains: ["res.cloudinary.com"],
+	},
 };
 
 export default nextConfig;

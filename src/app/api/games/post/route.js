@@ -1,7 +1,7 @@
-import { deleteFile, saveFile } from "@/libs/handleFiles";
 import { gameSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
 import pool from "../../config/db";
+import { uploadFile } from "@/helpers/cloudinary";
 
 export async function POST(req) {
 	try {
@@ -13,7 +13,7 @@ export async function POST(req) {
 		const validation = gameSchema.safeParse({ game, isMobile });
 
 		if (!validation.success) {
-			const { errors } = validation.error;
+			const errors = validation.error.flatten().fieldErrors;
 
 			return NextResponse.json(
 				{
@@ -27,9 +27,22 @@ export async function POST(req) {
 
 		const connection = await pool.getConnection();
 
+		let picturePath = null;
+
+		if (picture) {
+			if (picture?.name !== "undefined") {
+				const base64 = await picture?.arrayBuffer();
+				const buffer = Buffer.from(base64);
+
+				const res = await uploadFile(buffer);
+
+				picturePath = res?.secure_url;
+			}
+		}
+
 		const [savedGame] = await connection.execute(
 			"INSERT INTO `games` (`game`, `picture`, `is_mobile`) VALUES (?, ?, ?)",
-			[game, null, isMobile]
+			[game, picturePath, isMobile]
 		);
 
 		if (savedGame.affectedRows <= 0) {
@@ -43,15 +56,6 @@ export async function POST(req) {
 			);
 		}
 
-		const savedPicture = picture
-			? await saveFile(picture, game.toLowerCase(), "games")
-			: null;
-
-		await connection.execute(
-			"UPDATE `games` SET `picture` = ? WHERE `games`.`id` = ?",
-			[savedPicture, savedGame.insertId]
-		);
-
 		connection.release();
 
 		return NextResponse.json(
@@ -62,6 +66,7 @@ export async function POST(req) {
 			{ status: 201 }
 		);
 	} catch (err) {
+		console.log(err);
 		return NextResponse.json(
 			{
 				success: false,

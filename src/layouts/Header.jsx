@@ -13,6 +13,7 @@ export default function Header() {
 	const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 	const pathname = usePathname();
 	const { t } = useTranslation();
+
 	return (
 		<div>
 			<header className={styles.container}>
@@ -61,7 +62,7 @@ export default function Header() {
 						</ul>
 						<HeaderDropdown />
 					</div>
-					<div className={styles.burger}>
+					<div className={styles.burger} data-open={isBurgerOpen} id="burger">
 						<>
 							{isBurgerOpen ? (
 								<FontAwesomeIcon

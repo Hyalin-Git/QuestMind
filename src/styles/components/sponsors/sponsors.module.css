@@ -20,6 +20,17 @@
 	background-color: var(--green-color);
 }
 
+.sponsors {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+	gap: 10px;
+	justify-content: center;
+}
+.sponsors img {
+	margin-inline: auto;
+	justify-content: center;
+}
+
 .sponsors,
 .sponsors-mobile {
 	position: relative;
@@ -63,7 +74,6 @@
 	animation: slide 8s infinite linear;
 }
 
-.sponsors img,
 .sponsors-slide img {
 	margin-inline: 20px;
 }

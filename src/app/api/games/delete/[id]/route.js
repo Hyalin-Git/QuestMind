@@ -1,5 +1,5 @@
 import pool from "@/app/api/config/db";
-import { deleteFile } from "@/libs/handleFiles";
+import { destroyFile } from "@/helpers/cloudinary";
 import { NextResponse } from "next/server";
 
 export async function DELETE(req, { params }) {
@@ -26,8 +26,7 @@ export async function DELETE(req, { params }) {
 		}
 
 		if (game[0].picture) {
-			const res = await deleteFile(game[0].picture);
-			console.log(res);
+			await destroyFile(game[0].picture);
 		}
 
 		await connection.execute("DELETE FROM `games` WHERE `games`.`id` = ?", [

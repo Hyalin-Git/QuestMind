@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import pool from "../../config/db";
 import { sponsorsSchema } from "@/libs/zod";
-import { saveFile } from "@/libs/handleFiles";
+import { uploadFile } from "@/helpers/cloudinary";
 
 export async function POST(req) {
 	try {
@@ -12,7 +12,7 @@ export async function POST(req) {
 		const validation = sponsorsSchema.safeParse({ sponsor, picture });
 
 		if (!validation.success) {
-			const { errors } = validation.error;
+			const errors = validation.error.flatten().fieldErrors;
 
 			return NextResponse.json(
 				{
@@ -24,11 +24,27 @@ export async function POST(req) {
 			);
 		}
 
+		if (!picture) {
+			return NextResponse.json(
+				{
+					success: false,
+					message: "Une photo est requise",
+				},
+				{ status: 400 }
+			);
+		}
+
+		// convert image to base64
+		const base64 = await picture?.arrayBuffer();
+		const buffer = Buffer.from(base64);
+
+		const res = await uploadFile(buffer);
+
 		const connection = await pool.getConnection();
 
 		const [savedSponsor] = await connection.execute(
 			"INSERT INTO `sponsors` (`sponsor`, `picture`) VALUES (?, ?)",
-			[sponsor, null]
+			[sponsor, res?.secure_url]
 		);
 
 		if (savedSponsor.affectedRows <= 0) {
@@ -40,15 +56,6 @@ export async function POST(req) {
 				{ status: 500 }
 			);
 		}
-
-		const savedPicture = picture
-			? await saveFile(picture, sponsor.toLowerCase(), "sponsors")
-			: null;
-
-		await connection.execute(
-			"UPDATE `sponsors` SET `picture` = ? WHERE `sponsors`.`id` = ?",
-			[savedPicture, savedSponsor.insertId]
-		);
 
 		connection.release();
 

@@ -1,4 +1,5 @@
 import pool from "@/app/api/config/db";
+import { destroyFile, uploadFile } from "@/helpers/cloudinary";
 import { deleteFile, saveFile } from "@/libs/handleFiles";
 import { playerSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
@@ -44,7 +45,7 @@ export async function PUT(req, { params }) {
 		});
 
 		if (!validation.success) {
-			const { errors } = validation.error;
+			const errors = validation.error.flatten().fieldErrors;
 
 			return NextResponse.json(
 				{
@@ -58,12 +59,12 @@ export async function PUT(req, { params }) {
 
 		const connection = await pool.getConnection();
 
-		const [result] = await connection.execute(
+		const [player] = await connection.execute(
 			"SELECT * FROM `players` WHERE `players`.`id` = ?",
 			[id]
 		);
 
-		if (result.length <= 0) {
+		if (player.length <= 0) {
 			return NextResponse.json(
 				{
 					success: false,
@@ -73,14 +74,20 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		if (result[0].picture && picture.name !== "undefined") {
-			await deleteFile(result[0].picture);
+		if (player[0].picture && picture.name !== "undefined") {
+			await destroyFile(player[0].picture);
 		}
 
-		const savedPicture =
-			picture.name !== "undefined"
-				? await saveFile(picture, username.toLowerCase(), "players")
-				: result[0].picture;
+		let newPicture = player[0].picture;
+
+		if (picture.name !== "undefined") {
+			const base64 = await picture.arrayBuffer(); // Convert the file to a base64 string
+			const buffer = Buffer.from(base64); // Convert the base64 string to a buffer
+
+			const result = await uploadFile(buffer);
+
+			newPicture = result.secure_url;
+		}
 
 		await connection.execute(
 			"UPDATE `players` SET `lastname` = ?, `firstname` = ?, `username` = ?, `picture` = ?, `team` = ?, `audience` = ?, `x_url` = ?, `tiktok_url` = ?, `instagram_url` = ?, `youtube_url` = ?, `twitch_url` = ?, `lolpro_url` = ?, `leaguepedia_url` = ?, `vlr_url` = ?, `liquipedia_url` = ?, `hltv_url` = ?, updated_at = NOW() WHERE `players`.`id` = ?",
@@ -88,7 +95,7 @@ export async function PUT(req, { params }) {
 				lastname,
 				firstname,
 				username,
-				savedPicture,
+				newPicture,
 				team,
 				audience,
 				xUrl,

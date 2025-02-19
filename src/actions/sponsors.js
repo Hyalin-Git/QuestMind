@@ -47,7 +47,9 @@ export async function saveSponsor(prevState, formData) {
 
 		const response = await res.json();
 
-		// console.log(response);
+		if (response.success === false) {
+			throw new Error(response.message);
+		}
 
 		revalidateTag("sponsors");
 

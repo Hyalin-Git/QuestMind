@@ -65,3 +65,14 @@
 		font-size: 1rem;
 	}
 }
+
+@media screen and (max-height: 700px) {
+	.languages {
+		width: 100%;
+		background-color: transparent !important;
+	}
+	.languages ul {
+		display: flex;
+		flex-direction: row;
+	}
+}

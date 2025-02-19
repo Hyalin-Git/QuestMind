@@ -294,6 +294,11 @@ export function PlayerList({ data, handleEdit, handleDelete }) {
 					const hasInstagram = player?.instagram_url;
 					const hasYoutube = player?.youtube_url;
 					const hasTiktok = player?.tiktok_url;
+					const hasLeaguepedia = player?.leaguepedia_url;
+					const hasLolpro = player?.lolpro_url;
+					const hasLiquipedia = player?.liquipedia_url;
+					const hasVlr = player?.vlr_url;
+					const hasHltv = player?.hltv_url;
 
 					const createdAt = player?.created_at?.split("T")[0];
 					const updatedAt = player?.updated_at?.split("T")[0];
@@ -374,6 +379,53 @@ export function PlayerList({ data, handleEdit, handleDelete }) {
 											height={20}
 											alt="Tiktok"
 											className={styles.logo}
+										/>
+									</Link>
+								)}
+								{hasLeaguepedia && (
+									<Link href={hasLeaguepedia}>
+										<Image
+											src={"/leaguepedia.svg"}
+											width={20}
+											height={20}
+											quality={100}
+											alt="Leaguepedia"
+										/>
+									</Link>
+								)}
+								{hasLolpro && (
+									<Link href={hasLolpro}>
+										<Image
+											src={"/lolpro.png"}
+											width={20}
+											height={20}
+											alt="Lolpro"
+											className={styles.logo}
+										/>
+									</Link>
+								)}
+								{hasLiquipedia && (
+									<Link href={hasLiquipedia}>
+										<Image
+											src={"/liquipedia.svg"}
+											width={20}
+											height={20}
+											alt="Liquipedia"
+										/>
+									</Link>
+								)}
+								{hasVlr && (
+									<Link href={hasVlr}>
+										<Image src={"/vlr.png"} width={20} height={20} alt="Vlr" />
+									</Link>
+								)}
+								{hasHltv && (
+									<Link href={hasHltv}>
+										<Image
+											src={"/hltv.png"}
+											width={20}
+											height={20}
+											alt="Hltv"
 										/>
 									</Link>
 								)}

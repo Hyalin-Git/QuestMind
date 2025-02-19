@@ -57,14 +57,14 @@ export async function signIn(prevState, formData) {
 		cookie.set("session", data?.accessToken, {
 			secure: true,
 			httpOnly: true,
-			sameSite: "strict",
+			sameSite: "lax",
 			expires: Date.now() + 30 * 60 * 1000, // expires in 30m
 		});
 
 		cookie.set("rtk", data?.refreshToken, {
 			secure: true,
 			httpOnly: true,
-			sameSite: "strict",
+			sameSite: "lax",
 			expires: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), // 14 jours en millisecondes
 		});
 

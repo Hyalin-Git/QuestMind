@@ -1,7 +1,7 @@
 import { playerSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
 import pool from "../../config/db";
-import { saveFile } from "@/libs/handleFiles";
+import { uploadFile } from "@/helpers/cloudinary";
 
 export async function POST(req) {
 	try {
@@ -43,7 +43,7 @@ export async function POST(req) {
 		});
 
 		if (!validation.success) {
-			const { errors } = validation.error;
+			const errors = validation.error.flatten().fieldErrors;
 
 			return NextResponse.json(
 				{
@@ -57,13 +57,18 @@ export async function POST(req) {
 
 		const connection = await pool.getConnection();
 
+		const base64 = await picture.arrayBuffer(); // Convert the file to a base64 string
+		const buffer = Buffer.from(base64); // Convert the base64 string to a buffer
+
+		const result = await uploadFile(buffer);
+
 		const [savedPlayer] = await connection.execute(
 			"INSERT INTO `players` (`lastname`, `firstname`, `username`, `picture`, `team`, `audience`, `x_url`, `tiktok_url`, `instagram_url`, `youtube_url`, `twitch_url`, `lolpro_url`, `leaguepedia_url`, `vlr_url`, `liquipedia_url`, `hltv_url`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				lastname,
 				firstname,
 				username,
-				null,
+				result?.secure_url,
 				team,
 				audience,
 				xUrl,
@@ -89,15 +94,6 @@ export async function POST(req) {
 				{ status: 500 }
 			);
 		}
-
-		const savedPicture = picture
-			? await saveFile(picture, username.toLowerCase(), "players")
-			: null;
-
-		await connection.execute(
-			"UPDATE `players` SET `picture` = ? WHERE `players`.`id` = ?",
-			[savedPicture, savedPlayer?.insertId]
-		);
 
 		connection.release();
 

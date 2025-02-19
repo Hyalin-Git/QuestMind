@@ -1,5 +1,5 @@
 import pool from "@/app/api/config/db";
-import { deleteFile, saveFile } from "@/libs/handleFiles";
+import { destroyFile, uploadFile } from "@/helpers/cloudinary";
 import { sponsorsSchema } from "@/libs/zod";
 import { NextResponse } from "next/server";
 
@@ -44,14 +44,19 @@ export async function PUT(req, { params }) {
 			);
 		}
 
-		console.log(picture);
-		if (result[0].picture && picture?.name !== "undefined") {
-			await deleteFile(result[0].picture);
+		if (result[0].picture && picture) {
+			await destroyFile(result[0].picture);
 		}
 
-		const savedPicture = picture
-			? await saveFile(picture, sponsor.toLowerCase(), "sponsors")
-			: result[0].picture;
+		let savedPicture = result[0].picture;
+
+		if (picture) {
+			const base64 = await picture?.arrayBuffer();
+			const buffer = Buffer.from(base64);
+
+			const res = await uploadFile(buffer);
+			savedPicture = res?.secure_url;
+		}
 
 		await connection.execute(
 			"UPDATE `sponsors` SET `sponsor` = ?, `picture` = ?, updated_at = NOW() WHERE `sponsors`.`id` = ?",
