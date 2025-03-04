@@ -58,33 +58,7 @@ export async function POST(req) {
 				role: user[0].role,
 			},
 			process.env.JWT_SECRET,
-			{ expiresIn: "15m" }
-		);
-
-		const refreshToken = jwt.sign(
-			{
-				userId: user[0].id,
-				role: user[0].role,
-			},
-			process.env.JWT_REFRESH_SECRET,
-			{ expiresIn: "14d" }
-		);
-
-		const [getRefreshToken] = await connection.execute(
-			"SELECT * FROM `refresh_tokens` WHERE `user_id` = ?",
-			[user[0].id]
-		);
-
-		if (getRefreshToken.length <= 0) {
-			await connection.execute(
-				"INSERT INTO `refresh_tokens` (`user_id`, `token`, `expires_at`) VALUES (?, ?, NOW() + INTERVAL 14 DAY)",
-				[user[0].id, refreshToken]
-			);
-		}
-
-		await connection.execute(
-			"UPDATE `refresh_tokens` SET `token` = ?, `updated_at` = NOW(), `expires_at` = NOW() + INTERVAL 14 DAY WHERE `refresh_tokens`.`user_id` = ?",
-			[refreshToken, user[0].id]
+			{ expiresIn: "1d" }
 		);
 
 		connection.release();
@@ -95,7 +69,6 @@ export async function POST(req) {
 				userId: user[0].id,
 				role: user[0].role,
 				accessToken: accessToken,
-				refreshToken: refreshToken,
 			},
 			{ status: 200 }
 		);

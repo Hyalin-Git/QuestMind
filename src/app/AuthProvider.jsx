@@ -17,11 +17,11 @@ export default function AuthProvider({ children }) {
 	});
 
 	useEffect(() => {
-		if (data?.success === false) {
+		if (data && !data?.success) {
 			router.push(`/${process.env.NEXT_PUBLIC_SECRET_URL}/auth`);
+		} else {
+			setUid(data?.data?.userId);
 		}
-
-		setUid(data?.data?.userId);
 	}, [data, router]);
 
 	if (error) {

@@ -28,6 +28,10 @@ export default function SignIn({ setSignIn, setSignUp, setForgotPassword }) {
 		}
 	}, [state]);
 
+	console.log("====================================");
+	console.log(state);
+	console.log("====================================");
+
 	return (
 		<div className={styles.container}>
 			<h1>J'ai déjà un compte</h1>

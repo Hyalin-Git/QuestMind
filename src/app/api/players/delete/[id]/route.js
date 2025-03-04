@@ -23,8 +23,8 @@ export async function DELETE(req, { params }) {
 			);
 		}
 
-		if (player[0].picture) {
-			await destroyFile(player[0].picture);
+		if (player[0]?.picture) {
+			await destroyFile(player[0]?.picture);
 		}
 
 		await connection.execute("DELETE FROM `players` WHERE `players`.`id` = ?", [

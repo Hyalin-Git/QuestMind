@@ -20,8 +20,8 @@ export async function middleware(req) {
 			const token = req?.headers?.get("authorization")?.split(" ")[1];
 			if (!token) {
 				return NextResponse.json(
-					{ error: true, message: "Access denied : No token received" },
-					{ status: 403 }
+					{ success: false, message: "Access denied : No token received" },
+					{ status: 401 }
 				);
 			}
 			const secret = new TextEncoder().encode(process.env.JWT_SECRET);
@@ -29,10 +29,10 @@ export async function middleware(req) {
 			if (payload.role === "user") {
 				return NextResponse.json(
 					{
-						error: true,
+						success: false,
 						message: "Access denied : User must be an Admin",
 					},
-					{ status: 403 }
+					{ status: 401 }
 				);
 			}
 			return NextResponse.next();
@@ -40,7 +40,7 @@ export async function middleware(req) {
 			if (err.code === "ERR_JWT_EXPIRED") {
 				return NextResponse.json(
 					{
-						error: true,
+						success: false,
 						message: "Access denied : Token expired",
 					},
 					{ status: 401 }
@@ -48,7 +48,7 @@ export async function middleware(req) {
 			}
 			return NextResponse.json(
 				{
-					error: true,
+					success: false,
 					message: err.message || "An unexpected error occurred",
 				},
 				{ status: 500 }
